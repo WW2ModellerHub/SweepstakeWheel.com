@@ -21,4 +21,6 @@ Extra features added:
 - Completion modal
 - Extra SEO content for email templates and prize split guidance
 
-Includes favicon.svg (football / soccer ball favicon).
+
+
+Includes favicon.ico plus PNG favicon sizes. No SVG favicon used.
