@@ -26,3 +26,5 @@ Extra features added:
 Includes favicon.ico plus PNG favicon sizes. No SVG favicon used.
 
 Mobile layout fixed: smaller mobile wheel, smaller centre card, tighter controls/results layout.
+
+Mobile v2 fix: centre card reduced and repositioned to the actual wheel centre on phones.
