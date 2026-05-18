@@ -1,7 +1,7 @@
 World Cup 2026 Sweepstake Generator
 
 Before launch:
-1. Replace https://YOUR-DOMAIN-HERE.com with your real domain in index.html, robots.txt and sitemap.xml.
+1. Replace https://sweepstakewheel.com with your real domain in index.html, robots.txt and sitemap.xml.
 3. Upload index.html, robots.txt and sitemap.xml to Netlify, Vercel, GitHub Pages or your web host.
 4. Add the live site to Google Search Console and submit sitemap.xml.
 
