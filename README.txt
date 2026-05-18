@@ -20,3 +20,5 @@ Extra features added:
 - Optional sound toggle
 - Completion modal
 - Extra SEO content for email templates and prize split guidance
+
+Includes favicon.svg (football / soccer ball favicon).
