@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- SWEEPSTAKEWHEEL_INDEX_OVERWRITE_MOBILE_V4 -->
+<!-- SWEEPSTAKEWHEEL_INDEX_OVERWRITE_MOBILE_V4 | SWEEPSTAKEWHEEL_MOBILE_JS_FORCE_FIX_V5 -->
 <html lang="en-GB">
 <head>
   <meta charset="utf-8">
@@ -592,6 +592,17 @@
   }
   /* SWEEPSTAKEWHEEL MOBILE OVERRIDE V4 END */
 
+
+  /* SWEEPSTAKEWHEEL MOBILE JS FORCE FIX V5 */
+  @media (max-width: 900px) {
+    body.mobile-force-layout .stage {
+      overflow: hidden !important;
+    }
+    body.mobile-force-layout .centre {
+      box-sizing: border-box !important;
+    }
+  }
+
 </style>
 
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -806,7 +817,7 @@ function closeCompleteModal(){
 function drawWheel(){wheelSvg.innerHTML="";const n=remainingTeams.length,cx=250,cy=250,r=245;if(!n)return;for(let i=0;i<n;i++){const start=i/n*Math.PI*2-Math.PI/2,end=(i+1)/n*Math.PI*2-Math.PI/2,x1=cx+r*Math.cos(start),y1=cy+r*Math.sin(start),x2=cx+r*Math.cos(end),y2=cy+r*Math.sin(end),largeArc=end-start>Math.PI?1:0,path=document.createElementNS("http://www.w3.org/2000/svg","path");path.setAttribute("d",`M ${cx} ${cy} L ${x1} ${y1} A ${r} ${r} 0 ${largeArc} 1 ${x2} ${y2} Z`);path.setAttribute("fill",colours[i%colours.length]);path.setAttribute("stroke","rgba(255,255,255,0.25)");path.setAttribute("stroke-width","1");wheelSvg.appendChild(path);const mid=(start+end)/2,labelR=n>32?177:166,tx=cx+labelR*Math.cos(mid),ty=cy+labelR*Math.sin(mid),text=document.createElementNS("http://www.w3.org/2000/svg","text");text.setAttribute("x",tx);text.setAttribute("y",ty);text.setAttribute("fill","#07121f");text.setAttribute("font-size",n>32?"8.4":"11.5");text.setAttribute("font-weight","1000");text.setAttribute("text-anchor","middle");text.setAttribute("dominant-baseline","middle");text.setAttribute("transform",`rotate(${mid*180/Math.PI}, ${tx}, ${ty})`);text.textContent=shortLabel(remainingTeams[i],n);wheelSvg.appendChild(text)}}function shortLabel(label,n){const max=n>32?15:20;return label.length>max?label.slice(0,max-1)+"…":label}
 function spinWheel(){if(awaitingNext){advanceToNextDraw();return}if(isSpinning||currentIndex>=people.length||!remainingTeams.length)return;isSpinning=true;spinButton.disabled=true;autoButton.disabled=true;const n=remainingTeams.length,winningIndex=Math.floor(Math.random()*n);landedPerson=people[currentIndex];selectedTeam=remainingTeams[winningIndex];const slice=360/n,sliceCentre=winningIndex*slice+slice/2,targetAtPointer=-sliceCentre,extraSpins=autoMode?4:7+Math.floor(Math.random()*3),nextRotation=currentRotation+extraSpins*360+shortestForwardRotation(currentRotation%360,targetAtPointer);playTone("spin");currentRotation=nextRotation;wheel.style.transform=`rotate(${currentRotation}deg)`;setTimeout(()=>{const person=people[currentIndex],team=selectedTeam;results.push({person,team});remainingTeams.splice(winningIndex,1);currentIndex++;awaitingNext=true;document.getElementById("latestResult").textContent=`${person} gets ${team}`;document.getElementById("resultBox").classList.add("show");isSpinning=false;showReveal(person,team);playTone("win");celebrate();updateUi();if(currentIndex>=people.length||!remainingTeams.length){setTimeout(showCompleteModal,1300)}if(autoMode){autoTimer=setTimeout(()=>{if(!autoMode)return;if(currentIndex>=people.length||!remainingTeams.length){stopAutoDraw(true);return}advanceToNextDraw();autoTimer=setTimeout(()=>{if(autoMode)spinWheel()},450)},1600)}},4300)}
 function advanceToNextDraw(){awaitingNext=false;landedPerson="";selectedTeam="";currentRotation=0;wheel.style.transition="none";wheel.style.transform="rotate(0deg)";wheel.offsetHeight;wheel.style.transition="transform 4.2s cubic-bezier(.08,.7,.05,1)";drawWheel();updateUi()}function toggleAutoDraw(){if(autoMode){stopAutoDraw(true);return}if(!people.length){alert("Load the draw first.");return}autoMode=true;autoButton.textContent="Stop Auto Draw";autoButton.classList.add("danger");autoButton.classList.remove("auto");spinButton.disabled=true;showToast("Auto draw started");if(awaitingNext){advanceToNextDraw();autoTimer=setTimeout(spinWheel,450)}else if(!isSpinning)spinWheel()}function stopAutoDraw(msg=true){autoMode=false;if(autoTimer)clearTimeout(autoTimer);autoTimer=null;autoButton.textContent="Auto Draw Everyone";autoButton.classList.remove("danger");autoButton.classList.add("auto");if(msg)showToast("Auto draw stopped");updateUi()}function shortestForwardRotation(current,target){return((target-current)%360+360)%360}
-function updateUi(){document.getElementById("peopleCount").textContent=people.length;document.getElementById("teamCount").textContent=remainingTeams.length;document.getElementById("drawnCount").textContent=results.length;const centre=document.getElementById("centreCard"),clabel=document.getElementById("centreLabel"),winning=document.getElementById("winningCountry"),top=document.getElementById("topWinnerLabel"),currentPerson=awaitingNext?landedPerson||(people[currentIndex-1]||"Draw complete"):(people[currentIndex]||"Load draw");document.getElementById("currentPerson").textContent=currentPerson;document.getElementById("nextPerson").textContent=people[currentIndex]||"—";if(awaitingNext&&selectedTeam){centre.classList.add("won");clabel.textContent="Drawn team";winning.textContent=selectedTeam;top.textContent=selectedTeam;top.classList.add("show")}else{centre.classList.remove("won");clabel.textContent="Now drawing";winning.textContent="";top.textContent="";top.classList.remove("show")}spinButton.textContent=awaitingNext?"Next Draw":"Spin Wheel";spinButton.disabled=autoMode||isSpinning||!people.length||(!awaitingNext&&(currentIndex>=people.length||!remainingTeams.length));autoButton.disabled=!people.length||isSpinning||currentIndex>=people.length||!remainingTeams.length;const list=document.getElementById("drawList");list.innerHTML="";if(!results.length){list.innerHTML='<p class="hint">No teams drawn yet.</p>';updatePrizeCalc();return}results.forEach((item,index)=>{const row=document.createElement("div");row.className="drawitem";row.innerHTML=`<div class="drawperson" title="${escapeHtml(item.person)}">${index+1}. ${escapeHtml(item.person)}</div><div class="drawteam" title="${escapeHtml(item.team)}">${escapeHtml(item.team)}</div>`;list.appendChild(row)});updatePrizeCalc()}
+function updateUi(){document.getElementById("peopleCount").textContent=people.length;document.getElementById("teamCount").textContent=remainingTeams.length;document.getElementById("drawnCount").textContent=results.length;const centre=document.getElementById("centreCard"),clabel=document.getElementById("centreLabel"),winning=document.getElementById("winningCountry"),top=document.getElementById("topWinnerLabel"),currentPerson=awaitingNext?landedPerson||(people[currentIndex-1]||"Draw complete"):(people[currentIndex]||"Load draw");document.getElementById("currentPerson").textContent=currentPerson;document.getElementById("nextPerson").textContent=people[currentIndex]||"—";if(awaitingNext&&selectedTeam){centre.classList.add("won");clabel.textContent="Drawn team";winning.textContent=selectedTeam;top.textContent=selectedTeam;top.classList.add("show")}else{centre.classList.remove("won");clabel.textContent="Now drawing";winning.textContent="";top.textContent="";top.classList.remove("show")}spinButton.textContent=awaitingNext?"Next Draw":"Spin Wheel";spinButton.disabled=autoMode||isSpinning||!people.length||(!awaitingNext&&(currentIndex>=people.length||!remainingTeams.length));autoButton.disabled=!people.length||isSpinning||currentIndex>=people.length||!remainingTeams.length;const list=document.getElementById("drawList");list.innerHTML="";if(!results.length){list.innerHTML='<p class="hint">No teams drawn yet.</p>';updatePrizeCalc();forceMobileLayoutV5();return}results.forEach((item,index)=>{const row=document.createElement("div");row.className="drawitem";row.innerHTML=`<div class="drawperson" title="${escapeHtml(item.person)}">${index+1}. ${escapeHtml(item.person)}</div><div class="drawteam" title="${escapeHtml(item.team)}">${escapeHtml(item.team)}</div>`;list.appendChild(row)});updatePrizeCalc();forceMobileLayoutV5()}
 function downloadCsv(){
   if(!results.length){alert("No results to export yet.");return}
   document.getElementById("donationModal").classList.add("show")
@@ -838,5 +849,121 @@ function actualDownloadCsv(){
 }function resetDraw(){if(!confirm("Reset the draw and clear all results?"))return;stopAutoDraw(false);loadDraw();document.getElementById("resultBox").classList.remove("show")}
 function celebrate(){const holder=document.getElementById("celebration");holder.innerHTML="";holder.classList.add("show");const cs=["#35d07f","#ffd166","#ff4f69","#5b9dff","#b985ff","#4dd4d4"];for(let i=0;i<70;i++){const p=document.createElement("div");p.className="piece";p.style.left=Math.random()*100+"vw";p.style.background=cs[i%cs.length];p.style.animationDelay=Math.random()*.35+"s";p.style.animationDuration=1.25+Math.random()*1.25+"s";holder.appendChild(p)}setTimeout(()=>{holder.classList.remove("show");holder.innerHTML=""},2500)}function showToast(m){const t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),1400)}function escapeHtml(v){return String(v).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;")}document.getElementById("donationModal").addEventListener("click",e=>{if(e.target.id==="donationModal")closeDonationModal()});document.getElementById("completeModal").addEventListener("click",e=>{if(e.target.id==="completeModal")closeCompleteModal()});
 document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeDonationModal();closeCompleteModal()}});
-remainingTeams=parseLines(teamsInput.value);drawWheel();updateUi();updatePrizeCalc();
+
+function forceMobileLayoutV5(){
+  const isMobile = window.innerWidth <= 900;
+  const stage = document.querySelector(".stage");
+  const wheelEl = document.querySelector(".wheel");
+  const centre = document.querySelector(".centre");
+  const pointer = document.querySelector(".pointer");
+  const controls = document.querySelector(".controls");
+  const next = document.querySelector(".next");
+  const spin = document.getElementById("spinButton");
+  const auto = document.getElementById("autoButton");
+
+  if(!stage || !wheelEl || !centre || !pointer || !controls) return;
+
+  if(!isMobile){
+    document.body.classList.remove("mobile-force-layout");
+    [stage,wheelEl,centre,pointer,controls,next,spin,auto].forEach(el=>{
+      if(el) el.removeAttribute("style");
+    });
+    return;
+  }
+
+  document.body.classList.add("mobile-force-layout");
+
+  const vw = Math.max(320, window.innerWidth || document.documentElement.clientWidth || 390);
+  const wheelSize = Math.max(245, Math.min(300, vw - 96));
+  const wheelTop = 64;
+  const stageHeight = 420;
+  const centreTop = wheelTop + (wheelSize / 2);
+  const pointerTop = 16;
+
+  stage.style.setProperty("--wheel-size", wheelSize + "px", "important");
+  stage.style.setProperty("position", "relative", "important");
+  stage.style.setProperty("display", "block", "important");
+  stage.style.setProperty("height", stageHeight + "px", "important");
+  stage.style.setProperty("min-height", stageHeight + "px", "important");
+  stage.style.setProperty("padding", "0 8px 138px", "important");
+  stage.style.setProperty("overflow", "hidden", "important");
+
+  wheelEl.style.setProperty("width", wheelSize + "px", "important");
+  wheelEl.style.setProperty("height", wheelSize + "px", "important");
+  wheelEl.style.setProperty("margin", wheelTop + "px auto 0", "important");
+  wheelEl.style.setProperty("border-width", "7px", "important");
+  wheelEl.style.setProperty("display", "block", "important");
+
+  pointer.style.setProperty("position", "absolute", "important");
+  pointer.style.setProperty("top", pointerTop + "px", "important");
+  pointer.style.setProperty("left", "50%", "important");
+  pointer.style.setProperty("width", "32px", "important");
+  pointer.style.setProperty("height", "42px", "important");
+  pointer.style.setProperty("transform", "translateX(-50%)", "important");
+  pointer.style.setProperty("z-index", "8", "important");
+
+  centre.style.setProperty("position", "absolute", "important");
+  centre.style.setProperty("top", centreTop + "px", "important");
+  centre.style.setProperty("left", "50%", "important");
+  centre.style.setProperty("transform", centre.classList.contains("won") ? "translate(-50%, -50%) scale(1.03)" : "translate(-50%, -50%)", "important");
+  centre.style.setProperty("width", centre.classList.contains("won") ? "174px" : "128px", "important");
+  centre.style.setProperty("min-width", centre.classList.contains("won") ? "174px" : "128px", "important");
+  centre.style.setProperty("max-width", centre.classList.contains("won") ? "174px" : "128px", "important");
+  centre.style.setProperty("min-height", centre.classList.contains("won") ? "96px" : "66px", "important");
+  centre.style.setProperty("max-height", centre.classList.contains("won") ? "none" : "74px", "important");
+  centre.style.setProperty("padding", "7px 9px", "important");
+  centre.style.setProperty("border-radius", "16px", "important");
+  centre.style.setProperty("background", centre.classList.contains("won") ? "linear-gradient(135deg, var(--green), var(--gold))" : "rgba(6,16,32,.70)", "important");
+  centre.style.setProperty("backdrop-filter", "blur(3px)", "important");
+  centre.style.setProperty("z-index", "7", "important");
+
+  const label = centre.querySelector(".clabel");
+  const person = centre.querySelector(".person");
+  const country = centre.querySelector(".country");
+  if(label){
+    label.style.setProperty("font-size", "8px", "important");
+    label.style.setProperty("line-height", "1.1", "important");
+    label.style.setProperty("letter-spacing", ".7px", "important");
+    label.style.setProperty("margin", "0 0 3px", "important");
+  }
+  if(person){
+    person.style.setProperty("font-size", centre.classList.contains("won") ? "13px" : "17px", "important");
+    person.style.setProperty("line-height", "1.05", "important");
+  }
+  if(country){
+    country.style.setProperty("font-size", "17px", "important");
+    country.style.setProperty("line-height", "1.05", "important");
+    country.style.setProperty("margin-top", "5px", "important");
+  }
+
+  controls.style.setProperty("position", "absolute", "important");
+  controls.style.setProperty("left", "12px", "important");
+  controls.style.setProperty("right", "12px", "important");
+  controls.style.setProperty("bottom", "10px", "important");
+  controls.style.setProperty("display", "grid", "important");
+  controls.style.setProperty("grid-template-columns", "1fr", "important");
+  controls.style.setProperty("gap", "7px", "important");
+  controls.style.setProperty("z-index", "9", "important");
+
+  if(next){
+    next.style.setProperty("min-height", "52px", "important");
+    next.style.setProperty("padding", "8px 12px", "important");
+    next.style.setProperty("border-radius", "14px", "important");
+  }
+  [spin,auto].forEach(btn=>{
+    if(btn){
+      btn.style.setProperty("width", "100%", "important");
+      btn.style.setProperty("min-height", "44px", "important");
+      btn.style.setProperty("font-size", "14px", "important");
+      btn.style.setProperty("padding", "10px 12px", "important");
+      btn.style.setProperty("border-radius", "999px", "important");
+    }
+  });
+}
+window.addEventListener("load", forceMobileLayoutV5);
+window.addEventListener("resize", forceMobileLayoutV5);
+window.addEventListener("orientationchange", () => setTimeout(forceMobileLayoutV5, 250));
+setInterval(forceMobileLayoutV5, 800);
+
+remainingTeams=parseLines(teamsInput.value);drawWheel();updateUi();forceMobileLayoutV5();updatePrizeCalc();
 </script></body></html>
