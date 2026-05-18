@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- SWEEPSTAKEWHEEL_INDEX_OVERWRITE_MOBILE_V4 -->
 <html lang="en-GB">
 <head>
   <meta charset="utf-8">
@@ -467,6 +468,129 @@
       grid-template-columns:1fr;
     }
   }
+
+
+  /* SWEEPSTAKEWHEEL MOBILE OVERRIDE V4 START */
+  @media (max-width: 900px) {
+    body .tool .grid .stage {
+      --wheel-size: min(285px, calc(100vw - 90px)) !important;
+      position: relative !important;
+      display: block !important;
+      height: 430px !important;
+      min-height: 430px !important;
+      padding: 0 8px 142px !important;
+      overflow: hidden !important;
+    }
+
+    body .tool .grid .stage .wheel {
+      width: var(--wheel-size) !important;
+      height: var(--wheel-size) !important;
+      margin: 62px auto 0 !important;
+      border-width: 7px !important;
+      display: block !important;
+    }
+
+    body .tool .grid .stage .pointer {
+      top: 17px !important;
+      left: 50% !important;
+      width: 32px !important;
+      height: 42px !important;
+      transform: translateX(-50%) !important;
+      z-index: 8 !important;
+    }
+
+    body .tool .grid .stage .pointer::after {
+      left: 9px !important;
+      top: 4px !important;
+      width: 14px !important;
+      height: 27px !important;
+    }
+
+    body .tool .grid .stage .centre,
+    body .tool .grid .stage .centre:not(.won) {
+      position: absolute !important;
+      top: calc(62px + (var(--wheel-size) / 2)) !important;
+      left: 50% !important;
+      width: 128px !important;
+      min-width: 128px !important;
+      max-width: 128px !important;
+      height: auto !important;
+      min-height: 66px !important;
+      max-height: 74px !important;
+      padding: 7px 9px !important;
+      border-radius: 16px !important;
+      transform: translate(-50%, -50%) !important;
+      background: rgba(6,16,32,.70) !important;
+      backdrop-filter: blur(3px) !important;
+      z-index: 7 !important;
+    }
+
+    body .tool .grid .stage .centre.won {
+      top: calc(62px + (var(--wheel-size) / 2)) !important;
+      width: 174px !important;
+      min-width: 174px !important;
+      max-width: 174px !important;
+      min-height: 96px !important;
+      max-height: none !important;
+      transform: translate(-50%, -50%) scale(1.03) !important;
+      background: linear-gradient(135deg, var(--green), var(--gold)) !important;
+    }
+
+    body .tool .grid .stage .centre .clabel {
+      font-size: 8px !important;
+      line-height: 1.1 !important;
+      letter-spacing: .7px !important;
+      margin: 0 0 3px !important;
+    }
+
+    body .tool .grid .stage .centre .person {
+      font-size: 17px !important;
+      line-height: 1.05 !important;
+      letter-spacing: -.2px !important;
+    }
+
+    body .tool .grid .stage .centre .country {
+      font-size: 17px !important;
+      line-height: 1.05 !important;
+      margin-top: 5px !important;
+    }
+
+    body .tool .grid .stage .controls {
+      position: absolute !important;
+      bottom: 10px !important;
+      left: 12px !important;
+      right: 12px !important;
+      display: grid !important;
+      grid-template-columns: 1fr !important;
+      gap: 7px !important;
+      z-index: 9 !important;
+    }
+
+    body .tool .grid .stage .next {
+      min-height: 52px !important;
+      padding: 8px 12px !important;
+      border-radius: 14px !important;
+    }
+
+    body .tool .grid .stage .next span {
+      font-size: 10px !important;
+      line-height: 1.1 !important;
+    }
+
+    body .tool .grid .stage .next strong {
+      font-size: 17px !important;
+      line-height: 1.1 !important;
+    }
+
+    body .tool .grid .stage .controls button {
+      min-height: 44px !important;
+      width: 100% !important;
+      font-size: 14px !important;
+      padding: 10px 12px !important;
+      border-radius: 999px !important;
+    }
+  }
+  /* SWEEPSTAKEWHEEL MOBILE OVERRIDE V4 END */
 
 </style>
 
