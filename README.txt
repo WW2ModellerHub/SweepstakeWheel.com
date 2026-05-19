@@ -30,3 +30,5 @@ Mobile layout fixed: smaller mobile wheel, smaller centre card, tighter controls
 Mobile v2 fix: centre card reduced and repositioned to the actual wheel centre on phones.
 
 Mobile v3 hard override: compressed mobile draw stage, smaller wheel and truly small centre card.
+
+SEO update: shifted primary targeting from 'World Cup 2026 sweepstake' to broader 'World Cup sweepstake', while retaining 2026/current tournament context.
