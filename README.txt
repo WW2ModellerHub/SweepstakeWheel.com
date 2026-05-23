@@ -32,3 +32,5 @@ Mobile v2 fix: centre card reduced and repositioned to the actual wheel centre o
 Mobile v3 hard override: compressed mobile draw stage, smaller wheel and truly small centre card.
 
 SEO update: shifted primary targeting from 'World Cup 2026 sweepstake' to broader 'World Cup sweepstake', while retaining 2026/current tournament context.
+
+SEO query refinement: updated title, meta, H1 and content around GSC queries: world cup sweepstake wheel, office world cup sweepstake, sweepstake wheel and world cup sweepstake generator wheel.
