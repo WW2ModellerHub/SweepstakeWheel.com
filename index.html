@@ -1,14 +1,6 @@
 <!doctype html>
-<!-- SWEEPSTAKEWHEEL_DONATION_DIRECT_PATCH_V2 -->
-<!-- SWEEPSTAKEWHEEL_OFFICE_PACK_ADDED -->
-<!-- SWEEPSTAKEWHEEL_STRONG_POST_VALUE_COFFEE -->
-<!-- SWEEPSTAKEWHEEL_ADSENSE_ADDED -->
-<!-- SWEEPSTAKEWHEEL_DONATION_VALUE_MOMENT -->
-<!-- SWEEPSTAKEWHEEL_SEO_TOOL_FIRST_FINAL -->
-<!-- SWEEPSTAKEWHEEL_SEO_QUERY_REFINED -->
-<!-- SWEEPSTAKEWHEEL_SEO_WORLD_CUP_SWEEPSTAKE -->
-<!-- SWEEPSTAKEWHEEL_BUYMEACOFFEE_BUTTON -->
-<!-- SWEEPSTAKEWHEEL_MOBILE_V6_NORMAL_FLOW -->
+<!-- SWEEPSTAKEWHEEL_PAID_CSV_ONLY_V1 -->
+
 <html lang="en-GB">
 <head>
   <meta charset="utf-8">
@@ -1069,20 +1061,20 @@
   }
 
 
-  /* Donation direct patch v2 */
+  /* Paid CSV and Office Pack modal */
   .donation-modal {
     position: fixed;
     inset: 0;
-    z-index: 140;
+    z-index: 9999;
     display: none;
     place-items: center;
     padding: 20px;
-    background: rgba(0,0,0,.66);
+    background: rgba(0,0,0,.68);
     backdrop-filter: blur(6px);
   }
   .donation-modal.show { display: grid; }
   .donation-box {
-    width: min(500px, 100%);
+    width: min(520px, 100%);
     border-radius: 28px;
     border: 1px solid rgba(255,255,255,.20);
     background: linear-gradient(180deg, rgba(255,255,255,.11), rgba(255,255,255,.04)), #0f1b2f;
@@ -1105,7 +1097,7 @@
   }
   .donation-box h2 {
     margin: 0 0 10px;
-    font-size: 31px;
+    font-size: 30px;
     letter-spacing: -1px;
   }
   .donation-box p {
@@ -1144,6 +1136,136 @@
     margin-top: 12px !important;
     font-size: 12px;
   }
+  .office-pack-cta {
+    border: 1px solid rgba(255,209,102,.38);
+    background: linear-gradient(135deg, rgba(255,209,102,.16), rgba(53,208,127,.10)), rgba(255,255,255,.07);
+    border-radius: 24px;
+    padding: 20px;
+    margin: 24px 0;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 18px;
+    align-items: center;
+  }
+  .office-pack-cta h2 {
+    margin: 0 0 8px;
+    font-size: 25px;
+    letter-spacing: -.7px;
+  }
+  .office-pack-cta p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .office-pack-price {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: rgba(255,255,255,.10);
+    border: 1px solid rgba(255,255,255,.18);
+    padding: 8px 12px;
+    font-weight: 1000;
+    margin-top: 10px;
+    color: var(--gold);
+  }
+  .office-pack-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    padding: 0 20px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--gold), var(--green));
+    color: var(--dark);
+    text-decoration: none;
+    font-weight: 1000;
+    white-space: nowrap;
+    box-shadow: 0 16px 38px rgba(0,0,0,.28);
+  }
+  @media(max-width:760px){
+    .office-pack-cta { grid-template-columns: 1fr; }
+    .office-pack-button { width: 100%; }
+    .donation-actions { grid-template-columns: 1fr; }
+  }
+
+
+  /* Paid CSV only modal */
+  .donation-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: none;
+    place-items: center;
+    padding: 20px;
+    background: rgba(0,0,0,.68);
+    backdrop-filter: blur(6px);
+  }
+  .donation-modal.show { display: grid; }
+  .donation-box {
+    width: min(520px, 100%);
+    border-radius: 28px;
+    border: 1px solid rgba(255,255,255,.20);
+    background: linear-gradient(180deg, rgba(255,255,255,.11), rgba(255,255,255,.04)), #0f1b2f;
+    color: var(--ink);
+    padding: 26px;
+    box-shadow: 0 30px 100px rgba(0,0,0,.58);
+    text-align: center;
+  }
+  .donation-icon {
+    width: 66px;
+    height: 66px;
+    border-radius: 22px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 14px;
+    background: linear-gradient(135deg, var(--gold), var(--green));
+    color: var(--dark);
+    font-size: 35px;
+    box-shadow: 0 16px 38px rgba(0,0,0,.30);
+  }
+  .donation-box h2 {
+    margin: 0 0 10px;
+    font-size: 30px;
+    letter-spacing: -1px;
+  }
+  .donation-box p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .donation-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .modal-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 1000;
+    cursor: pointer;
+    border: 0;
+    padding: 0 14px;
+    box-shadow: 0 10px 26px rgba(0,0,0,.22);
+    font: inherit;
+  }
+  .modal-btn.support {
+    background: linear-gradient(135deg, var(--gold), var(--green));
+    color: var(--dark);
+  }
+  .modal-btn.free {
+    background: #dbe7ff;
+    color: var(--dark);
+  }
+  .modal-small {
+    margin-top: 12px !important;
+    font-size: 12px;
+  }
   @media(max-width:520px) {
     .donation-actions { grid-template-columns: 1fr; }
   }
@@ -1159,7 +1281,7 @@
 <div class="celebrate" id="celebration"></div>
 <div class="wrap">
 <nav class="top"><div class="brand"><span>⚽</span>World Cup Sweepstake Wheel</div><a class="support" href="https://buymeacoffee.com/sweepstakewheel" target="_blank" rel="noopener">Saved your office sweepstake? Buy me a coffee ☕</a></nav>
-<header class="hero"><section><div class="pill">Free World Cup sweepstake wheel</div><h1>Free World Cup Sweepstake Wheel</h1><p class="lead">Create a World Cup office sweepstake in seconds. Add names, spin the sweepstake wheel, auto-draw countries and export the results to CSV.</p><a class="cta" href="#generator">Start Free Draw</a></section><aside class="preview"><div class="mini"></div></aside></header><main id="generator" class="tool"><div class="toolhead"><div><h2>Free World Cup Sweepstake Wheel</h2><p>Add people, check the teams, then spin the wheel or auto-draw everyone.</p></div><div class="buttons"><button class="secondary" onclick="copyResults()">Copy Results</button><button class="secondary" onclick="downloadCsv()">Download CSV</button><button class="warning" onclick="toggleFullscreenMode()">Full-screen Draw</button><button class="danger" onclick="resetDraw()">Reset Draw</button></div></div>
+<header class="hero"><section><div class="pill">Free World Cup sweepstake wheel</div><h1>Free World Cup Sweepstake Wheel</h1><p class="lead">Create a World Cup office sweepstake in seconds. Add names, spin the sweepstake wheel, auto-draw countries and export the results to CSV.</p><a class="cta" href="#generator">Start Free Draw</a></section><aside class="preview"><div class="mini"></div></aside></header><main id="generator" class="tool"><div class="toolhead"><div><h2>Free World Cup Sweepstake Wheel</h2><p>Add people, check the teams, then spin the wheel or auto-draw everyone.</p></div><div class="buttons"><button class="secondary" onclick="copyResults()">Copy Results</button><button class="secondary" onclick="startPaidCsvExport()">Export CSV</button><button class="warning" onclick="toggleFullscreenMode()">Full-screen Draw</button><button class="danger" onclick="resetDraw()">Reset Draw</button></div></div>
 <div class="grid"><aside class="panel"><h3>Setup</h3><label for="peopleInput">People entering</label><textarea id="peopleInput" placeholder="One person per line, e.g.
 Luke
 Sarah
@@ -1233,14 +1355,7 @@ Türkiye</textarea><div class="hint">Teams are editable. Update the list if the 
 <section class="stage"><div class="pointer"></div><div class="topwinner" id="topWinnerLabel"></div><div class="wheel" id="wheel"><svg id="wheelSvg" viewBox="0 0 500 500"></svg></div><div class="centre" id="centreCard"><div><div class="clabel" id="centreLabel">Now drawing</div><div class="person" id="currentPerson">Load draw</div><div class="country" id="winningCountry"></div></div></div><div class="controls"><div class="next"><span>Next person</span><strong id="nextPerson">—</strong></div><button id="spinButton" onclick="spinWheel()" disabled>Spin Wheel</button><button id="autoButton" class="auto" onclick="toggleAutoDraw()" disabled>Auto Draw Everyone</button></div></section>
 <aside class="panel results"><h3>Draw results</h3><div class="stats"><div class="stat"><div class="num" id="peopleCount">0</div><div class="slabel">People</div></div><div class="stat"><div class="num" id="teamCount">48</div><div class="slabel">Teams left</div></div><div class="stat"><div class="num" id="drawnCount">0</div><div class="slabel">Drawn</div></div></div><div class="drawlist" id="drawList"></div><div class="supportcard"><strong>Saved your office sweepstake?</strong><p>This tool is free. If it saved you spreadsheet faff, buying one coffee helps keep it online. You can also grab the printable office pack below.</p><a class="supportbtn" href="https://buymeacoffee.com/sweepstakewheel" target="_blank" rel="noopener">Saved your office sweepstake? Buy me a coffee ☕</a></div></aside></div></main>
 
-<section class="office-pack-cta" id="office-pack">
-  <div>
-    <h2>Want the printable office pack?</h2>
-    <p>Get the World Cup Sweepstake Office Pack: printable rules, results sheet, prize split calculator, email invite wording, charity wording and winner tracker.</p>
-    <span class="office-pack-price">Suggested price: £2.99</span>
-  </div>
-  <a class="office-pack-button" href="/world-cup-sweepstake-office-pack.zip" download>Download office pack</a>
-</section>
+
 
 <section class="features"><div class="feature"><strong>Office ready</strong>Built for work sweepstakes and team draws.</div><div class="feature"><strong>Auto draw</strong>Draw everyone without clicking each person.</div><div class="feature"><strong>CSV export</strong>Export number drawn, name and country.</div><div class="feature"><strong>Free to use</strong>No sign-up, no spreadsheet faff.</div></section>
 
@@ -1285,7 +1400,7 @@ Türkiye</textarea><div class="hint">Teams are editable. Update the list if the 
     <p>A simple split is 50% to charity, 35% to the winner and 15% to the runner-up. For 48 people at £5 each, that creates a £240 pot: £120 to charity, £84 to the winner and £36 to the runner-up.</p>
   </article>
 </section>
-<section class="card"><h2>World Cup sweepstake FAQ</h2><details><summary>Can I use this for an office World Cup sweepstake?</summary><p>Yes. It is designed for office sweepstakes, work charity draws and quick team assignments.</p></details><details><summary>Can I auto-draw every person?</summary><p>Yes. Use the Auto Draw Everyone button and the tool will run through each person automatically.</p></details><details><summary>Can I export the sweepstake results?</summary><p>Yes. Click Download CSV to export three columns: number drawn, name and country.</p></details><details><summary>Does the tool store names or results?</summary><p>No. This version runs in your browser. It does not store, upload or send your draw data anywhere.</p></details><details><summary>Is this an official FIFA World Cup tool?</summary><p>No. This is an unofficial fan-made sweepstake tool and is not affiliated with FIFA, the FIFA World Cup or any official tournament organiser.</p></details></section>
+<section class="card"><h2>World Cup sweepstake FAQ</h2><details><summary>Can I use this for an office World Cup sweepstake?</summary><p>Yes. It is designed for office sweepstakes, work charity draws and quick team assignments.</p></details><details><summary>Can I auto-draw every person?</summary><p>Yes. Use the Auto Draw Everyone button and the tool will run through each person automatically.</p></details><details><summary>Can I export the sweepstake results?</summary><p>Yes. Click Export CSV to export three columns: number drawn, name and country.</p></details><details><summary>Does the tool store names or results?</summary><p>No. This version runs in your browser. It does not store, upload or send your draw data anywhere.</p></details><details><summary>Is this an official FIFA World Cup tool?</summary><p>No. This is an unofficial fan-made sweepstake tool and is not affiliated with FIFA, the FIFA World Cup or any official tournament organiser.</p></details></section>
 
 <section class="card" style="text-align:center;margin:24px 0;">
   <h2>Support Sweepstake Wheel</h2>
@@ -1318,7 +1433,7 @@ Türkiye</textarea><div class="hint">Teams are editable. Update the list if the 
     <p>The draw is finished. Copy the results, download the CSV, or support the free tool if it saved you time.</p>
     <div class="complete-actions">
       <button class="modal-btn free" onclick="copyResults()">Copy results</button>
-      <button class="modal-btn free" onclick="downloadCsv()">Download CSV</button>
+      <button class="modal-btn free" onclick="startPaidCsvExport()">Export CSV</button>
       <a class="modal-btn support" href="https://buymeacoffee.com/sweepstakewheel" target="_blank" rel="noopener">Saved your office sweepstake? Buy me a coffee ☕</a>
       <button class="modal-btn free" onclick="closeCompleteModal()">Close</button>
     </div>
@@ -1330,16 +1445,34 @@ Türkiye</textarea><div class="hint">Teams are editable. Update the list if the 
 
 
 
-<div class="donation-modal" id="donationModal" role="dialog" aria-modal="true" aria-labelledby="donationTitle">
+
+
+
+
+
+
+<div class="donation-modal" id="paidCsvModal" role="dialog" aria-modal="true" aria-labelledby="paidCsvTitle">
   <div class="donation-box">
-    <div class="donation-icon">☕</div>
-    <h2 id="donationTitle">Sweepstake sorted 🎉</h2>
-    <p>This tool just saved you from spreadsheet faff. If it helped your office draw, buying one coffee helps keep Sweepstake Wheel free and online.</p>
+    <div class="donation-icon">📄</div>
+    <h2 id="paidCsvTitle">Export CSV for £2.99</h2>
+    <p>Your draw is ready. CSV export is a paid feature. Pay £2.99, return to Sweepstake Wheel, and your CSV will download automatically.</p>
     <div class="donation-actions">
-      <a class="modal-btn support" href="https://buymeacoffee.com/sweepstakewheel" target="_blank" rel="noopener" onclick="supportAndContinue()">Buy me a coffee ☕</a>
-      <button class="modal-btn free" id="donationFreeButton" onclick="continueForFree()">Continue for free</button>
+      <button class="modal-btn support" onclick="goToPaidCsvCheckout()">Pay £2.99 and export CSV</button>
+      <button class="modal-btn free" onclick="closePaidCsvModal()">Not now</button>
     </div>
-    <p class="modal-small">No pressure — the tool stays free either way.</p>
+    <p class="modal-small">The wheel stays free. CSV export supports the site.</p>
+  </div>
+</div>
+
+<div class="donation-modal" id="csvReturnModal" role="dialog" aria-modal="true" aria-labelledby="csvReturnTitle">
+  <div class="donation-box">
+    <div class="donation-icon">✅</div>
+    <h2 id="csvReturnTitle">Payment confirmed</h2>
+    <p>Your CSV should download automatically. If it does not, use the button below.</p>
+    <div class="donation-actions">
+      <button class="modal-btn support" onclick="downloadPaidCsvFromStorage()">Export CSV</button>
+      <button class="modal-btn free" onclick="closeCsvReturnModal()">Close</button>
+    </div>
   </div>
 </div>
 
@@ -1375,11 +1508,6 @@ function copyRules(){
   navigator.clipboard.writeText(text).then(()=>showToast("Rules copied")).catch(()=>alert(text))
 }
 function copyResults(){
-  if(!results.length){alert("No results to copy yet.");return}
-  showDonationPrompt("copy");
-}
-
-function actualCopyResults(){
   if(!results.length){alert("No results to copy yet.");return}
   const text=results.map((r,i)=>`${i+1}. ${r.person} — ${r.team}`).join("\n");
   navigator.clipboard.writeText(text).then(()=>showToast("Results copied")).catch(()=>alert(text))
@@ -1426,35 +1554,20 @@ function drawWheel(){wheelSvg.innerHTML="";const n=remainingTeams.length,cx=250,
 function spinWheel(){if(awaitingNext){advanceToNextDraw();return}if(isSpinning||currentIndex>=people.length||!remainingTeams.length)return;isSpinning=true;spinButton.disabled=true;autoButton.disabled=true;const n=remainingTeams.length,winningIndex=Math.floor(Math.random()*n);landedPerson=people[currentIndex];selectedTeam=remainingTeams[winningIndex];const slice=360/n,sliceCentre=winningIndex*slice+slice/2,targetAtPointer=-sliceCentre,extraSpins=autoMode?4:7+Math.floor(Math.random()*3),nextRotation=currentRotation+extraSpins*360+shortestForwardRotation(currentRotation%360,targetAtPointer);playTone("spin");currentRotation=nextRotation;wheel.style.transform=`rotate(${currentRotation}deg)`;setTimeout(()=>{const person=people[currentIndex],team=selectedTeam;results.push({person,team});remainingTeams.splice(winningIndex,1);currentIndex++;awaitingNext=true;document.getElementById("latestResult").textContent=`${person} gets ${team}`;document.getElementById("resultBox").classList.add("show");isSpinning=false;showReveal(person,team);playTone("win");celebrate();updateUi();if(currentIndex>=people.length||!remainingTeams.length){setTimeout(showCompleteModal,1300)}if(autoMode){autoTimer=setTimeout(()=>{if(!autoMode)return;if(currentIndex>=people.length||!remainingTeams.length){stopAutoDraw(true);return}advanceToNextDraw();autoTimer=setTimeout(()=>{if(autoMode)spinWheel()},450)},1600)}},4300)}
 function advanceToNextDraw(){awaitingNext=false;landedPerson="";selectedTeam="";currentRotation=0;wheel.style.transition="none";wheel.style.transform="rotate(0deg)";wheel.offsetHeight;wheel.style.transition="transform 4.2s cubic-bezier(.08,.7,.05,1)";drawWheel();updateUi()}function toggleAutoDraw(){if(autoMode){stopAutoDraw(true);return}if(!people.length){alert("Load the draw first.");return}autoMode=true;autoButton.textContent="Stop Auto Draw";autoButton.classList.add("danger");autoButton.classList.remove("auto");spinButton.disabled=true;showToast("Auto draw started");if(awaitingNext){advanceToNextDraw();autoTimer=setTimeout(spinWheel,450)}else if(!isSpinning)spinWheel()}function stopAutoDraw(msg=true){autoMode=false;if(autoTimer)clearTimeout(autoTimer);autoTimer=null;autoButton.textContent="Auto Draw Everyone";autoButton.classList.remove("danger");autoButton.classList.add("auto");if(msg)showToast("Auto draw stopped");updateUi()}function shortestForwardRotation(current,target){return((target-current)%360+360)%360}
 function updateUi(){document.getElementById("peopleCount").textContent=people.length;document.getElementById("teamCount").textContent=remainingTeams.length;document.getElementById("drawnCount").textContent=results.length;const centre=document.getElementById("centreCard"),clabel=document.getElementById("centreLabel"),winning=document.getElementById("winningCountry"),top=document.getElementById("topWinnerLabel"),currentPerson=awaitingNext?landedPerson||(people[currentIndex-1]||"Draw complete"):(people[currentIndex]||"Load draw");document.getElementById("currentPerson").textContent=currentPerson;document.getElementById("nextPerson").textContent=people[currentIndex]||"—";if(awaitingNext&&selectedTeam){centre.classList.add("won");clabel.textContent="Drawn team";winning.textContent=selectedTeam;top.textContent=selectedTeam;top.classList.add("show")}else{centre.classList.remove("won");clabel.textContent="Now drawing";winning.textContent="";top.textContent="";top.classList.remove("show")}spinButton.textContent=awaitingNext?"Next Draw":"Spin Wheel";spinButton.disabled=autoMode||isSpinning||!people.length||(!awaitingNext&&(currentIndex>=people.length||!remainingTeams.length));autoButton.disabled=!people.length||isSpinning||currentIndex>=people.length||!remainingTeams.length;const list=document.getElementById("drawList");list.innerHTML="";if(!results.length){list.innerHTML='<p class="hint">No teams drawn yet.</p>';updatePrizeCalc();return}results.forEach((item,index)=>{const row=document.createElement("div");row.className="drawitem";row.innerHTML=`<div class="drawperson" title="${escapeHtml(item.person)}">${index+1}. ${escapeHtml(item.person)}</div><div class="drawteam" title="${escapeHtml(item.team)}">${escapeHtml(item.team)}</div>`;list.appendChild(row)});updatePrizeCalc()}
-let pendingDonationAction = null;
-
-function showDonationPrompt(actionType){
-  pendingDonationAction = actionType || "download";
-  const freeBtn = document.getElementById("donationFreeButton");
-  if(freeBtn){
-    freeBtn.textContent = pendingDonationAction === "copy" ? "Copy results for free" : "Download CSV for free";
-  }
-  document.getElementById("donationModal").classList.add("show");
-}
-
 function downloadCsv(){
   if(!results.length){alert("No results to export yet.");return}
-  showDonationPrompt("download");
+  document.getElementById("donationModal").classList.add("show")
 }
 function closeDonationModal(){
   document.getElementById("donationModal").classList.remove("show")
 }
-function supportAndContinue(){
-  const action = pendingDonationAction;
+function supportAndDownload(){
   closeDonationModal();
-  if(action === "copy") actualCopyResults();
-  else actualDownloadCsv();
+  actualDownloadCsv()
 }
-function continueForFree(){
-  const action = pendingDonationAction;
+function downloadForFree(){
   closeDonationModal();
-  if(action === "copy") actualCopyResults();
-  else actualDownloadCsv();
+  actualDownloadCsv()
 }
 function actualDownloadCsv(){
   const rows=[["Number Drawn","Name","Country"],...results.map((r,i)=>[i+1,r.person,r.team])],
@@ -1463,7 +1576,7 @@ function actualDownloadCsv(){
   url=URL.createObjectURL(blob),
   link=document.createElement("a");
   link.href=url;
-  link.download="world-cup-sweepstake-draw.csv";
+  link.download="world-cup-2026-sweepstake-draw.csv";
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
@@ -1479,67 +1592,74 @@ remainingTeams=parseLines(teamsInput.value);drawWheel();updateUi();updatePrizeCa
 
 
 
+
+
+
+
+
+
 <script>
-/* Strong post-value coffee prompt overrides */
-let pendingDonationAction = null;
+/* Paid CSV only handlers */
+const SWEEPSTAKEWHEEL_CSV_PRODUCT_URL = "REPLACE_WITH_BUY_ME_A_COFFEE_CSV_PRODUCT_LINK";
+const SWEEPSTAKEWHEEL_PENDING_CSV_KEY = "sweepstakewheel_pending_csv_results_v1";
+const SWEEPSTAKEWHEEL_PAID_FLAG_KEY = "sweepstakewheel_paid_csv_v1";
 
-function hasDrawResultsForCoffeePrompt(){
-  try { return typeof results !== "undefined" && Array.isArray(results) && results.length > 0; }
-  catch(e) { return false; }
+function getCurrentDrawResultsForPaidCsv() {
+  try {
+    if (typeof results !== "undefined" && Array.isArray(results)) {
+      return results;
+    }
+  } catch(e) {}
+  return [];
 }
 
-function showDonationPrompt(actionType){
-  pendingDonationAction = actionType || "download";
-  const modal = document.getElementById("donationModal");
-  const freeBtn = document.getElementById("donationFreeButton");
-  if(freeBtn){
-    freeBtn.textContent = pendingDonationAction === "copy" ? "Copy results for free" : "Download CSV for free";
+function saveCurrentDrawForPaidCsv() {
+  const drawResults = getCurrentDrawResultsForPaidCsv();
+  if (!drawResults.length) {
+    alert("No results to export yet.");
+    return false;
   }
-  if(modal) modal.classList.add("show");
+  localStorage.setItem(SWEEPSTAKEWHEEL_PENDING_CSV_KEY, JSON.stringify({
+    savedAt: new Date().toISOString(),
+    results: drawResults
+  }));
+  return true;
 }
 
-function closeDonationModal(){
-  const modal = document.getElementById("donationModal");
-  if(modal) modal.classList.remove("show");
+function startPaidCsvExport() {
+  if (!saveCurrentDrawForPaidCsv()) return;
+  const modal = document.getElementById("paidCsvModal");
+  if (modal) modal.classList.add("show");
 }
 
-function supportAndContinue(){
-  const action = pendingDonationAction;
-  closeDonationModal();
-  setTimeout(() => {
-    if(action === "copy") actualCopyResultsAfterCoffeePrompt();
-    else actualDownloadCsvAfterCoffeePrompt();
-  }, 150);
+function closePaidCsvModal() {
+  const modal = document.getElementById("paidCsvModal");
+  if (modal) modal.classList.remove("show");
 }
 
-function continueForFree(){
-  const action = pendingDonationAction;
-  closeDonationModal();
-  if(action === "copy") actualCopyResultsAfterCoffeePrompt();
-  else actualDownloadCsvAfterCoffeePrompt();
+function closeCsvReturnModal() {
+  const modal = document.getElementById("csvReturnModal");
+  if (modal) modal.classList.remove("show");
 }
 
-downloadCsv = function(){
-  if(!hasDrawResultsForCoffeePrompt()){alert("No results to export yet.");return;}
-  showDonationPrompt("download");
-};
+function goToPaidCsvCheckout() {
+  if (!saveCurrentDrawForPaidCsv()) return;
 
-copyResults = function(){
-  if(!hasDrawResultsForCoffeePrompt()){alert("No results to copy yet.");return;}
-  showDonationPrompt("copy");
-};
+  if (!SWEEPSTAKEWHEEL_CSV_PRODUCT_URL || SWEEPSTAKEWHEEL_CSV_PRODUCT_URL.includes("REPLACE_WITH")) {
+    alert("CSV checkout link has not been added yet. Add your Buy Me a Coffee product link in the index.html file.");
+    return;
+  }
 
-function actualCopyResultsAfterCoffeePrompt(){
-  if(!hasDrawResultsForCoffeePrompt()){alert("No results to copy yet.");return;}
-  const text = results.map((r,i)=>`${i+1}. ${r.person} — ${r.team}`).join("\n");
-  navigator.clipboard.writeText(text).then(()=>showToast("Results copied")).catch(()=>alert(text));
+  window.location.href = SWEEPSTAKEWHEEL_CSV_PRODUCT_URL;
 }
 
-function actualDownloadCsvAfterCoffeePrompt(){
-  if(!hasDrawResultsForCoffeePrompt()){alert("No results to export yet.");return;}
-  const rows = [["Number Drawn","Name","Country"], ...results.map((r,i)=>[i+1,r.person,r.team])];
-  const csv = rows.map(row => row.map(v => `"${String(v).replaceAll('"','""')}"`).join(",")).join("\n");
-  const blob = new Blob([csv], {type:"text/csv;charset=utf-8;"});
+function buildCsvFromStoredResults(storedResults) {
+  const rows = [["Number Drawn","Name","Country"], ...storedResults.map((r,i)=>[i+1,r.person,r.team])];
+  return rows.map(row => row.map(v => `"${String(v).replaceAll('"','""')}"`).join(",")).join("\n");
+}
+
+function downloadCsvText(csvText) {
+  const blob = new Blob([csvText], {type:"text/csv;charset=utf-8;"});
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
   link.href = url;
@@ -1548,15 +1668,60 @@ function actualDownloadCsvAfterCoffeePrompt(){
   link.click();
   document.body.removeChild(link);
   URL.revokeObjectURL(url);
-  showToast("CSV downloaded");
 }
 
+function downloadPaidCsvFromStorage() {
+  const saved = localStorage.getItem(SWEEPSTAKEWHEEL_PENDING_CSV_KEY);
+  if (!saved) {
+    alert("I cannot find the saved draw in this browser. Please return to the draw and try again.");
+    return;
+  }
+
+  let parsed;
+  try {
+    parsed = JSON.parse(saved);
+  } catch(e) {
+    alert("The saved draw could not be read. Please return to the draw and try again.");
+    return;
+  }
+
+  if (!parsed.results || !Array.isArray(parsed.results) || !parsed.results.length) {
+    alert("No saved draw results found. Please return to the draw and try again.");
+    return;
+  }
+
+  downloadCsvText(buildCsvFromStoredResults(parsed.results));
+  try { showToast("CSV downloaded"); } catch(e) {}
+}
+
+function handlePaidCsvReturn() {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("paid") === "csv" || params.get("paid") === "1") {
+    localStorage.setItem(SWEEPSTAKEWHEEL_PAID_FLAG_KEY, "true");
+    const modal = document.getElementById("csvReturnModal");
+    if (modal) modal.classList.add("show");
+    setTimeout(downloadPaidCsvFromStorage, 400);
+  }
+}
+
+/* Hard override any old CSV functions/buttons */
+downloadCsv = function() {
+  startPaidCsvExport();
+};
+
 document.addEventListener("click", e => {
-  if(e.target && e.target.id === "donationModal") closeDonationModal();
+  if (e.target && e.target.id === "paidCsvModal") closePaidCsvModal();
+  if (e.target && e.target.id === "csvReturnModal") closeCsvReturnModal();
 });
+
 document.addEventListener("keydown", e => {
-  if(e.key === "Escape") closeDonationModal();
+  if (e.key === "Escape") {
+    closePaidCsvModal();
+    closeCsvReturnModal();
+  }
 });
+
+window.addEventListener("load", handlePaidCsvReturn);
 </script>
 
 </body></html>
