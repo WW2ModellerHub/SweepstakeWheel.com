@@ -1,4 +1,5 @@
-<!doctype html><!-- SWEEPSTAKEWHEEL_REMOVE_COPY_RESULTS --><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2707875272714409"
+<!doctype html>
+<!-- SWEEPSTAKEWHEEL_REMOVE_COPY_SYNTAX_FIXED --><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2707875272714409"
      crossorigin="anonymous"></script><title>World Cup Sweepstake Wheel | Free Office Sweepstake Generator</title><meta name="description" content="Create a free World Cup office sweepstake in seconds. Add names, spin the sweepstake wheel, auto-draw countries and export the results to CSV."><meta name="keywords" content="World Cup sweepstake wheel, World Cup sweepstake generator wheel, free World Cup sweepstake wheel, office World Cup sweepstake, World Cup office sweepstake, sweepstake wheel, sweepstake draw wheel, random World Cup team picker, World Cup sweepstake generator"><meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://sweepstakewheel.com/"><meta property="og:type" content="website"><meta property="og:title" content="World Cup Sweepstake Wheel"><meta property="og:description" content="Free World Cup office sweepstake generator. Add names, spin the sweepstake wheel, auto-draw countries and export to CSV."><meta property="og:url" content="https://sweepstakewheel.com/"><meta property="og:site_name" content="World Cup Sweepstake Wheel"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="World Cup Sweepstake Wheel"><meta name="twitter:description" content="Free World Cup office sweepstake wheel. Add names, draw countries and export to CSV."><script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebApplication","name":"World Cup Sweepstake Wheel","url":"https://sweepstakewheel.com/","applicationCategory":"UtilityApplication","operatingSystem":"Any","description":"A free World Cup sweepstake wheel and office sweepstake generator. Add names, spin the wheel, auto-draw countries and export results to CSV.","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"}}
   </script><script type="application/ld+json">
@@ -1358,10 +1359,7 @@ function copyRules(){
   const text=`World Cup Sweepstake Rules\n\nEntry: £${entry} per person.\nOne randomly drawn country per person.\n${charity}% of the total pot goes to charity.\nPrize split: ${winner}% to the winner and ${runner}% to the runner-up.\nNo team swaps after the draw.\nThe winner is the person with the tournament-winning country.`;
   navigator.clipboard.writeText(text).then(()=>showToast("Rules copied")).catch(()=>alert(text))
 }
-function copyResults(){ alert("This option has been removed. Please use Export CSV."); }
-  const text=results.map((r,i)=>`${i+1}. ${r.person} — ${r.team}`).join("\n");
-  navigator.clipboard.writeText(text).then(()=>showToast("Results copied")).catch(()=>alert(text))
-}
+function copyResults(){alert("This option has been removed. Please use Export CSV.")}
 function toggleFullscreenMode(){
   document.body.classList.toggle("fullscreen-active");
 }
