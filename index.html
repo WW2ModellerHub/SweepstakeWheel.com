@@ -1,4 +1,6 @@
 <!doctype html>
+<!-- SWEEPSTAKEWHEEL_OFFICE_PACK_ADDED -->
+<!-- SWEEPSTAKEWHEEL_STRONG_POST_VALUE_COFFEE -->
 <!-- SWEEPSTAKEWHEEL_ADSENSE_ADDED -->
 <!-- SWEEPSTAKEWHEEL_DONATION_VALUE_MOMENT -->
 <!-- SWEEPSTAKEWHEEL_SEO_TOOL_FIRST_FINAL -->
@@ -925,6 +927,146 @@
     .donation-actions { grid-template-columns: 1fr; }
   }
 
+
+  /* Strong post-value coffee prompt */
+  .donation-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 140;
+    display: none;
+    place-items: center;
+    padding: 20px;
+    background: rgba(0,0,0,.66);
+    backdrop-filter: blur(6px);
+  }
+  .donation-modal.show { display: grid; }
+  .donation-box {
+    width: min(500px, 100%);
+    border-radius: 28px;
+    border: 1px solid rgba(255,255,255,.20);
+    background: linear-gradient(180deg, rgba(255,255,255,.11), rgba(255,255,255,.04)), #0f1b2f;
+    color: var(--ink);
+    padding: 26px;
+    box-shadow: 0 30px 100px rgba(0,0,0,.58);
+    text-align: center;
+  }
+  .donation-icon {
+    width: 66px;
+    height: 66px;
+    border-radius: 22px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 14px;
+    background: linear-gradient(135deg, var(--gold), var(--green));
+    color: var(--dark);
+    font-size: 35px;
+    box-shadow: 0 16px 38px rgba(0,0,0,.30);
+  }
+  .donation-box h2 {
+    margin: 0 0 10px;
+    font-size: 31px;
+    letter-spacing: -1px;
+  }
+  .donation-box p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .donation-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .modal-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 1000;
+    cursor: pointer;
+    border: 0;
+    padding: 0 14px;
+    box-shadow: 0 10px 26px rgba(0,0,0,.22);
+  }
+  .modal-btn.support {
+    background: linear-gradient(135deg, var(--gold), var(--green));
+    color: var(--dark);
+  }
+  .modal-btn.free {
+    background: #dbe7ff;
+    color: var(--dark);
+  }
+  .modal-small {
+    margin-top: 12px !important;
+    font-size: 12px;
+  }
+  @media(max-width:520px) {
+    .donation-actions { grid-template-columns: 1fr; }
+  }
+
+
+  /* Office Pack CTA */
+  .office-pack-cta {
+    border: 1px solid rgba(255,209,102,.38);
+    background:
+      linear-gradient(135deg, rgba(255,209,102,.16), rgba(53,208,127,.10)),
+      rgba(255,255,255,.07);
+    border-radius: 24px;
+    padding: 20px;
+    margin: 24px 0;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 18px;
+    align-items: center;
+  }
+  .office-pack-cta h2 {
+    margin: 0 0 8px;
+    font-size: 25px;
+    letter-spacing: -.7px;
+  }
+  .office-pack-cta p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .office-pack-price {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: rgba(255,255,255,.10);
+    border: 1px solid rgba(255,255,255,.18);
+    padding: 8px 12px;
+    font-weight: 1000;
+    margin-top: 10px;
+    color: var(--gold);
+  }
+  .office-pack-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    padding: 0 20px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--gold), var(--green));
+    color: var(--dark);
+    text-decoration: none;
+    font-weight: 1000;
+    white-space: nowrap;
+    box-shadow: 0 16px 38px rgba(0,0,0,.28);
+  }
+  @media(max-width:760px){
+    .office-pack-cta {
+      grid-template-columns: 1fr;
+    }
+    .office-pack-button {
+      width: 100%;
+    }
+  }
+
 </style>
 
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -935,7 +1077,7 @@
 <body>
 <div class="celebrate" id="celebration"></div>
 <div class="wrap">
-<nav class="top"><div class="brand"><span>⚽</span>World Cup Sweepstake Wheel</div><a class="support" href="https://buymeacoffee.com/sweepstakewheel" target="_blank" rel="noopener">Saved you time? Buy me a coffee ☕</a></nav>
+<nav class="top"><div class="brand"><span>⚽</span>World Cup Sweepstake Wheel</div><a class="support" href="https://buymeacoffee.com/sweepstakewheel" target="_blank" rel="noopener">Saved your office sweepstake? Buy me a coffee ☕</a></nav>
 <header class="hero"><section><div class="pill">Free World Cup sweepstake wheel</div><h1>Free World Cup Sweepstake Wheel</h1><p class="lead">Create a World Cup office sweepstake in seconds. Add names, spin the sweepstake wheel, auto-draw countries and export the results to CSV.</p><a class="cta" href="#generator">Start Free Draw</a></section><aside class="preview"><div class="mini"></div></aside></header><main id="generator" class="tool"><div class="toolhead"><div><h2>Free World Cup Sweepstake Wheel</h2><p>Add people, check the teams, then spin the wheel or auto-draw everyone.</p></div><div class="buttons"><button class="secondary" onclick="copyResults()">Copy Results</button><button class="secondary" onclick="downloadCsv()">Download CSV</button><button class="warning" onclick="toggleFullscreenMode()">Full-screen Draw</button><button class="danger" onclick="resetDraw()">Reset Draw</button></div></div>
 <div class="grid"><aside class="panel"><h3>Setup</h3><label for="peopleInput">People entering</label><textarea id="peopleInput" placeholder="One person per line, e.g.
 Luke
@@ -1008,7 +1150,17 @@ Türkiye</textarea><div class="hint">Teams are editable. Update the list if the 
       </div>
     </div><div class="latest" id="resultBox"><div class="hint">Latest draw</div><div class="resultmain" id="latestResult">—</div></div></aside>
 <section class="stage"><div class="pointer"></div><div class="topwinner" id="topWinnerLabel"></div><div class="wheel" id="wheel"><svg id="wheelSvg" viewBox="0 0 500 500"></svg></div><div class="centre" id="centreCard"><div><div class="clabel" id="centreLabel">Now drawing</div><div class="person" id="currentPerson">Load draw</div><div class="country" id="winningCountry"></div></div></div><div class="controls"><div class="next"><span>Next person</span><strong id="nextPerson">—</strong></div><button id="spinButton" onclick="spinWheel()" disabled>Spin Wheel</button><button id="autoButton" class="auto" onclick="toggleAutoDraw()" disabled>Auto Draw Everyone</button></div></section>
-<aside class="panel results"><h3>Draw results</h3><div class="stats"><div class="stat"><div class="num" id="peopleCount">0</div><div class="slabel">People</div></div><div class="stat"><div class="num" id="teamCount">48</div><div class="slabel">Teams left</div></div><div class="stat"><div class="num" id="drawnCount">0</div><div class="slabel">Drawn</div></div></div><div class="drawlist" id="drawList"></div><div class="supportcard"><strong>Saved your office sweepstake?</strong><p>This tool is free. If it saved you spreadsheet faff, buying one coffee helps keep it online.</p><a class="supportbtn" href="https://buymeacoffee.com/sweepstakewheel" target="_blank" rel="noopener">Saved you time? Buy me a coffee ☕</a></div></aside></div></main>
+<aside class="panel results"><h3>Draw results</h3><div class="stats"><div class="stat"><div class="num" id="peopleCount">0</div><div class="slabel">People</div></div><div class="stat"><div class="num" id="teamCount">48</div><div class="slabel">Teams left</div></div><div class="stat"><div class="num" id="drawnCount">0</div><div class="slabel">Drawn</div></div></div><div class="drawlist" id="drawList"></div><div class="supportcard"><strong>Saved your office sweepstake?</strong><p>This tool is free. If it saved you spreadsheet faff, buying one coffee helps keep it online. You can also grab the printable office pack below.</p><a class="supportbtn" href="https://buymeacoffee.com/sweepstakewheel" target="_blank" rel="noopener">Saved your office sweepstake? Buy me a coffee ☕</a></div></aside></div></main>
+
+<section class="office-pack-cta" id="office-pack">
+  <div>
+    <h2>Want the printable office pack?</h2>
+    <p>Get the World Cup Sweepstake Office Pack: printable rules, results sheet, prize split calculator, email invite wording, charity wording and winner tracker.</p>
+    <span class="office-pack-price">Suggested price: £2.99</span>
+  </div>
+  <a class="office-pack-button" href="/world-cup-sweepstake-office-pack.zip" download>Download office pack</a>
+</section>
+
 <section class="features"><div class="feature"><strong>Office ready</strong>Built for work sweepstakes and team draws.</div><div class="feature"><strong>Auto draw</strong>Draw everyone without clicking each person.</div><div class="feature"><strong>CSV export</strong>Export number drawn, name and country.</div><div class="feature"><strong>Free to use</strong>No sign-up, no spreadsheet faff.</div></section>
 
 
@@ -1086,7 +1238,7 @@ Türkiye</textarea><div class="hint">Teams are editable. Update the list if the 
     <div class="complete-actions">
       <button class="modal-btn free" onclick="copyResults()">Copy results</button>
       <button class="modal-btn free" onclick="downloadCsv()">Download CSV</button>
-      <a class="modal-btn support" href="https://buymeacoffee.com/sweepstakewheel" target="_blank" rel="noopener">Saved you time? Buy me a coffee ☕</a>
+      <a class="modal-btn support" href="https://buymeacoffee.com/sweepstakewheel" target="_blank" rel="noopener">Saved your office sweepstake? Buy me a coffee ☕</a>
       <button class="modal-btn free" onclick="closeCompleteModal()">Close</button>
     </div>
   </div>
@@ -1094,16 +1246,19 @@ Türkiye</textarea><div class="hint">Teams are editable. Update the list if the 
 
 
 
+
+
+
 <div class="donation-modal" id="donationModal" role="dialog" aria-modal="true" aria-labelledby="donationTitle">
   <div class="donation-box">
     <div class="donation-icon">☕</div>
-    <h2 id="donationTitle">Sweepstake ready 🎉</h2>
-    <p>If this saved you messing around with spreadsheets, you can support Sweepstake Wheel with a coffee. No pressure — the tool stays free.</p>
+    <h2 id="donationTitle">Sweepstake sorted 🎉</h2>
+    <p>This tool just saved you from spreadsheet faff. If it helped your office draw, buying one coffee helps keep Sweepstake Wheel free and online.</p>
     <div class="donation-actions">
       <a class="modal-btn support" href="https://buymeacoffee.com/sweepstakewheel" target="_blank" rel="noopener" onclick="supportAndContinue()">Buy me a coffee ☕</a>
-      <button class="modal-btn free" id="donationFreeButton" onclick="continueForFree()">Download CSV for free</button>
+      <button class="modal-btn free" id="donationFreeButton" onclick="continueForFree()">Continue for free</button>
     </div>
-    <p class="modal-small">This tool is free. Buying one coffee genuinely helps keep it online.</p>
+    <p class="modal-small">No pressure — the tool stays free either way.</p>
   </div>
 </div>
 
@@ -1220,9 +1375,17 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeDonationModal(
 remainingTeams=parseLines(teamsInput.value);drawWheel();updateUi();updatePrizeCalc();
 </script>
 
+
+
+
 <script>
-/* Value-moment donation prompt overrides */
+/* Strong post-value coffee prompt overrides */
 let pendingDonationAction = null;
+
+function hasDrawResultsForCoffeePrompt(){
+  try { return typeof results !== "undefined" && Array.isArray(results) && results.length > 0; }
+  catch(e) { return false; }
+}
 
 function showDonationPrompt(actionType){
   pendingDonationAction = actionType || "download";
@@ -1243,36 +1406,36 @@ function supportAndContinue(){
   const action = pendingDonationAction;
   closeDonationModal();
   setTimeout(() => {
-    if(action === "copy") actualCopyResultsValueMoment();
-    else actualDownloadCsvValueMoment();
+    if(action === "copy") actualCopyResultsAfterCoffeePrompt();
+    else actualDownloadCsvAfterCoffeePrompt();
   }, 150);
 }
 
 function continueForFree(){
   const action = pendingDonationAction;
   closeDonationModal();
-  if(action === "copy") actualCopyResultsValueMoment();
-  else actualDownloadCsvValueMoment();
+  if(action === "copy") actualCopyResultsAfterCoffeePrompt();
+  else actualDownloadCsvAfterCoffeePrompt();
 }
 
-window.downloadCsv = function(){
-  if(!window.results || !results.length){alert("No results to export yet.");return}
+downloadCsv = function(){
+  if(!hasDrawResultsForCoffeePrompt()){alert("No results to export yet.");return;}
   showDonationPrompt("download");
 };
 
-window.copyResults = function(){
-  if(!window.results || !results.length){alert("No results to copy yet.");return}
+copyResults = function(){
+  if(!hasDrawResultsForCoffeePrompt()){alert("No results to copy yet.");return;}
   showDonationPrompt("copy");
 };
 
-function actualCopyResultsValueMoment(){
-  if(!window.results || !results.length){alert("No results to copy yet.");return}
+function actualCopyResultsAfterCoffeePrompt(){
+  if(!hasDrawResultsForCoffeePrompt()){alert("No results to copy yet.");return;}
   const text = results.map((r,i)=>`${i+1}. ${r.person} — ${r.team}`).join("\n");
   navigator.clipboard.writeText(text).then(()=>showToast("Results copied")).catch(()=>alert(text));
 }
 
-function actualDownloadCsvValueMoment(){
-  if(!window.results || !results.length){alert("No results to export yet.");return}
+function actualDownloadCsvAfterCoffeePrompt(){
+  if(!hasDrawResultsForCoffeePrompt()){alert("No results to export yet.");return;}
   const rows = [["Number Drawn","Name","Country"], ...results.map((r,i)=>[i+1,r.person,r.team])];
   const csv = rows.map(row => row.map(v => `"${String(v).replaceAll('"','""')}"`).join(",")).join("\n");
   const blob = new Blob([csv], {type:"text/csv;charset=utf-8;"});
