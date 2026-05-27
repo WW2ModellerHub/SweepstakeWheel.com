@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- SWEEPSTAKEWHEEL_DONATION_DIRECT_PATCH_V2 -->
 <!-- SWEEPSTAKEWHEEL_OFFICE_PACK_ADDED -->
 <!-- SWEEPSTAKEWHEEL_STRONG_POST_VALUE_COFFEE -->
 <!-- SWEEPSTAKEWHEEL_ADSENSE_ADDED -->
@@ -1067,6 +1068,86 @@
     }
   }
 
+
+  /* Donation direct patch v2 */
+  .donation-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 140;
+    display: none;
+    place-items: center;
+    padding: 20px;
+    background: rgba(0,0,0,.66);
+    backdrop-filter: blur(6px);
+  }
+  .donation-modal.show { display: grid; }
+  .donation-box {
+    width: min(500px, 100%);
+    border-radius: 28px;
+    border: 1px solid rgba(255,255,255,.20);
+    background: linear-gradient(180deg, rgba(255,255,255,.11), rgba(255,255,255,.04)), #0f1b2f;
+    color: var(--ink);
+    padding: 26px;
+    box-shadow: 0 30px 100px rgba(0,0,0,.58);
+    text-align: center;
+  }
+  .donation-icon {
+    width: 66px;
+    height: 66px;
+    border-radius: 22px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 14px;
+    background: linear-gradient(135deg, var(--gold), var(--green));
+    color: var(--dark);
+    font-size: 35px;
+    box-shadow: 0 16px 38px rgba(0,0,0,.30);
+  }
+  .donation-box h2 {
+    margin: 0 0 10px;
+    font-size: 31px;
+    letter-spacing: -1px;
+  }
+  .donation-box p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .donation-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .modal-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 1000;
+    cursor: pointer;
+    border: 0;
+    padding: 0 14px;
+    box-shadow: 0 10px 26px rgba(0,0,0,.22);
+  }
+  .modal-btn.support {
+    background: linear-gradient(135deg, var(--gold), var(--green));
+    color: var(--dark);
+  }
+  .modal-btn.free {
+    background: #dbe7ff;
+    color: var(--dark);
+  }
+  .modal-small {
+    margin-top: 12px !important;
+    font-size: 12px;
+  }
+  @media(max-width:520px) {
+    .donation-actions { grid-template-columns: 1fr; }
+  }
+
 </style>
 
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -1295,6 +1376,11 @@ function copyRules(){
 }
 function copyResults(){
   if(!results.length){alert("No results to copy yet.");return}
+  showDonationPrompt("copy");
+}
+
+function actualCopyResults(){
+  if(!results.length){alert("No results to copy yet.");return}
   const text=results.map((r,i)=>`${i+1}. ${r.person} — ${r.team}`).join("\n");
   navigator.clipboard.writeText(text).then(()=>showToast("Results copied")).catch(()=>alert(text))
 }
@@ -1340,20 +1426,35 @@ function drawWheel(){wheelSvg.innerHTML="";const n=remainingTeams.length,cx=250,
 function spinWheel(){if(awaitingNext){advanceToNextDraw();return}if(isSpinning||currentIndex>=people.length||!remainingTeams.length)return;isSpinning=true;spinButton.disabled=true;autoButton.disabled=true;const n=remainingTeams.length,winningIndex=Math.floor(Math.random()*n);landedPerson=people[currentIndex];selectedTeam=remainingTeams[winningIndex];const slice=360/n,sliceCentre=winningIndex*slice+slice/2,targetAtPointer=-sliceCentre,extraSpins=autoMode?4:7+Math.floor(Math.random()*3),nextRotation=currentRotation+extraSpins*360+shortestForwardRotation(currentRotation%360,targetAtPointer);playTone("spin");currentRotation=nextRotation;wheel.style.transform=`rotate(${currentRotation}deg)`;setTimeout(()=>{const person=people[currentIndex],team=selectedTeam;results.push({person,team});remainingTeams.splice(winningIndex,1);currentIndex++;awaitingNext=true;document.getElementById("latestResult").textContent=`${person} gets ${team}`;document.getElementById("resultBox").classList.add("show");isSpinning=false;showReveal(person,team);playTone("win");celebrate();updateUi();if(currentIndex>=people.length||!remainingTeams.length){setTimeout(showCompleteModal,1300)}if(autoMode){autoTimer=setTimeout(()=>{if(!autoMode)return;if(currentIndex>=people.length||!remainingTeams.length){stopAutoDraw(true);return}advanceToNextDraw();autoTimer=setTimeout(()=>{if(autoMode)spinWheel()},450)},1600)}},4300)}
 function advanceToNextDraw(){awaitingNext=false;landedPerson="";selectedTeam="";currentRotation=0;wheel.style.transition="none";wheel.style.transform="rotate(0deg)";wheel.offsetHeight;wheel.style.transition="transform 4.2s cubic-bezier(.08,.7,.05,1)";drawWheel();updateUi()}function toggleAutoDraw(){if(autoMode){stopAutoDraw(true);return}if(!people.length){alert("Load the draw first.");return}autoMode=true;autoButton.textContent="Stop Auto Draw";autoButton.classList.add("danger");autoButton.classList.remove("auto");spinButton.disabled=true;showToast("Auto draw started");if(awaitingNext){advanceToNextDraw();autoTimer=setTimeout(spinWheel,450)}else if(!isSpinning)spinWheel()}function stopAutoDraw(msg=true){autoMode=false;if(autoTimer)clearTimeout(autoTimer);autoTimer=null;autoButton.textContent="Auto Draw Everyone";autoButton.classList.remove("danger");autoButton.classList.add("auto");if(msg)showToast("Auto draw stopped");updateUi()}function shortestForwardRotation(current,target){return((target-current)%360+360)%360}
 function updateUi(){document.getElementById("peopleCount").textContent=people.length;document.getElementById("teamCount").textContent=remainingTeams.length;document.getElementById("drawnCount").textContent=results.length;const centre=document.getElementById("centreCard"),clabel=document.getElementById("centreLabel"),winning=document.getElementById("winningCountry"),top=document.getElementById("topWinnerLabel"),currentPerson=awaitingNext?landedPerson||(people[currentIndex-1]||"Draw complete"):(people[currentIndex]||"Load draw");document.getElementById("currentPerson").textContent=currentPerson;document.getElementById("nextPerson").textContent=people[currentIndex]||"—";if(awaitingNext&&selectedTeam){centre.classList.add("won");clabel.textContent="Drawn team";winning.textContent=selectedTeam;top.textContent=selectedTeam;top.classList.add("show")}else{centre.classList.remove("won");clabel.textContent="Now drawing";winning.textContent="";top.textContent="";top.classList.remove("show")}spinButton.textContent=awaitingNext?"Next Draw":"Spin Wheel";spinButton.disabled=autoMode||isSpinning||!people.length||(!awaitingNext&&(currentIndex>=people.length||!remainingTeams.length));autoButton.disabled=!people.length||isSpinning||currentIndex>=people.length||!remainingTeams.length;const list=document.getElementById("drawList");list.innerHTML="";if(!results.length){list.innerHTML='<p class="hint">No teams drawn yet.</p>';updatePrizeCalc();return}results.forEach((item,index)=>{const row=document.createElement("div");row.className="drawitem";row.innerHTML=`<div class="drawperson" title="${escapeHtml(item.person)}">${index+1}. ${escapeHtml(item.person)}</div><div class="drawteam" title="${escapeHtml(item.team)}">${escapeHtml(item.team)}</div>`;list.appendChild(row)});updatePrizeCalc()}
+let pendingDonationAction = null;
+
+function showDonationPrompt(actionType){
+  pendingDonationAction = actionType || "download";
+  const freeBtn = document.getElementById("donationFreeButton");
+  if(freeBtn){
+    freeBtn.textContent = pendingDonationAction === "copy" ? "Copy results for free" : "Download CSV for free";
+  }
+  document.getElementById("donationModal").classList.add("show");
+}
+
 function downloadCsv(){
   if(!results.length){alert("No results to export yet.");return}
-  document.getElementById("donationModal").classList.add("show")
+  showDonationPrompt("download");
 }
 function closeDonationModal(){
   document.getElementById("donationModal").classList.remove("show")
 }
-function supportAndDownload(){
+function supportAndContinue(){
+  const action = pendingDonationAction;
   closeDonationModal();
-  actualDownloadCsv()
+  if(action === "copy") actualCopyResults();
+  else actualDownloadCsv();
 }
-function downloadForFree(){
+function continueForFree(){
+  const action = pendingDonationAction;
   closeDonationModal();
-  actualDownloadCsv()
+  if(action === "copy") actualCopyResults();
+  else actualDownloadCsv();
 }
 function actualDownloadCsv(){
   const rows=[["Number Drawn","Name","Country"],...results.map((r,i)=>[i+1,r.person,r.team])],
@@ -1362,7 +1463,7 @@ function actualDownloadCsv(){
   url=URL.createObjectURL(blob),
   link=document.createElement("a");
   link.href=url;
-  link.download="world-cup-2026-sweepstake-draw.csv";
+  link.download="world-cup-sweepstake-draw.csv";
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
