@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- SWEEPSTAKEWHEEL_WHEEL_RENDER_ACTUAL_FIX -->
+<!-- SWEEPSTAKEWHEEL_ONE_SUPPORT_CARD_FINAL -->
 
 <html lang="en-GB">
 <head>
@@ -1382,6 +1382,38 @@
     text-decoration: none;
   }
 
+
+  /* Single clean support card */
+  .support-card {
+    margin-top: 18px;
+    border: 1px solid rgba(255,209,102,.38);
+    background: linear-gradient(135deg, rgba(255,209,102,.12), rgba(53,208,127,.08)), rgba(255,255,255,.06);
+    border-radius: 18px;
+    padding: 15px;
+  }
+  .support-card h3 {
+    margin: 0 0 8px;
+    font-size: 16px;
+  }
+  .support-card p {
+    margin: 0 0 12px;
+    color: var(--muted);
+    line-height: 1.35;
+    font-size: 13px;
+  }
+  .support-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 42px;
+    padding: 0 14px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--gold), var(--green));
+    color: var(--dark);
+    font-weight: 1000;
+    text-decoration: none;
+  }
+
 </style>
 
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -1472,6 +1504,9 @@ Türkiye</textarea><div class="hint">Teams are editable. Update the list if the 
   <p>The wheel is free to use. If it saved you time, you can support Sweepstake Wheel with a coffee.</p>
   <a class="support-button" href="https://buymeacoffee.com/sweepstakewheel" target="_blank" rel="noopener">Support via Buy Me a Coffee ☕</a>
 </div>
+
+
+
 <div class="supportcard"><strong>Saved your office sweepstake?</strong><p>This tool is free. If it saved you spreadsheet faff, buying one coffee helps keep it online. </p><a class="supportbtn" href="https://buymeacoffee.com/sweepstakewheel" target="_blank" rel="noopener">Support via Buy Me a Coffee ☕</a></div></aside></div></main>
 
 
@@ -1598,50 +1633,7 @@ Türkiye</textarea><div class="hint">Teams are editable. Update the list if the 
 <div class="toast" id="toast">Done</div>
 <script>
 const defaultTeams=["Argentina","Australia","Austria","Belgium","Brazil","Canada","Cape Verde","Colombia","Côte d'Ivoire","Croatia","Curaçao","Ecuador","Egypt","England","France","Germany","Ghana","Haiti","Iran","Japan","Jordan","Mexico","Morocco","Netherlands","New Zealand","Norway","Panama","Paraguay","Portugal","Qatar","Saudi Arabia","Scotland","Senegal","South Africa","South Korea","Spain","Switzerland","Tunisia","Uruguay","United States","Uzbekistan","Algeria","Bolivia","DR Congo","Iraq","Jamaica","Nigeria","Türkiye"];let people=[],remainingTeams=[...defaultTeams],results=[],currentIndex=0,currentRotation=0,isSpinning=false,awaitingNext=false,landedPerson="",selectedTeam="",autoMode=false,autoTimer=null,soundOn=false,completionShown=false;const colours=["#35d07f","#5b9dff","#ffd166","#ff4f69","#b985ff","#4dd4d4","#ff9f43","#7bed9f","#70a1ff","#ff6b81","#f7d794","#a29bfe"],peopleInput=document.getElementById("peopleInput"),teamsInput=document.getElementById("teamsInput"),wheel=document.getElementById("wheel"),wheelSvg=document.getElementById("wheelSvg"),spinButton=document.getElementById("spinButton"),autoButton=document.getElementById("autoButton");
-function parseLines(v){return v.split(/\n/).map(x=>x.trim()).filter(Boolean)}function loadDraw(){stopAutoDraw(false);people=parseLines(peopleInput.value);
-/* Ensure the wheel shows all countries immediately on first page load */
-function initialiseWheelWithAllCountries(){
-  try {
-    const teams = parseLines(teamsInput.value);
-    if (Array.isArray(teams) && teams.length) {
-      remainingTeams = [...teams];
-      drawWheel();
-      updateUi();
-    }
-  } catch(e) {
-    console.warn("Initial wheel render failed", e);
-  }
-}
-
-
-function getTeamsForWheelDisplay(){
-  const loaded = (typeof remainingTeams !== "undefined" && Array.isArray(remainingTeams) && remainingTeams.length) ? remainingTeams : [];
-  if (loaded.length) return loaded;
-  try {
-    const fromTextarea = parseLines(teamsInput.value);
-    if (fromTextarea && fromTextarea.length) return fromTextarea;
-  } catch(e) {}
-  return [
-    "Argentina","Australia","Austria","Belgium","Brazil","Canada","Cape Verde","Colombia","Côte d'Ivoire","Croatia","Curaçao","Ecuador",
-    "Egypt","England","France","Germany","Ghana","Haiti","Iran","Japan","Jordan","Mexico","Morocco","Netherlands","New Zealand","Norway",
-    "Panama","Paraguay","Portugal","Qatar","Saudi Arabia","Scotland","Senegal","South Africa","South Korea","Spain","Switzerland","Tunisia",
-    "Uruguay","United States","Uzbekistan","Algeria","Bolivia","DR Congo","Jamaica","Nigeria","Türkiye"
-  ];
-}
-
-function forceInitialWheelCountries(){
-  try {
-    if (!remainingTeams || !remainingTeams.length) {
-      remainingTeams = getTeamsForWheelDisplay();
-    }
-    drawWheel();
-    updateUi();
-  } catch(e) {
-    console.warn("forceInitialWheelCountries failed", e);
-  }
-}
-
-remainingTeams=parseLines(teamsInput.value);results=[];currentIndex=0;currentRotation=0;completionShown=false;awaitingNext=false;landedPerson="";selectedTeam="";wheel.style.transition="none";wheel.style.transform="rotate(0deg)";wheel.offsetHeight;wheel.style.transition="transform 4.2s cubic-bezier(.08,.7,.05,1)";if(!people.length){alert("Add at least one person.");updateUi();return}if(!remainingTeams.length){alert("Add at least one team.");updateUi();return}if(people.length>remainingTeams.length){alert("You have more people than teams. Either remove some people or add more teams.");updateUi();return}drawWheel();updateUi();updatePrizeCalc();showToast("Draw loaded")}function shufflePeople(){const n=parseLines(peopleInput.value);for(let i=n.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[n[i],n[j]]=[n[j],n[i]]}peopleInput.value=n.join("\n");showToast("People shuffled")}
+function parseLines(v){return v.split(/\n/).map(x=>x.trim()).filter(Boolean)}function loadDraw(){stopAutoDraw(false);people=parseLines(peopleInput.value);remainingTeams=parseLines(teamsInput.value);results=[];currentIndex=0;currentRotation=0;completionShown=false;awaitingNext=false;landedPerson="";selectedTeam="";wheel.style.transition="none";wheel.style.transform="rotate(0deg)";wheel.offsetHeight;wheel.style.transition="transform 4.2s cubic-bezier(.08,.7,.05,1)";if(!people.length){alert("Add at least one person.");updateUi();return}if(!remainingTeams.length){alert("Add at least one team.");updateUi();return}if(people.length>remainingTeams.length){alert("You have more people than teams. Either remove some people or add more teams.");updateUi();return}drawWheel();updateUi();updatePrizeCalc();showToast("Draw loaded")}function shufflePeople(){const n=parseLines(peopleInput.value);for(let i=n.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[n[i],n[j]]=[n[j],n[i]]}peopleInput.value=n.join("\n");showToast("People shuffled")}
 function tryDemo(){
   peopleInput.value=["Luke","Sarah","Jess","Tom","Molly","Natalie","Chris","Aisha","Ben","Grace","Dan","Priya"].join("\n");
   loadDraw();
@@ -1748,7 +1740,7 @@ function actualDownloadCsv(){
 function celebrate(){const holder=document.getElementById("celebration");holder.innerHTML="";holder.classList.add("show");const cs=["#35d07f","#ffd166","#ff4f69","#5b9dff","#b985ff","#4dd4d4"];for(let i=0;i<70;i++){const p=document.createElement("div");p.className="piece";p.style.left=Math.random()*100+"vw";p.style.background=cs[i%cs.length];p.style.animationDelay=Math.random()*.35+"s";p.style.animationDuration=1.25+Math.random()*1.25+"s";holder.appendChild(p)}setTimeout(()=>{holder.classList.remove("show");holder.innerHTML=""},2500)}function showToast(m){const t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),1400)}function escapeHtml(v){return String(v).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;")}document.getElementById("donationModal").addEventListener("click",e=>{if(e.target.id==="donationModal")closeDonationModal()});document.getElementById("completeModal").addEventListener("click",e=>{if(e.target.id==="completeModal")closeCompleteModal()});
 document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeDonationModal();closeCompleteModal()}});
 
-remainingTeams=parseLines(teamsInput.value);if(!remainingTeams.length){remainingTeams=getTeamsForWheelDisplay();}drawWheel();updateUi();forceInitialWheelCountries();initialiseWheelWithAllCountries();updatePrizeCalc();
+remainingTeams=parseLines(teamsInput.value);drawWheel();updateUi();updatePrizeCalc();
 </script>
 
 
@@ -1870,46 +1862,6 @@ document.addEventListener("keydown", e => {
 });
 
 window.addEventListener("load", handlePaidCsvReturn);
-</script>
-
-
-<script>
-window.addEventListener("load", function(){
-  try {
-    if (typeof parseLines === "function" && typeof drawWheel === "function" && typeof updateUi === "function") {
-      const teams = parseLines(teamsInput.value);
-      if (teams && teams.length && (!remainingTeams || !remainingTeams.length)) {
-        remainingTeams = [...teams];
-        drawWheel();
-        updateUi();
-      }
-    }
-  } catch(e) {
-    console.warn("Wheel load fallback failed", e);
-  }
-});
-</script>
-
-
-<script>
-window.addEventListener("load", function(){
-  setTimeout(function(){
-    try {
-      if (typeof forceInitialWheelCountries === "function") {
-        forceInitialWheelCountries();
-      } else if (typeof parseLines === "function" && typeof drawWheel === "function") {
-        const teams = parseLines(teamsInput.value);
-        if (teams && teams.length) {
-          remainingTeams = teams;
-          drawWheel();
-          if (typeof updateUi === "function") updateUi();
-        }
-      }
-    } catch(e) {
-      console.warn("late wheel render failed", e);
-    }
-  }, 100);
-});
 </script>
 
 </body></html>
