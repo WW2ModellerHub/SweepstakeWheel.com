@@ -13,8 +13,6 @@ Donation popup added: Download CSV now prompts users to support the tool, while 
 Extra features added:
 - Try Demo Draw
 - Prize split calculator
-- Copy Rules
-- Copy Results
 - Full-screen Draw Mode
 - Dramatic reveal overlay
 - Optional sound toggle
