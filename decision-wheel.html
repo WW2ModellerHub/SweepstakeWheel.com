@@ -64,7 +64,115 @@ body.page-giveaway .proof-card{background:linear-gradient(135deg,rgba(236,72,153
 
 .feature-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,255,255,.045);padding:14px 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.feature-strip div{border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.055);padding:12px}.feature-strip strong{display:block;color:var(--accent2,var(--gold));margin-bottom:4px}.feature-strip span{display:block;color:var(--muted);font-size:13px;line-height:1.35}.template-note{border:1px solid var(--line);background:rgba(255,255,255,.055);border-radius:18px;padding:12px;margin:12px 0;color:var(--muted);font-size:13px;line-height:1.45}.picked-badge{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.07);padding:7px 10px;margin-top:8px;color:var(--muted);font-weight:900;font-size:12px}.winner-card{border:1px solid rgba(255,255,255,.2);border-radius:24px;padding:22px;background:linear-gradient(135deg,rgba(255,255,255,.14),rgba(255,255,255,.045));margin:14px 0}.winner-card .label{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);font-weight:1000}.winner-card .winner{font-size:clamp(34px,7vw,54px);font-weight:1000;color:var(--accent2,var(--gold));word-break:break-word;margin:8px 0}.winner-card .meta{color:var(--muted);font-size:13px}.caption-box{width:100%;min-height:90px;margin-top:12px;border:1px solid var(--line);border-radius:16px;background:rgba(0,0,0,.25);color:var(--text);padding:12px;font:800 14px/1.45 inherit}.decision-feature .template-grid{grid-template-columns:1fr}.decision-feature button{text-align:left}.binary-note{font-size:13px;color:var(--muted);line-height:1.4;margin:10px 0}.page-yesno .tool{box-shadow:0 30px 110px rgba(34,197,94,.12),0 30px 110px rgba(239,68,68,.12)}.page-yesno .centre{border:2px solid rgba(255,255,255,.32)}.page-yesno .person{font-size:36px}.page-yesno .drawteam{font-size:22px}.page-yesno .template-grid{grid-template-columns:1fr 1fr}.page-giveaway .results .context-link{background:rgba(236,72,153,.12)}.page-names #drawList:after{content:'Remove winner mode keeps multi-round classroom picks fair.';display:block;color:var(--muted);font-size:12px;line-height:1.35;margin-top:12px}.spin-mode-pills{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.spin-mode-pills span{border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.06);padding:7px 10px;color:var(--muted);font-size:12px;font-weight:900}@media(max-width:720px){.feature-strip{grid-template-columns:1fr;padding:12px 14px}.winner-card{padding:16px}.winner-card .winner{font-size:34px}}
 
-</style></head><body class="tool-page page-decision"><div class="celebrate" id="celebration"></div><div class="wrap"><nav class="top"><a class="brand" href="index.html" style="text-decoration:none;color:inherit"><span>🎡</span>Sweepstake Wheel</a><div class="navlinks"><a href="spin-the-wheel.html">Spin the Wheel</a><a href="random-name-picker.html">Random Name Picker</a><a href="decision-wheel.html">Decision Wheel</a><a href="yes-or-no-wheel.html">Yes or No Wheel</a><a href="giveaway-wheel.html">Giveaway Wheel</a><a href="world-cup-sweepstake.html">World Cup</a><a href="champions-league-sweepstake.html">Champions League</a><a href="premier-league-sweepstake.html">Premier League</a><a href="grand-national-sweepstake.html">Grand National</a><a href="womens-world-cup-sweepstake.html">Women’s World Cup</a><a href="https://buymeacoffee.com/sweepstakewheel" target="_blank" rel="noopener">☕ Buy me a coffee</a></div></nav>
+</style>
+<style id="brand-and-mobile-spacing-fix">
+/* Cleaner brand mark and tighter mobile header spacing */
+.brand span,.brand-mark{font-weight:1000;letter-spacing:-.6px;font-size:14px;text-transform:uppercase}
+.brand span{flex:0 0 auto}
+@media(max-width:640px){
+  .wrap{width:min(100% - 24px,1180px) !important;}
+  .top{padding:16px 0 12px !important;gap:14px !important;overflow:hidden !important;}
+  .brand{font-size:clamp(24px,7vw,34px) !important;line-height:1.05 !important;gap:12px !important;max-width:100% !important;}
+  .brand span{width:54px !important;height:54px !important;border-radius:18px !important;font-size:14px !important;}
+  .navlinks{display:flex !important;flex-wrap:nowrap !important;justify-content:flex-start !important;gap:10px !important;width:100% !important;max-width:100% !important;overflow-x:auto !important;overflow-y:hidden !important;padding:0 22px 10px 0 !important;margin:0 !important;-webkit-overflow-scrolling:touch !important;scrollbar-width:none !important;}
+  .navlinks::-webkit-scrollbar{display:none !important;}
+  .navlinks a{flex:0 0 auto !important;white-space:nowrap !important;max-width:none !important;width:auto !important;padding:10px 14px !important;font-size:13.5px !important;line-height:1 !important;border-radius:999px !important;letter-spacing:.2px !important;}
+}
+@media(max-width:390px){
+  .brand{font-size:28px !important;}
+  .brand span{width:48px !important;height:48px !important;font-size:13px !important;border-radius:16px !important;}
+  .navlinks{gap:8px !important;padding-right:18px !important;}
+  .navlinks a{font-size:12.5px !important;padding:9px 12px !important;}
+}
+</style>
+
+<style id="final-mobile-header-gap-fix">
+/* Final mobile header/nav spacing fix */
+.brand span,.brand-mark{
+  font-weight:1000!important;
+  letter-spacing:-.7px!important;
+  text-transform:uppercase!important;
+}
+.brand span,.brand-mark{
+  background:linear-gradient(135deg,var(--green,#35d07f),var(--gold,#ffd166))!important;
+  color:var(--dark,#07121f)!important;
+}
+@media (max-width: 760px){
+  .wrap{width:min(100% - 28px,1180px)!important;}
+  .top{
+    display:block!important;
+    padding:20px 0 14px!important;
+    gap:0!important;
+  }
+  .brand{
+    display:flex!important;
+    align-items:center!important;
+    gap:12px!important;
+    width:100%!important;
+    max-width:100%!important;
+    margin:0 0 18px!important;
+    font-size:clamp(26px,7.3vw,34px)!important;
+    line-height:1.05!important;
+    letter-spacing:-1.2px!important;
+  }
+  .brand span,.brand-mark{
+    width:52px!important;
+    height:52px!important;
+    min-width:52px!important;
+    flex:0 0 52px!important;
+    border-radius:16px!important;
+    display:inline-grid!important;
+    place-items:center!important;
+    font-size:14px!important;
+  }
+  .navlinks{
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:10px!important;
+    width:100%!important;
+    max-width:100%!important;
+    overflow:visible!important;
+    padding:0!important;
+    margin:0!important;
+    justify-content:stretch!important;
+  }
+  .navlinks a{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    min-height:44px!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    text-align:center!important;
+    white-space:normal!important;
+    overflow:visible!important;
+    text-overflow:clip!important;
+    padding:10px 8px!important;
+    font-size:12.5px!important;
+    line-height:1.15!important;
+    border-radius:999px!important;
+    letter-spacing:.1px!important;
+  }
+  .navlinks a[href*="champions-league"],
+  .navlinks a[href*="premier-league"],
+  .navlinks a[href*="grand-national"],
+  .navlinks a[href*="womens-world-cup"],
+  .navlinks a[href*="buymeacoffee"]{
+    display:none!important;
+  }
+  .page-intro{padding-top:8px!important;}
+}
+@media (max-width: 390px){
+  .wrap{width:min(100% - 22px,1180px)!important;}
+  .brand{font-size:25px!important;gap:10px!important;margin-bottom:14px!important;}
+  .brand span,.brand-mark{width:46px!important;height:46px!important;min-width:46px!important;flex-basis:46px!important;border-radius:14px!important;font-size:12.5px!important;}
+  .navlinks{gap:8px!important;}
+  .navlinks a{min-height:42px!important;font-size:11.5px!important;padding:9px 6px!important;}
+}
+</style>
+
+</head><body class="tool-page page-decision"><div class="celebrate" id="celebration"></div><div class="wrap"><nav class="top"><a class="brand" href="index.html" style="text-decoration:none;color:inherit"><span class="brand-mark">SW</span>Sweepstake Wheel</a><div class="navlinks"><a href="spin-the-wheel.html">Spin the Wheel</a><a href="random-name-picker.html">Random Name Picker</a><a href="decision-wheel.html">Decision Wheel</a><a href="yes-or-no-wheel.html">Yes or No Wheel</a><a href="giveaway-wheel.html">Giveaway Wheel</a><a href="world-cup-sweepstake.html">World Cup</a><a href="champions-league-sweepstake.html">Champions League</a><a href="premier-league-sweepstake.html">Premier League</a><a href="grand-national-sweepstake.html">Grand National</a><a href="womens-world-cup-sweepstake.html">Women’s World Cup</a><a href="https://buymeacoffee.com/sweepstakewheel" target="_blank" rel="noopener">☕ Buy me a coffee</a></div></nav>
 <header class="page-intro"><div class="pill">🧭 Decision maker wheel</div><h1>Decision Wheel</h1><p>Use ready-made templates for restaurants, date nights, weekends and holidays — or add your own choices.</p></header>
 <main id="generator" class="tool"><div class="toolhead"><div><h2>Decision Wheel</h2><p>Use templates or add your own choices when you want a quick, fair decision.</p></div><div class="buttons"><button class="secondary" onclick="startPaidCsvExport()">Save &amp; Export</button><button class="secondary" onclick="resetWheel()">Reset</button></div></div><div class="feature-strip"><div><strong>Decision templates</strong><span>Load common choices like restaurants, weekends, date nights and holidays.</span></div><div><strong>Edit before spinning</strong><span>Presets are only a starting point — change every option before you spin.</span></div><div><strong>Low-stakes choices</strong><span>Built for everyday decisions, not serious life or financial choices.</span></div></div><div class="grid"><aside class="panel decision-feature"><h3>Setup</h3><div class="template-note">Pick a template, edit the list, then let the wheel choose.</div><label for="entryInput">Choices</label><textarea id="entryInput">Italian restaurant
 Chinese takeaway

@@ -1332,10 +1332,118 @@ body.theme-wwc .page-intro{background-image:radial-gradient(circle at 82% 25%,rg
   .navlinks a{font-size:11.5px !important;padding:7px 9px !important;}
 }
 .wc-countdown{border:1px solid rgba(255,209,102,.35);background:rgba(255,209,102,.08);border-radius:22px;padding:16px 18px;margin:10px 0 18px;color:var(--text);font-weight:900}.wc-countdown strong{color:var(--gold)}.context-tools{border:1px solid var(--line);background:rgba(255,255,255,.06);border-radius:24px;padding:20px;margin:20px 0}.context-tools a{color:var(--gold);font-weight:1000}</style>
-</head><body class="seasonal-clean theme-premier" style="--season-bg:linear-gradient(135deg,#061b13 0%,#073e2a 48%,#171247 100%);--season-accent:#00ff87;--season-accent-2:#e9d5ff;"><div class="celebrate" id="celebration"></div><div class="wrap"><nav class="top"><a class="brand" href="index.html" style="text-decoration:none;color:inherit"><span>🎡</span>Sweepstake Wheel</a><div class="navlinks"><a href="spin-the-wheel.html">Spin the Wheel</a><a href="random-name-picker.html">Random Name Picker</a><a href="decision-wheel.html">Decision Wheel</a><a href="yes-or-no-wheel.html">Yes or No Wheel</a><a href="giveaway-wheel.html">Giveaway Wheel</a><a href="world-cup-sweepstake.html">World Cup</a><a href="champions-league-sweepstake.html">Champions League</a><a href="premier-league-sweepstake.html">Premier League</a><a href="grand-national-sweepstake.html">Grand National</a><a href="womens-world-cup-sweepstake.html">Women’s World Cup</a><a href="https://buymeacoffee.com/sweepstakewheel" target="_blank" rel="noopener">☕ Buy me a coffee</a></div></nav><header class="page-intro"><div class="pill">Free online sweepstake tool</div><h1>Premier League Sweepstake Wheel</h1><p>Add players, spin the wheel, and randomly assign Premier League clubs.</p></header>
+
+<style id="brand-and-mobile-spacing-fix">
+/* Cleaner brand mark and tighter mobile header spacing */
+.brand span,.brand-mark{font-weight:1000;letter-spacing:-.6px;font-size:14px;text-transform:uppercase}
+.brand span{flex:0 0 auto}
+@media(max-width:640px){
+  .wrap{width:min(100% - 24px,1180px) !important;}
+  .top{padding:16px 0 12px !important;gap:14px !important;overflow:hidden !important;}
+  .brand{font-size:clamp(24px,7vw,34px) !important;line-height:1.05 !important;gap:12px !important;max-width:100% !important;}
+  .brand span{width:54px !important;height:54px !important;border-radius:18px !important;font-size:14px !important;}
+  .navlinks{display:flex !important;flex-wrap:nowrap !important;justify-content:flex-start !important;gap:10px !important;width:100% !important;max-width:100% !important;overflow-x:auto !important;overflow-y:hidden !important;padding:0 22px 10px 0 !important;margin:0 !important;-webkit-overflow-scrolling:touch !important;scrollbar-width:none !important;}
+  .navlinks::-webkit-scrollbar{display:none !important;}
+  .navlinks a{flex:0 0 auto !important;white-space:nowrap !important;max-width:none !important;width:auto !important;padding:10px 14px !important;font-size:13.5px !important;line-height:1 !important;border-radius:999px !important;letter-spacing:.2px !important;}
+}
+@media(max-width:390px){
+  .brand{font-size:28px !important;}
+  .brand span{width:48px !important;height:48px !important;font-size:13px !important;border-radius:16px !important;}
+  .navlinks{gap:8px !important;padding-right:18px !important;}
+  .navlinks a{font-size:12.5px !important;padding:9px 12px !important;}
+}
+</style>
+
+<style id="final-mobile-header-gap-fix">
+/* Final mobile header/nav spacing fix */
+.brand span,.brand-mark{
+  font-weight:1000!important;
+  letter-spacing:-.7px!important;
+  text-transform:uppercase!important;
+}
+.brand span,.brand-mark{
+  background:linear-gradient(135deg,var(--green,#35d07f),var(--gold,#ffd166))!important;
+  color:var(--dark,#07121f)!important;
+}
+@media (max-width: 760px){
+  .wrap{width:min(100% - 28px,1180px)!important;}
+  .top{
+    display:block!important;
+    padding:20px 0 14px!important;
+    gap:0!important;
+  }
+  .brand{
+    display:flex!important;
+    align-items:center!important;
+    gap:12px!important;
+    width:100%!important;
+    max-width:100%!important;
+    margin:0 0 18px!important;
+    font-size:clamp(26px,7.3vw,34px)!important;
+    line-height:1.05!important;
+    letter-spacing:-1.2px!important;
+  }
+  .brand span,.brand-mark{
+    width:52px!important;
+    height:52px!important;
+    min-width:52px!important;
+    flex:0 0 52px!important;
+    border-radius:16px!important;
+    display:inline-grid!important;
+    place-items:center!important;
+    font-size:14px!important;
+  }
+  .navlinks{
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:10px!important;
+    width:100%!important;
+    max-width:100%!important;
+    overflow:visible!important;
+    padding:0!important;
+    margin:0!important;
+    justify-content:stretch!important;
+  }
+  .navlinks a{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    min-height:44px!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    text-align:center!important;
+    white-space:normal!important;
+    overflow:visible!important;
+    text-overflow:clip!important;
+    padding:10px 8px!important;
+    font-size:12.5px!important;
+    line-height:1.15!important;
+    border-radius:999px!important;
+    letter-spacing:.1px!important;
+  }
+  .navlinks a[href*="champions-league"],
+  .navlinks a[href*="premier-league"],
+  .navlinks a[href*="grand-national"],
+  .navlinks a[href*="womens-world-cup"],
+  .navlinks a[href*="buymeacoffee"]{
+    display:none!important;
+  }
+  .page-intro{padding-top:8px!important;}
+}
+@media (max-width: 390px){
+  .wrap{width:min(100% - 22px,1180px)!important;}
+  .brand{font-size:25px!important;gap:10px!important;margin-bottom:14px!important;}
+  .brand span,.brand-mark{width:46px!important;height:46px!important;min-width:46px!important;flex-basis:46px!important;border-radius:14px!important;font-size:12.5px!important;}
+  .navlinks{gap:8px!important;}
+  .navlinks a{min-height:42px!important;font-size:11.5px!important;padding:9px 6px!important;}
+}
+</style>
+
+</head><body class="seasonal-clean theme-premier" style="--season-bg:linear-gradient(135deg,#061b13 0%,#073e2a 48%,#171247 100%);--season-accent:#00ff87;--season-accent-2:#e9d5ff;"><div class="celebrate" id="celebration"></div><div class="wrap"><nav class="top"><a class="brand" href="index.html" style="text-decoration:none;color:inherit"><span class="brand-mark">SW</span>Sweepstake Wheel</a><div class="navlinks"><a href="spin-the-wheel.html">Spin the Wheel</a><a href="random-name-picker.html">Random Name Picker</a><a href="decision-wheel.html">Decision Wheel</a><a href="yes-or-no-wheel.html">Yes or No Wheel</a><a href="giveaway-wheel.html">Giveaway Wheel</a><a href="world-cup-sweepstake.html">World Cup</a><a href="champions-league-sweepstake.html">Champions League</a><a href="premier-league-sweepstake.html">Premier League</a><a href="grand-national-sweepstake.html">Grand National</a><a href="womens-world-cup-sweepstake.html">Women’s World Cup</a><a href="https://buymeacoffee.com/sweepstakewheel" target="_blank" rel="noopener">☕ Buy me a coffee</a></div></nav><header class="page-intro"><div class="pill">Free online sweepstake tool</div><h1>Premier League Sweepstake Wheel</h1><p>Add players, spin the wheel, and randomly assign Premier League clubs.</p></header>
 <section class="event-strip"><div><strong>20-club draw</strong><span>Set up a Premier League team sweepstake in minutes.</span></div><div><strong>New season ready</strong><span>Check the promoted clubs after May/June each year.</span></div><div><strong>Office friendly</strong><span>Perfect for colleagues, friends and football groups.</span></div></section>
 
-<div class="wc-countdown"><strong>World Cup 2026 starts 11 June.</strong> Run your sweepstake now, save the draw and share the results with your group.</div>
+<div class="wc-countdown"><strong>Premier League sweepstakes run every season.</strong> Draw the 2026/27 clubs, share the results and keep the page ready for August traffic.</div>
 <main id="generator" class="tool"><div class="toolhead"><div><h2>Free Premier League Sweepstake Wheel</h2><p>Add names, check the club list, then spin the wheel for a fair Premier League draw.</p></div><div class="buttons"><button class="secondary" onclick="startPaidCsvExport()">Get Results</button><button class="warning" onclick="toggleFullscreenMode()">Full-screen Draw</button><button class="danger" onclick="resetDraw()">Reset Draw</button></div></div><div class="grid"><aside class="panel"><h3>Setup</h3><label for="peopleInput">People entering</label><textarea id="peopleInput" placeholder="One person per line, e.g.
 Luke
 Sarah
