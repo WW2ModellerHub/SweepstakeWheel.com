@@ -1552,6 +1552,66 @@ label[for="peopleInput"]{font-size:15px!important;font-weight:1000!important;col
 }
 </style>
 
+
+<style id="save-share-feature-styles">
+.save-share-bar{width:min(1180px,calc(100% - 32px));margin:16px auto 24px;border:1px solid var(--line,rgba(255,255,255,.14));background:rgba(255,255,255,.07);border-radius:22px;padding:14px;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.save-share-bar .save-note{color:var(--muted,#b8c7dc);font-size:13px;line-height:1.35}
+.save-share-actions{display:flex;gap:8px;flex-wrap:wrap}
+.save-share-actions button{border:0;border-radius:999px;padding:10px 13px;font-weight:950;cursor:pointer;color:#07121f;background:linear-gradient(135deg,var(--season-accent,#ffd166),var(--season-accent-2,#35d07f))}
+.save-share-actions button.secondary{background:#dbe7ff;color:#07121f}
+.save-share-actions button.ghost{background:rgba(255,255,255,.12);color:var(--ink,#f7fbff);border:1px solid var(--line,rgba(255,255,255,.14))}
+@media(max-width:700px){.save-share-bar{align-items:stretch}.save-share-actions{width:100%;display:grid;grid-template-columns:1fr}.save-share-actions button{width:100%}}
+</style>
+
+
+<style id="presentation-undo-reveal-styles">
+.presenter-toolbar{display:none;position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:9999;background:rgba(7,18,31,.92);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:10px;gap:8px;box-shadow:0 18px 60px rgba(0,0,0,.45);backdrop-filter:blur(12px)}
+.presenter-toolbar button{border:0;border-radius:999px;padding:10px 14px;font-weight:950;cursor:pointer;color:#07121f;background:linear-gradient(135deg,var(--season-accent,#ffd166),var(--season-accent-2,#35d07f))}
+.presenter-toolbar button.secondary{background:#dbe7ff;color:#07121f}
+.presenter-toolbar button.danger{background:#ff6b81;color:#07121f}
+body.sw-presenting{overflow:hidden}
+body.sw-presenting .top,
+body.sw-presenting .affiliate-card,
+body.sw-presenting footer,
+body.sw-presenting .content,
+body.sw-presenting .save-share-bar,
+body.sw-presenting .site-disclaimer,
+body.sw-presenting .faq,
+body.sw-presenting .event-strip{display:none!important}
+body.sw-presenting .presenter-toolbar{display:flex}
+body.sw-presenting .wrap{width:100%!important;max-width:none!important;margin:0!important}
+body.sw-presenting .page-intro{display:none!important}
+body.sw-presenting main.tool,
+body.sw-presenting #generator.tool{width:100vw!important;min-height:100vh!important;margin:0!important;border-radius:0!important;border:0!important;box-shadow:none!important;padding:clamp(12px,2vw,28px)!important;display:grid!important;place-items:center!important;background:radial-gradient(circle at 50% 25%,rgba(255,255,255,.10),transparent 36%),rgba(7,18,31,.98)!important}
+body.sw-presenting .stage{transform:scale(1.08);transform-origin:center;max-width:min(96vw,1100px)!important}
+body.sw-presenting aside,
+body.sw-presenting .setup,
+body.sw-presenting .inputs,
+body.sw-presenting .panel.inputs,
+body.sw-presenting .trust-note,
+body.sw-presenting .toolhead,
+body.sw-presenting .draw-actions,
+body.sw-presenting .email-card,
+body.sw-presenting .prize-calc{display:none!important}
+body.sw-presenting .latest,
+body.sw-presenting #resultBox{position:fixed!important;top:20px!important;left:50%!important;transform:translateX(-50%)!important;z-index:9998!important;width:min(900px,92vw)!important;text-align:center!important;background:rgba(7,18,31,.88)!important;border:1px solid rgba(255,255,255,.18)!important;border-radius:24px!important;padding:14px 18px!important}
+body.sw-presenting #latestResult,
+body.sw-presenting #winnerText{font-size:clamp(26px,5vw,72px)!important;line-height:1.05!important}
+.reveal-overlay{position:fixed;inset:0;display:none;place-items:center;z-index:9997;background:radial-gradient(circle at 50% 40%,rgba(255,255,255,.08),rgba(7,18,31,.88) 58%,rgba(7,18,31,.96));color:#fff;text-align:center;padding:24px;pointer-events:none}
+.reveal-overlay.show{display:grid;animation:revealFade .75s ease both}
+.reveal-card{border:1px solid rgba(255,255,255,.18);background:rgba(7,18,31,.78);border-radius:32px;padding:28px;box-shadow:0 24px 90px rgba(0,0,0,.45);width:min(760px,92vw)}
+.reveal-kicker{color:var(--season-accent,#ffd166);font-weight:1000;text-transform:uppercase;letter-spacing:.12em;font-size:14px;margin-bottom:10px}
+.reveal-main{font-size:clamp(34px,7vw,86px);font-weight:1000;line-height:1.02}
+.reveal-sub{font-size:clamp(18px,3vw,34px);font-weight:850;color:var(--muted,#b8c7dc);margin-top:10px}
+@keyframes revealFade{from{opacity:0;transform:scale(1.02)}to{opacity:1;transform:scale(1)}}
+@media(max-width:700px){
+  .presenter-toolbar{left:10px;right:10px;bottom:10px;transform:none;border-radius:22px;display:none;grid-template-columns:1fr 1fr}
+  body.sw-presenting .presenter-toolbar{display:grid}
+  .presenter-toolbar button{width:100%;padding:11px 8px;font-size:13px}
+  body.sw-presenting .stage{transform:scale(1)}
+}
+</style>
+
 </head><body class="seasonal-clean theme-premier" style="--season-bg:linear-gradient(135deg,#061b13 0%,#073e2a 48%,#171247 100%);--season-accent:#00ff87;--season-accent-2:#e9d5ff;"><div class="celebrate" id="celebration"></div><div class="wrap"><nav class="top"><a class="brand" href="index.html" style="text-decoration:none;color:inherit"><span class="brand-mark">SW</span>Sweepstake Wheel</a><div class="navlinks"><a href="spin-the-wheel.html">Spin the Wheel</a><a href="random-name-picker.html">Random Name Picker</a><a href="giveaway-wheel.html">Giveaway</a><details class="nav-more nav-sports active"><summary>Sports</summary><div class="nav-menu"><a href="world-cup-sweepstake.html">World Cup</a><a href="womens-world-cup-sweepstake.html">Women’s World Cup</a><a href="wimbledon-sweepstake.html">Wimbledon</a><a href="premier-league-sweepstake.html" class="active">Premier League</a><a href="champions-league-sweepstake.html">Champions League</a><a href="grand-national-sweepstake.html">Grand National</a><a href="cheltenham-sweepstake.html">Cheltenham</a><a href="melbourne-cup-sweepstake.html">Melbourne Cup</a><a href="formula-1-sweepstake.html">Formula 1</a><a href="rugby-world-cup-sweepstake.html">Rugby World Cup</a><a href="euros-sweepstake.html">Euros</a><a href="darts-world-championship-sweepstake.html">Darts Worlds</a><a href="super-bowl-squares.html">Super Bowl Squares</a></div></details><details class="nav-more nav-events"><summary>TV & Events</summary><div class="nav-menu"><a href="secret-santa-wheel.html">Secret Santa</a><a href="eurovision-sweepstake.html">Eurovision</a><a href="oscar-sweepstake.html">Oscars</a><a href="im-a-celeb-sweepstake.html">I'm A Celeb</a><a href="strictly-sweepstake.html">Strictly</a><a href="traitors-sweepstake.html">Traitors</a></div></details><details class="nav-more nav-tools"><summary>More Tools</summary><div class="nav-menu"><a href="decision-wheel.html">Decision Wheel</a><a href="yes-or-no-wheel.html">Yes or No Wheel</a><a href="spin-the-wheel.html">Spin the Wheel</a><a href="random-name-picker.html">Random Name Picker</a><a href="giveaway-wheel.html">Giveaway Wheel</a></div></details></div></nav><header class="page-intro"><div class="pill">Free online sweepstake tool</div><h1>Premier League Sweepstake Wheel</h1><p>Add players, spin the wheel, and randomly assign Premier League clubs.</p></header>
 <section class="event-strip"><div><strong>20-club draw</strong><span>Set up a Premier League team sweepstake in minutes.</span></div><div><strong>New season ready</strong><span>Check the promoted clubs after May/June each year.</span></div><div><strong>Office friendly</strong><span>Perfect for colleagues, friends and football groups.</span></div></section>
 <main id="generator" class="tool"><div class="toolhead"><div><h2>Free Premier League Sweepstake Wheel</h2><p>Add names, check the club list, then spin the wheel for a fair Premier League draw.</p></div><div class="buttons"><button class="secondary" onclick="startPaidCsvExport()">Get Results</button><button class="warning" onclick="toggleFullscreenMode()">Full-screen Draw</button><button class="danger" onclick="resetDraw()">Reset Draw</button></div></div><div class="grid"><aside class="panel"><h3>Setup</h3><label for="peopleInput">People entering</label><textarea id="peopleInput" placeholder="One person per line, e.g.
@@ -1577,6 +1637,16 @@ Newcastle United
 Nottingham Forest
 Sunderland
 Tottenham Hotspur</textarea><div class="hint">Teams are editable. Default list updated for the 2026/27 Premier League season, including Coventry City, Hull City and Ipswich Town.</div><div class="buttons"><button onclick="loadDraw()">Load Draw</button><button class="secondary" onclick="shufflePeople()">Shuffle People</button><button class="secondary" onclick="tryDemo()">Try Demo Draw</button></div><div class="mini-tools"><div class="mini-card"><h4>Prize split calculator</h4><div class="calc-grid"><div><label for="entryFee">Entry £</label><input id="entryFee" type="number" value="5" min="0" step="0.5" oninput="updatePrizeCalc()"></div><div><label for="charityPct">Charity %</label><input id="charityPct" type="number" value="50" min="0" max="100" step="1" oninput="updatePrizeCalc()"></div><div><label for="winnerPct">Winner %</label><input id="winnerPct" type="number" value="35" min="0" max="100" step="1" oninput="updatePrizeCalc()"></div><div><label for="runnerPct">Runner-up %</label><input id="runnerPct" type="number" value="15" min="0" max="100" step="1" oninput="updatePrizeCalc()"></div></div><div class="calc-output" id="calcOutput"></div></div><div class="mini-card"><h4>Useful extras</h4><div class="buttons"><button class="secondary" onclick="startPaidCsvExport()">Get Results</button><button class="secondary" onclick="toggleSound()">Sound: Off</button></div><div class="trust-note">Fairness note: draws run randomly in your browser. Names and results are not uploaded or stored.</div></div></div><div class="latest" id="resultBox"><div class="hint">Latest draw</div><div class="resultmain" id="latestResult">—</div></div></aside><section class="stage"><div class="pointer"></div><div class="topwinner" id="topWinnerLabel"></div><div class="wheel" id="wheel"><svg id="wheelSvg" viewBox="0 0 500 500"></svg></div><div class="centre" id="centreCard"><div><div class="clabel" id="centreLabel"></div><div class="person" id="currentPerson">Load draw</div><div class="country" id="winningCountry"></div></div></div><div class="controls"><div class="next"><span>Next person</span><strong id="nextPerson">—</strong></div><button id="spinButton" onclick="spinWheel()" disabled>Spin Wheel</button><button id="autoButton" class="auto" onclick="toggleAutoDraw()" disabled>Auto Draw Everyone</button></div></section><aside class="panel results not-loaded"><h3>Draw results</h3><p class="start-prompt" id="startPrompt">Add names to get started — your live draw stats will appear once the draw is loaded.</p><div class="stats"><div class="stat"><div class="num" id="peopleCount">0</div><div class="slabel">People</div></div><div class="stat"><div class="num" id="teamCount">20</div><div class="slabel">Clubs left</div></div><div class="stat"><div class="num" id="drawnCount">0</div><div class="slabel">Drawn</div></div></div><div class="drawlist" id="drawList"></div><div class="support-card"><h3>Need the results?</h3><p>Copy a free summary, or unlock the formatted CSV if you want a cleaner spreadsheet-ready version.</p><div class="buttons"><button class="secondary" onclick="copyFreeSummary()">Copy Free Summary</button><button class="support-button" onclick="startPaidCsvExport()">CSV Upgrade £2.99</button></div></div></aside></div></main>
+<section class="save-share-bar" aria-label="Save and share draw">
+  <div class="save-note"><strong>Draw safety:</strong> your setup and results save on this device automatically. You can restore them if the page refreshes.</div>
+  <div class="save-share-actions">
+    <button type="button" onclick="swShareToTeams()">Share to Teams</button>
+    <button type="button" class="secondary" onclick="swCopyResultsForTeams()">Copy for Teams</button>
+    <button type="button" class="ghost" onclick="swRestoreSavedDraw()">Restore saved draw</button>
+    <button type="button" class="ghost" onclick="swClearSavedDraw()">Clear saved draw</button>
+  </div>
+</section>
+
 
 <section class="affiliate-card prominent" aria-label="Recommended related Amazon links">
   <h2>Drew a Premier League club?</h2>
@@ -1896,4 +1966,521 @@ window.addEventListener("load", function(){
     }
   }, 150);
 });
-</script></body></html>
+</script>
+<script id="save-share-feature-script">
+(function(){
+  const KEY = "sweepstakewheel.savedDraw." + location.pathname.replace(/[^a-z0-9_-]+/gi,"_");
+  const isSuperBowl = !!document.getElementById("squares");
+  const isTeamDraw = !!document.getElementById("peopleInput") && !!document.getElementById("teamsInput");
+  const isSimpleWheel = !!document.getElementById("entryInput") && !isTeamDraw;
+
+  function safeToast(message){
+    try{ if(typeof showToast === "function"){ showToast(message); return; } }catch(e){}
+    try{ console.log(message); }catch(e){}
+  }
+
+  function copyText(text, done){
+    if(!text){ alert("No results to share yet."); return; }
+    const finish = () => { if(done) done(); };
+    if(navigator.clipboard && window.isSecureContext){
+      navigator.clipboard.writeText(text).then(finish).catch(() => {
+        if(copyFallback(text)) finish();
+        else alert("Copy failed. Please select and copy the results manually.");
+      });
+    } else {
+      if(copyFallback(text)) finish();
+      else alert("Copy failed. Please select and copy the results manually.");
+    }
+  }
+
+  function copyFallback(text){
+    try{
+      const ta=document.createElement("textarea");
+      ta.value=text;
+      ta.setAttribute("readonly","");
+      ta.style.position="fixed";
+      ta.style.left="-9999px";
+      document.body.appendChild(ta);
+      ta.select();
+      const ok=document.execCommand("copy");
+      document.body.removeChild(ta);
+      return ok;
+    }catch(e){ return false; }
+  }
+
+  function teamSummaryText(){
+    try{
+      if(typeof buildFreeSummaryText === "function"){
+        const t = buildFreeSummaryText();
+        if(t) return t;
+      }
+    }catch(e){}
+    try{
+      if(typeof results !== "undefined" && Array.isArray(results) && results.length){
+        const title=(document.querySelector("h1")?.textContent || "Sweepstake draw").trim();
+        const lines=[title, "Results:"];
+        results.forEach((r,i)=>{
+          if(r && typeof r === "object") lines.push(`${i+1}. ${r.person || r.name || "Entry"} → ${r.team || r.result || r.item || ""}`);
+          else lines.push(`${i+1}. ${r}`);
+        });
+        lines.push("", "Created with SweepstakeWheel.com");
+        return lines.join("\n");
+      }
+    }catch(e){}
+    return "";
+  }
+
+  function simpleSummaryText(){
+    try{
+      if(typeof results !== "undefined" && Array.isArray(results) && results.length){
+        const title=(document.querySelector("h1")?.textContent || "Wheel results").trim();
+        const lines=[title, "Results:"];
+        results.forEach((r,i)=>lines.push(`${i+1}. ${r}`));
+        lines.push("", "Created with SweepstakeWheel.com");
+        return lines.join("\n");
+      }
+    }catch(e){}
+    const winner=document.getElementById("winnerText")?.textContent;
+    if(winner && !/spin to pick|ready|—/i.test(winner)){
+      return `${(document.querySelector("h1")?.textContent || "Wheel result").trim()}\nResult: ${winner}\n\nCreated with SweepstakeWheel.com`;
+    }
+    return "";
+  }
+
+  function superBowlSummaryText(){
+    const title=(document.querySelector("h1")?.textContent || "Super Bowl Squares").trim();
+    const a=document.getElementById("teamA")?.value || "Team A";
+    const b=document.getElementById("teamB")?.value || "Team B";
+    const players=(document.getElementById("players")?.value || "").split(/\n/).map(x=>x.trim()).filter(Boolean);
+    if(!players.length) return "";
+    return `${title}\nTeams: ${a} v ${b}\nPlayers: ${players.join(", ")}\n\nGrid generated on SweepstakeWheel.com`;
+  }
+
+  function buildShareText(){
+    if(isSuperBowl) return superBowlSummaryText();
+    if(isTeamDraw) return teamSummaryText();
+    if(isSimpleWheel) return simpleSummaryText();
+    return teamSummaryText() || simpleSummaryText();
+  }
+
+  window.swCopyResultsForTeams = function(){
+    const text=buildShareText();
+    copyText(text, ()=>safeToast("Results copied for Teams"));
+  };
+
+  window.swShareToTeams = function(){
+    const text=buildShareText();
+    copyText(text, ()=>{
+      safeToast("Results copied — opening Teams");
+      const url="https://teams.microsoft.com/share?" + "h" + "ref=" + encodeURIComponent(location.href) + "&msgText=" + encodeURIComponent(text);
+      window.open(url, "_blank", "noopener");
+    });
+  };
+
+  function payload(){
+    const base={savedAt:new Date().toISOString(), path:location.pathname, title:(document.querySelector("h1")?.textContent || "").trim()};
+    try{
+      if(isSuperBowl){
+        return Object.assign(base,{
+          type:"super-bowl",
+          players:document.getElementById("players")?.value || "",
+          teamA:document.getElementById("teamA")?.value || "",
+          teamB:document.getElementById("teamB")?.value || "",
+          grid:document.getElementById("squares")?.innerHTML || ""
+        });
+      }
+      if(isTeamDraw){
+        return Object.assign(base,{
+          type:"team-draw",
+          peopleInput:document.getElementById("peopleInput")?.value || "",
+          teamsInput:document.getElementById("teamsInput")?.value || "",
+          people:typeof people !== "undefined" ? people : [],
+          remainingTeams:typeof remainingTeams !== "undefined" ? remainingTeams : [],
+          results:typeof results !== "undefined" ? results : [],
+          currentIndex:typeof currentIndex !== "undefined" ? currentIndex : 0,
+          currentRotation:typeof currentRotation !== "undefined" ? currentRotation : 0,
+          awaitingNext:typeof awaitingNext !== "undefined" ? awaitingNext : false,
+          landedPerson:typeof landedPerson !== "undefined" ? landedPerson : "",
+          selectedTeam:typeof selectedTeam !== "undefined" ? selectedTeam : ""
+        });
+      }
+      if(isSimpleWheel){
+        return Object.assign(base,{
+          type:"simple-wheel",
+          entryInput:document.getElementById("entryInput")?.value || "",
+          entries:typeof entries !== "undefined" ? entries : [],
+          results:typeof results !== "undefined" ? results : [],
+          currentRotation:typeof currentRotation !== "undefined" ? currentRotation : 0,
+          winnerText:document.getElementById("winnerText")?.textContent || ""
+        });
+      }
+    }catch(e){}
+    return base;
+  }
+
+  window.swSaveLocalDraw = function(showMessage){
+    try{
+      const data=payload();
+      localStorage.setItem(KEY, JSON.stringify(data));
+      if(showMessage) safeToast("Draw saved on this device");
+      return true;
+    }catch(e){
+      if(showMessage) alert("Could not save this draw in your browser.");
+      return false;
+    }
+  };
+
+  window.swRestoreSavedDraw = function(){
+    let data=null;
+    try{ data=JSON.parse(localStorage.getItem(KEY) || "null"); }catch(e){}
+    if(!data){ alert("No saved draw found on this device for this page."); return; }
+    try{
+      if(data.type==="super-bowl"){
+        if(document.getElementById("players")) document.getElementById("players").value=data.players || "";
+        if(document.getElementById("teamA")) document.getElementById("teamA").value=data.teamA || "AFC";
+        if(document.getElementById("teamB")) document.getElementById("teamB").value=data.teamB || "NFC";
+        if(data.grid && document.getElementById("squares")) document.getElementById("squares").innerHTML=data.grid;
+        else if(typeof generateSquares === "function") generateSquares();
+        safeToast("Saved grid restored");
+        return;
+      }
+      if(data.type==="team-draw"){
+        if(document.getElementById("peopleInput")) document.getElementById("peopleInput").value=data.peopleInput || "";
+        if(document.getElementById("teamsInput")) document.getElementById("teamsInput").value=data.teamsInput || "";
+        if(typeof people !== "undefined") people=Array.isArray(data.people)?data.people:[];
+        if(typeof remainingTeams !== "undefined") remainingTeams=Array.isArray(data.remainingTeams)?data.remainingTeams:[];
+        if(typeof results !== "undefined") results=Array.isArray(data.results)?data.results:[];
+        if(typeof currentIndex !== "undefined") currentIndex=Number(data.currentIndex)||0;
+        if(typeof currentRotation !== "undefined") currentRotation=Number(data.currentRotation)||0;
+        if(typeof awaitingNext !== "undefined") awaitingNext=!!data.awaitingNext;
+        if(typeof landedPerson !== "undefined") landedPerson=data.landedPerson || "";
+        if(typeof selectedTeam !== "undefined") selectedTeam=data.selectedTeam || "";
+        if(typeof drawWheel === "function") drawWheel();
+        if(typeof wheel !== "undefined" && wheel){ wheel.style.transform=`rotate(${Number(data.currentRotation)||0}deg)`; }
+        if(typeof updateUi === "function") updateUi();
+        const latest=document.getElementById("latestResult");
+        if(latest && Array.isArray(data.results) && data.results.length){
+          const last=data.results[data.results.length-1];
+          latest.textContent=last && typeof last==="object" ? `${last.person || "Entry"} → ${last.team || ""}` : String(last);
+          document.getElementById("resultBox")?.classList.add("show");
+        }
+        safeToast("Saved draw restored");
+        return;
+      }
+      if(data.type==="simple-wheel"){
+        if(document.getElementById("entryInput")) document.getElementById("entryInput").value=data.entryInput || "";
+        if(typeof entries !== "undefined") entries=Array.isArray(data.entries)?data.entries:[];
+        if(typeof results !== "undefined") results=Array.isArray(data.results)?data.results:[];
+        if(typeof currentRotation !== "undefined") currentRotation=Number(data.currentRotation)||0;
+        if(typeof drawWheel === "function") drawWheel();
+        if(typeof wheel !== "undefined" && wheel){ wheel.style.transform=`rotate(${Number(data.currentRotation)||0}deg)`; }
+        if(document.getElementById("winnerText")) document.getElementById("winnerText").textContent=data.winnerText || (results[0] || "Spin to pick");
+        if(typeof updateUi === "function") updateUi();
+        safeToast("Saved wheel restored");
+        return;
+      }
+    }catch(e){
+      alert("Saved draw found, but it could not be restored.");
+    }
+  };
+
+  window.swClearSavedDraw = function(){
+    if(!confirm("Clear the saved draw for this page on this device?")) return;
+    try{ localStorage.removeItem(KEY); safeToast("Saved draw cleared"); }catch(e){}
+  };
+
+  function wrapAfter(name, delay){
+    try{
+      if(typeof window[name] === "function"){
+        const original=window[name];
+        window[name]=function(){
+          const result=original.apply(this, arguments);
+          setTimeout(()=>window.swSaveLocalDraw(false), delay || 50);
+          return result;
+        };
+      }
+    }catch(e){}
+  }
+
+  window.addEventListener("load", function(){
+    ["loadDraw","spinWheel","advanceToNextDraw","toggleAutoDraw","resetDraw","loadEntries","resetWheel","generateSquares"].forEach(n=>wrapAfter(n, 150));
+    ["peopleInput","teamsInput","entryInput","players","teamA","teamB"].forEach(id=>{
+      const el=document.getElementById(id);
+      if(el) el.addEventListener("input", ()=>window.swSaveLocalDraw(false));
+    });
+    const saved=localStorage.getItem(KEY);
+    const note=document.querySelector(".save-share-bar .save-note");
+    if(saved && note) note.innerHTML="<strong>Saved draw found:</strong> use Restore saved draw if you refreshed or came back later.";
+  });
+})();
+</script>
+
+
+<div class="reveal-overlay" id="swRevealOverlay" aria-hidden="true">
+  <div class="reveal-card">
+    <div class="reveal-kicker" id="swRevealKicker">Drawing...</div>
+    <div class="reveal-main" id="swRevealMain">Good luck</div>
+    <div class="reveal-sub" id="swRevealSub">Result coming up</div>
+  </div>
+</div>
+<div class="presenter-toolbar" id="swPresenterToolbar" aria-label="Presentation mode controls">
+  <button type="button" onclick="swPresenterSpin()">Spin</button>
+  <button type="button" class="secondary" onclick="swPresenterAuto()">Auto Draw</button>
+  <button type="button" class="secondary" onclick="swUndoLastDraw()">Undo Last</button>
+  <button type="button" class="danger" onclick="swExitPresentationMode()">Exit</button>
+</div>
+
+<script id="presentation-undo-reveal-script">
+(function(){
+  let lastSnapshot=null;
+  let revealEnabled=true;
+
+  function safeToast(message){
+    try{ if(typeof showToast === "function"){ showToast(message); return; } }catch(e){}
+    try{ console.log(message); }catch(e){}
+  }
+
+  function isTeamDraw(){ return !!document.getElementById("peopleInput") && !!document.getElementById("teamsInput"); }
+  function isSimpleWheel(){ return !!document.getElementById("entryInput") && !isTeamDraw(); }
+  function isSuperBowl(){ return !!document.getElementById("squares"); }
+
+  function snapshot(){
+    try{
+      if(isTeamDraw()){
+        return {
+          type:"team",
+          people: typeof people !== "undefined" ? JSON.parse(JSON.stringify(people)) : [],
+          remainingTeams: typeof remainingTeams !== "undefined" ? JSON.parse(JSON.stringify(remainingTeams)) : [],
+          results: typeof results !== "undefined" ? JSON.parse(JSON.stringify(results)) : [],
+          currentIndex: typeof currentIndex !== "undefined" ? currentIndex : 0,
+          currentRotation: typeof currentRotation !== "undefined" ? currentRotation : 0,
+          awaitingNext: typeof awaitingNext !== "undefined" ? awaitingNext : false,
+          landedPerson: typeof landedPerson !== "undefined" ? landedPerson : "",
+          selectedTeam: typeof selectedTeam !== "undefined" ? selectedTeam : "",
+          latest: document.getElementById("latestResult")?.textContent || ""
+        };
+      }
+      if(isSimpleWheel()){
+        return {
+          type:"simple",
+          entries: typeof entries !== "undefined" ? JSON.parse(JSON.stringify(entries)) : [],
+          results: typeof results !== "undefined" ? JSON.parse(JSON.stringify(results)) : [],
+          currentRotation: typeof currentRotation !== "undefined" ? currentRotation : 0,
+          winner: document.getElementById("winnerText")?.textContent || ""
+        };
+      }
+      if(isSuperBowl()){
+        return {
+          type:"squares",
+          grid: document.getElementById("squares")?.innerHTML || "",
+          players: document.getElementById("players")?.value || "",
+          teamA: document.getElementById("teamA")?.value || "",
+          teamB: document.getElementById("teamB")?.value || ""
+        };
+      }
+    }catch(e){}
+    return null;
+  }
+
+  function restoreSnapshot(snap){
+    if(!snap) return false;
+    try{
+      if(snap.type==="team"){
+        if(typeof people !== "undefined") people=JSON.parse(JSON.stringify(snap.people||[]));
+        if(typeof remainingTeams !== "undefined") remainingTeams=JSON.parse(JSON.stringify(snap.remainingTeams||[]));
+        if(typeof results !== "undefined") results=JSON.parse(JSON.stringify(snap.results||[]));
+        if(typeof currentIndex !== "undefined") currentIndex=snap.currentIndex||0;
+        if(typeof currentRotation !== "undefined") currentRotation=snap.currentRotation||0;
+        if(typeof awaitingNext !== "undefined") awaitingNext=!!snap.awaitingNext;
+        if(typeof landedPerson !== "undefined") landedPerson=snap.landedPerson||"";
+        if(typeof selectedTeam !== "undefined") selectedTeam=snap.selectedTeam||"";
+        if(typeof drawWheel === "function") drawWheel();
+        try{ if(typeof wheel !== "undefined" && wheel) wheel.style.transform=`rotate(${snap.currentRotation||0}deg)`; }catch(e){}
+        if(typeof updateUi === "function") updateUi();
+        if(snap.latest && document.getElementById("latestResult")) document.getElementById("latestResult").textContent=snap.latest;
+        try{ if(typeof swSaveLocalDraw === "function") swSaveLocalDraw(false); }catch(e){}
+        return true;
+      }
+      if(snap.type==="simple"){
+        if(typeof entries !== "undefined") entries=JSON.parse(JSON.stringify(snap.entries||[]));
+        if(typeof results !== "undefined") results=JSON.parse(JSON.stringify(snap.results||[]));
+        if(typeof currentRotation !== "undefined") currentRotation=snap.currentRotation||0;
+        if(typeof drawWheel === "function") drawWheel();
+        try{ if(typeof wheel !== "undefined" && wheel) wheel.style.transform=`rotate(${snap.currentRotation||0}deg)`; }catch(e){}
+        if(document.getElementById("winnerText")) document.getElementById("winnerText").textContent=snap.winner || "Spin to pick";
+        if(typeof updateUi === "function") updateUi();
+        try{ if(typeof swSaveLocalDraw === "function") swSaveLocalDraw(false); }catch(e){}
+        return true;
+      }
+      if(snap.type==="squares"){
+        if(document.getElementById("players")) document.getElementById("players").value=snap.players||"";
+        if(document.getElementById("teamA")) document.getElementById("teamA").value=snap.teamA||"";
+        if(document.getElementById("teamB")) document.getElementById("teamB").value=snap.teamB||"";
+        if(document.getElementById("squares")) document.getElementById("squares").innerHTML=snap.grid||"";
+        try{ if(typeof swSaveLocalDraw === "function") swSaveLocalDraw(false); }catch(e){}
+        return true;
+      }
+    }catch(e){}
+    return false;
+  }
+
+  function showReveal(kicker, main, sub, ms){
+    if(!revealEnabled) return;
+    const overlay=document.getElementById("swRevealOverlay");
+    if(!overlay) return;
+    document.getElementById("swRevealKicker").textContent=kicker || "Drawing...";
+    document.getElementById("swRevealMain").textContent=main || "Good luck";
+    document.getElementById("swRevealSub").textContent=sub || "Result coming up";
+    overlay.classList.add("show");
+    clearTimeout(window.__swRevealTimer);
+    window.__swRevealTimer=setTimeout(()=>overlay.classList.remove("show"), ms || 1600);
+  }
+
+  function currentResultText(){
+    try{
+      if(isTeamDraw() && typeof results !== "undefined" && Array.isArray(results) && results.length){
+        const r=results[results.length-1];
+        return r && typeof r==="object" ? {main:r.team || r.result || "Result", sub:r.person || "Drawn"} : {main:String(r), sub:"Drawn"};
+      }
+      if(isSimpleWheel() && typeof results !== "undefined" && Array.isArray(results) && results.length){
+        return {main:String(results[0]), sub:"Result"};
+      }
+      const latest=document.getElementById("latestResult")?.textContent;
+      if(latest && latest !== "—") return {main:latest, sub:"Latest draw"};
+      const winner=document.getElementById("winnerText")?.textContent;
+      if(winner && !/spin to pick|ready|—/i.test(winner)) return {main:winner, sub:"Result"};
+    }catch(e){}
+    return null;
+  }
+
+  window.swEnterPresentationMode = function(){
+    document.body.classList.add("sw-presenting");
+    try{
+      const root=document.documentElement;
+      if(root.requestFullscreen) root.requestFullscreen().catch(()=>{});
+      else if(root.webkitRequestFullscreen) root.webkitRequestFullscreen();
+    }catch(e){}
+    safeToast("Presentation mode on");
+  };
+
+  window.swExitPresentationMode = function(){
+    document.body.classList.remove("sw-presenting");
+    try{
+      if(document.fullscreenElement && document.exitFullscreen) document.exitFullscreen().catch(()=>{});
+      else if(document.webkitFullscreenElement && document.webkitExitFullscreen) document.webkitExitFullscreen();
+    }catch(e){}
+    safeToast("Presentation mode off");
+  };
+
+  window.swTogglePresentationMode = function(){
+    if(document.body.classList.contains("sw-presenting")) swExitPresentationMode();
+    else swEnterPresentationMode();
+  };
+
+  window.swPresenterSpin = function(){
+    try{
+      if(isSuperBowl() && typeof generateSquares === "function"){
+        lastSnapshot=snapshot();
+        showReveal("Generating", "Super Bowl Squares", "Grid coming up", 900);
+        generateSquares();
+        setTimeout(()=>{ try{ if(typeof swSaveLocalDraw === "function") swSaveLocalDraw(false); }catch(e){} }, 150);
+        return;
+      }
+      if(typeof spinWheel === "function"){
+        lastSnapshot=snapshot();
+        const who = document.getElementById("currentPerson")?.textContent || "Drawing...";
+        showReveal("Now drawing", who, "Good luck", 1200);
+        spinWheel();
+        setTimeout(()=>{
+          const res=currentResultText();
+          if(res) showReveal("Result", res.main, res.sub, 1900);
+          try{ if(typeof swSaveLocalDraw === "function") swSaveLocalDraw(false); }catch(e){}
+        }, 4400);
+        return;
+      }
+      alert("No spin action found on this page.");
+    }catch(e){ alert("Could not start the draw."); }
+  };
+
+  window.swPresenterAuto = function(){
+    try{
+      if(typeof toggleAutoDraw === "function"){ toggleAutoDraw(); return; }
+      if(isSuperBowl() && typeof generateSquares === "function"){ generateSquares(); return; }
+      swPresenterSpin();
+    }catch(e){}
+  };
+
+  window.swUndoLastDraw = function(){
+    if(!lastSnapshot){
+      alert("Nothing to undo yet. Undo works after the next spin/draw.");
+      return;
+    }
+    if(restoreSnapshot(lastSnapshot)){
+      lastSnapshot=null;
+      safeToast("Last draw undone");
+    }else{
+      alert("Could not undo the last draw on this page.");
+    }
+  };
+
+  window.swToggleRevealMode = function(){
+    revealEnabled=!revealEnabled;
+    safeToast(revealEnabled ? "Result reveal on" : "Result reveal off");
+  };
+
+  function wrap(name, before, afterDelay){
+    try{
+      if(typeof window[name] === "function" && !window[name].__swEnhanced){
+        const original=window[name];
+        const wrapped=function(){
+          if(before) lastSnapshot=snapshot();
+          const result=original.apply(this, arguments);
+          if(afterDelay){
+            setTimeout(()=>{
+              const res=currentResultText();
+              if(res) showReveal("Result", res.main, res.sub, 1700);
+              try{ if(typeof swSaveLocalDraw === "function") swSaveLocalDraw(false); }catch(e){}
+            }, afterDelay);
+          }
+          return result;
+        };
+        wrapped.__swEnhanced=true;
+        window[name]=wrapped;
+      }
+    }catch(e){}
+  }
+
+  window.addEventListener("load", function(){
+    wrap("spinWheel", true, 4400);
+    wrap("generateSquares", true, 350);
+    const fsButtons=[...document.querySelectorAll("button")].filter(b=>/full.?screen/i.test(b.textContent||""));
+    fsButtons.forEach(b=>{
+      b.textContent="Presentation Mode";
+      b.onclick=function(ev){ ev.preventDefault(); swTogglePresentationMode(); };
+    });
+    const bar=document.querySelector(".save-share-actions");
+    if(bar && !document.getElementById("swPresentationButton")){
+      const btn=document.createElement("button");
+      btn.type="button";
+      btn.id="swPresentationButton";
+      btn.textContent="Presentation Mode";
+      btn.onclick=swTogglePresentationMode;
+      bar.insertBefore(btn, bar.firstChild);
+      const undo=document.createElement("button");
+      undo.type="button";
+      undo.className="secondary";
+      undo.textContent="Undo Last";
+      undo.onclick=swUndoLastDraw;
+      bar.appendChild(undo);
+      const reveal=document.createElement("button");
+      reveal.type="button";
+      reveal.className="ghost";
+      reveal.textContent="Reveal: On";
+      reveal.onclick=function(){ swToggleRevealMode(); this.textContent=revealEnabled?"Reveal: On":"Reveal: Off"; };
+      bar.appendChild(reveal);
+    }
+  });
+})();
+</script>
+
+</body></html>
