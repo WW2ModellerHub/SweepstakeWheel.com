@@ -1612,6 +1612,281 @@ body.sw-presenting #winnerText{font-size:clamp(26px,5vw,72px)!important;line-hei
 }
 </style>
 
+
+<style id="presentation-mode-layout-fix">
+/* Presentation mode layout fix: make the wheel a true centred stage, not the original three-column tool grid. */
+body.sw-presenting #generator.tool,
+body.sw-presenting main.tool{
+  width:100vw!important;
+  height:100vh!important;
+  min-height:100vh!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  overflow:hidden!important;
+  display:block!important;
+  background:radial-gradient(circle at 50% 35%,rgba(255,255,255,.08),transparent 34%),rgba(7,18,31,.98)!important;
+}
+body.sw-presenting #generator .grid,
+body.sw-presenting main.tool .grid{
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  place-items:center!important;
+  width:100vw!important;
+  height:100vh!important;
+  min-height:100vh!important;
+  margin:0!important;
+  padding:0!important;
+}
+body.sw-presenting #generator .stage,
+body.sw-presenting main.tool .stage{
+  --wheel-size:min(72vh,72vw,780px)!important;
+  width:100vw!important;
+  height:100vh!important;
+  min-height:100vh!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:0!important;
+  overflow:hidden!important;
+  position:relative!important;
+  display:grid!important;
+  place-items:center!important;
+  transform:none!important;
+}
+body.sw-presenting #generator .wheel,
+body.sw-presenting main.tool .wheel{
+  width:var(--wheel-size)!important;
+  max-width:var(--wheel-size)!important;
+  margin:0!important;
+  border-width:14px!important;
+  position:relative!important;
+  z-index:3!important;
+}
+body.sw-presenting #generator .pointer,
+body.sw-presenting main.tool .pointer{
+  top:calc(50vh - (var(--wheel-size) / 2) - 62px)!important;
+  left:50%!important;
+  width:58px!important;
+  height:72px!important;
+  z-index:6!important;
+}
+body.sw-presenting #generator .pointer:after,
+body.sw-presenting main.tool .pointer:after{
+  left:16px!important;
+  top:5px!important;
+  width:26px!important;
+  height:48px!important;
+}
+body.sw-presenting #generator .centre,
+body.sw-presenting main.tool .centre{
+  top:50%!important;
+  left:50%!important;
+  width:min(360px,36vw)!important;
+  min-height:150px!important;
+  padding:20px!important;
+  border-radius:30px!important;
+  z-index:7!important;
+}
+body.sw-presenting #generator .centre.won,
+body.sw-presenting main.tool .centre.won{
+  width:min(430px,42vw)!important;
+  min-height:190px!important;
+}
+body.sw-presenting #generator .person,
+body.sw-presenting main.tool .person{
+  font-size:clamp(34px,5vw,74px)!important;
+}
+body.sw-presenting #generator .country,
+body.sw-presenting main.tool .country{
+  font-size:clamp(30px,4.5vw,66px)!important;
+}
+body.sw-presenting #generator .clabel,
+body.sw-presenting main.tool .clabel{
+  font-size:clamp(13px,1.4vw,20px)!important;
+}
+body.sw-presenting #generator .controls,
+body.sw-presenting main.tool .controls{
+  position:fixed!important;
+  left:50%!important;
+  right:auto!important;
+  bottom:94px!important;
+  transform:translateX(-50%)!important;
+  z-index:9998!important;
+  width:min(760px,calc(100vw - 32px))!important;
+  display:flex!important;
+  justify-content:center!important;
+  align-items:center!important;
+  gap:12px!important;
+}
+body.sw-presenting #generator .controls .next,
+body.sw-presenting main.tool .controls .next{
+  min-width:160px!important;
+  max-width:260px!important;
+  border-radius:18px!important;
+  padding:11px 14px!important;
+  background:rgba(255,255,255,.11)!important;
+  backdrop-filter:blur(10px)!important;
+}
+body.sw-presenting #generator .controls button,
+body.sw-presenting main.tool .controls button{
+  white-space:nowrap!important;
+  padding:12px 18px!important;
+}
+body.sw-presenting #resultBox.latest,
+body.sw-presenting .latest#resultBox{
+  top:18px!important;
+  bottom:auto!important;
+  left:50%!important;
+  transform:translateX(-50%)!important;
+  width:min(760px,calc(100vw - 32px))!important;
+  z-index:9997!important;
+  padding:14px 18px!important;
+}
+body.sw-presenting #latestResult{
+  font-size:clamp(28px,4vw,60px)!important;
+}
+body.sw-presenting .presenter-toolbar{
+  bottom:18px!important;
+  z-index:10000!important;
+}
+@media(max-width:820px){
+  body.sw-presenting #generator .stage,
+  body.sw-presenting main.tool .stage{
+    --wheel-size:min(62vh,88vw,620px)!important;
+  }
+  body.sw-presenting #generator .centre,
+  body.sw-presenting main.tool .centre{
+    width:min(300px,72vw)!important;
+    min-height:130px!important;
+  }
+  body.sw-presenting #generator .controls,
+  body.sw-presenting main.tool .controls{
+    bottom:128px!important;
+    display:grid!important;
+    grid-template-columns:1fr 1fr!important;
+    gap:8px!important;
+  }
+  body.sw-presenting #generator .controls .next,
+  body.sw-presenting main.tool .controls .next{
+    grid-column:1/-1!important;
+    max-width:none!important;
+    text-align:center!important;
+  }
+}
+@media(max-height:720px){
+  body.sw-presenting #generator .stage,
+  body.sw-presenting main.tool .stage{
+    --wheel-size:min(60vh,72vw,620px)!important;
+  }
+  body.sw-presenting #generator .controls,
+  body.sw-presenting main.tool .controls{
+    bottom:82px!important;
+  }
+  body.sw-presenting .presenter-toolbar{
+    bottom:10px!important;
+  }
+}
+</style>
+
+
+<style id="clean-desktop-nav-fix">
+/* Clean desktop navigation: brand left, nav right, one row on desktop. */
+.top{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:24px!important;
+  width:min(1180px,calc(100% - 32px))!important;
+  margin:0 auto!important;
+  padding:18px 0!important;
+}
+.brand{
+  display:inline-flex!important;
+  align-items:center!important;
+  gap:12px!important;
+  white-space:nowrap!important;
+  flex:0 0 auto!important;
+  min-width:max-content!important;
+}
+.navlinks{
+  margin-left:auto!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+  gap:10px!important;
+  flex-wrap:nowrap!important;
+  width:auto!important;
+  max-width:none!important;
+}
+.navlinks>a,
+.nav-more>summary{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  min-height:42px!important;
+  padding:10px 14px!important;
+  border-radius:999px!important;
+  line-height:1!important;
+  white-space:nowrap!important;
+  font-size:13px!important;
+}
+.nav-more{
+  position:relative!important;
+  flex:0 0 auto!important;
+}
+.nav-more.nav-tools{
+  grid-column:auto!important;
+}
+.nav-menu{
+  top:50px!important;
+  right:0!important;
+  width:270px!important;
+}
+@media(max-width:1100px){
+  .top{
+    align-items:flex-start!important;
+    flex-direction:column!important;
+    gap:14px!important;
+  }
+  .navlinks{
+    margin-left:0!important;
+    width:100%!important;
+    justify-content:flex-start!important;
+    flex-wrap:wrap!important;
+  }
+}
+@media(max-width:760px){
+  .top{
+    width:min(100% - 24px,1180px)!important;
+    padding:14px 0!important;
+  }
+  .navlinks{
+    display:grid!important;
+    grid-template-columns:1fr 1fr!important;
+    gap:8px!important;
+  }
+  .navlinks>a,
+  .nav-more>summary{
+    width:100%!important;
+    font-size:12px!important;
+    padding:10px 8px!important;
+  }
+  .nav-more{
+    position:static!important;
+  }
+  .nav-menu{
+    position:static!important;
+    width:100%!important;
+    margin-top:8px!important;
+    box-shadow:none!important;
+  }
+  .nav-more.nav-tools{
+    grid-column:1 / -1!important;
+  }
+}
+</style>
+
 </head><body class="seasonal-clean theme-premier" style="--season-bg:linear-gradient(135deg,#061b13 0%,#073e2a 48%,#171247 100%);--season-accent:#00ff87;--season-accent-2:#e9d5ff;"><div class="celebrate" id="celebration"></div><div class="wrap"><nav class="top"><a class="brand" href="index.html" style="text-decoration:none;color:inherit"><span class="brand-mark">SW</span>Sweepstake Wheel</a><div class="navlinks"><a href="spin-the-wheel.html">Spin the Wheel</a><a href="random-name-picker.html">Random Name Picker</a><a href="giveaway-wheel.html">Giveaway</a><details class="nav-more nav-sports active"><summary>Sports</summary><div class="nav-menu"><a href="world-cup-sweepstake.html">World Cup</a><a href="womens-world-cup-sweepstake.html">Women’s World Cup</a><a href="wimbledon-sweepstake.html">Wimbledon</a><a href="tour-de-france-sweepstake.html">Tour de France</a><a href="the-open-golf-sweepstake.html">The Open Golf</a><a href="world-matchplay-darts-sweepstake.html">World Matchplay Darts</a><a href="commonwealth-games-sweepstake.html">Commonwealth Games</a><a href="premier-league-sweepstake.html" class="active">Premier League</a><a href="champions-league-sweepstake.html">Champions League</a><a href="grand-national-sweepstake.html">Grand National</a><a href="cheltenham-sweepstake.html">Cheltenham</a><a href="melbourne-cup-sweepstake.html">Melbourne Cup</a><a href="formula-1-sweepstake.html">Formula 1</a><a href="rugby-world-cup-sweepstake.html">Rugby World Cup</a><a href="euros-sweepstake.html">Euros</a><a href="darts-world-championship-sweepstake.html">Darts Worlds</a><a href="super-bowl-squares.html">Super Bowl Squares</a></div></details><details class="nav-more nav-events"><summary>TV & Events</summary><div class="nav-menu"><a href="secret-santa-wheel.html">Secret Santa</a><a href="eurovision-sweepstake.html">Eurovision</a><a href="oscar-sweepstake.html">Oscars</a><a href="im-a-celeb-sweepstake.html">I'm A Celeb</a><a href="strictly-sweepstake.html">Strictly</a><a href="traitors-sweepstake.html">Traitors</a></div></details><details class="nav-more nav-tools"><summary>More Tools</summary><div class="nav-menu"><a href="decision-wheel.html">Decision Wheel</a><a href="yes-or-no-wheel.html">Yes or No Wheel</a><a href="spin-the-wheel.html">Spin the Wheel</a><a href="random-name-picker.html">Random Name Picker</a><a href="giveaway-wheel.html">Giveaway Wheel</a></div></details></div></nav><header class="page-intro"><div class="pill">Free online sweepstake tool</div><h1>Premier League Sweepstake Wheel</h1><p>Add players, spin the wheel, and randomly assign Premier League clubs.</p></header>
 <section class="event-strip"><div><strong>20-club draw</strong><span>Set up a Premier League team sweepstake in minutes.</span></div><div><strong>New season ready</strong><span>Check the promoted clubs after May/June each year.</span></div><div><strong>Office friendly</strong><span>Perfect for colleagues, friends and football groups.</span></div></section>
 <main id="generator" class="tool"><div class="toolhead"><div><h2>Free Premier League Sweepstake Wheel</h2><p>Add names, check the club list, then spin the wheel for a fair Premier League draw.</p></div><div class="buttons"><button class="secondary" onclick="startPaidCsvExport()">Get Results</button><button class="warning" onclick="toggleFullscreenMode()">Full-screen Draw</button><button class="danger" onclick="resetDraw()">Reset Draw</button></div></div><div class="grid"><aside class="panel"><h3>Setup</h3><label for="peopleInput">People entering</label><textarea id="peopleInput" placeholder="One person per line, e.g.
