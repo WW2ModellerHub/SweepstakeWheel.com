@@ -2080,6 +2080,21 @@ body.sw-presenting .presenter-toolbar{
 @media(max-width:880px){.event-switcher,.event-strip{grid-template-columns:1fr!important}}
 </style>
 
+
+<style id="adsterra-placement-styles">
+.adsterra-zone{width:min(1180px,calc(100% - 32px));margin:18px auto 30px;display:grid;gap:14px}
+.adsterra-banner-wrap,.adsterra-native-wrap{border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.035);border-radius:18px;padding:12px;overflow:hidden}
+.adsterra-banner-wrap{display:flex;justify-content:center;align-items:center;min-height:74px}
+.adsterra-desktop-banner{display:flex;justify-content:center;align-items:center}
+.adsterra-mobile-banner{display:none;justify-content:center;align-items:center}
+@media(max-width:760px){
+  .adsterra-desktop-banner{display:none!important}
+  .adsterra-mobile-banner{display:flex!important}
+  .adsterra-zone{width:min(100% - 24px,1180px)}
+  .adsterra-banner-wrap,.adsterra-native-wrap{padding:10px;border-radius:16px}
+}
+</style>
+
 </head><body class="seasonal-clean theme-strictly" style="--season-bg:linear-gradient(135deg,#111827 0%,#581c87 50%,#be123c 100%);--season-accent:#f0abfc;--season-accent-2:#facc15;"><div class="celebrate" id="celebration"></div><div class="strictly-sparkle" aria-hidden="true"></div><div class="wrap"><nav class="top"><a class="brand" href="index.html" style="text-decoration:none;color:inherit"><span class="brand-mark">SW</span>Sweepstake Wheel</a><div class="navlinks"><a href="spin-the-wheel.html">Spin the Wheel</a><a href="random-name-picker.html">Random Name Picker</a><a href="giveaway-wheel.html">Giveaway</a><details class="nav-more nav-sports"><summary>Sports</summary><div class="nav-menu"><a href="world-cup-sweepstake.html">World Cup</a><a href="womens-world-cup-sweepstake.html">Women’s World Cup</a><a href="wimbledon-sweepstake.html">Wimbledon</a><a href="tour-de-france-sweepstake.html">Tour de France</a><a href="the-open-golf-sweepstake.html">The Open Golf</a><a href="world-matchplay-darts-sweepstake.html">World Matchplay Darts</a><a href="commonwealth-games-sweepstake.html">Commonwealth Games</a><a href="premier-league-sweepstake.html">Premier League</a><a href="champions-league-sweepstake.html">Champions League</a><a href="grand-national-sweepstake.html">Grand National</a><a href="cheltenham-sweepstake.html">Cheltenham</a><a href="melbourne-cup-sweepstake.html">Melbourne Cup</a><a href="formula-1-sweepstake.html">Formula 1</a><a href="rugby-world-cup-sweepstake.html">Rugby World Cup</a><a href="euros-sweepstake.html">Euros</a><a href="darts-world-championship-sweepstake.html">Darts Worlds</a><a href="super-bowl-squares.html">Super Bowl Squares</a></div></details><details class="nav-more nav-events active"><summary>TV & Events</summary><div class="nav-menu"><a href="secret-santa-wheel.html">Secret Santa</a><a href="eurovision-sweepstake.html">Eurovision</a><a href="oscar-sweepstake.html">Oscars</a><a href="im-a-celeb-sweepstake.html">I'm A Celeb</a><a href="strictly-sweepstake.html" class="active">Strictly</a><a href="traitors-sweepstake.html">Traitors</a></div></details><details class="nav-more nav-tools"><summary>More Tools</summary><div class="nav-menu"><a href="decision-wheel.html">Decision Wheel</a><a href="yes-or-no-wheel.html">Yes or No Wheel</a><a href="spin-the-wheel.html">Spin the Wheel</a><a href="random-name-picker.html">Random Name Picker</a><a href="giveaway-wheel.html">Giveaway Wheel</a></div></details></div></nav><header class="page-intro"><div class="pill">Free Strictly draw tool</div><h1>Strictly Sweepstake Wheel</h1><p>Add names, paste the celebrities or couples, and randomly assign Strictly entries for your office or group chat.</p></header>
 <section class="event-switcher" aria-label="Related sweepstake pages"><a href="traitors-sweepstake.html">Traitors Sweepstake<span>Another office-friendly TV page with low competition.</span></a><a href="im-a-celeb-sweepstake.html">I’m A Celeb Sweepstake<span>A later-year reality TV page for the same crowd.</span></a><a href="secret-santa-wheel.html">Secret Santa Wheel<span>A strong end-of-year office draw page.</span></a></section><section class="event-strip"><div><strong>Autumn TV page</strong><span>Useful once the celebrity and pro pairings are known.</span></div><div><strong>Editable contestant list</strong><span>Paste the confirmed names before running the draw.</span></div><div><strong>Social sweepstake fit</strong><span>Built for offices, families and weekly watch parties.</span></div></section>
 <main id="generator" class="tool"><div class="toolhead"><div><h2>Free Strictly Sweepstake Wheel</h2><p>Add names, paste celebrities or couples, then spin the wheel for a fair Strictly draw.</p></div><div class="buttons"><button class="secondary" onclick="startPaidCsvExport()">Get Results</button><button class="warning" onclick="toggleFullscreenMode()">Full-screen Draw</button><button class="danger" onclick="resetDraw()">Reset Draw</button></div></div><div class="grid"><aside class="panel"><h3>Setup</h3><label for="peopleInput">People entering</label><textarea id="peopleInput" placeholder="One person per line, e.g.
@@ -2112,6 +2127,40 @@ Celebrity 15</textarea><div class="hint">Entries are editable. Paste confirmed c
 
 
 <section class="affiliate-card prominent" aria-label="Recommended related Amazon links"><h2>Strictly night extras</h2><p>Add sparkle to your Strictly sweepstake with party decorations and TV-night supplies.</p><div class="affiliate-buttons"><a class="affiliate-button" href="https://www.amazon.co.uk/s?k=glitter+party+decorations&amp;tag=sweepstakewheel-21" target="_blank" rel="nofollow sponsored noopener">Glitter decorations</a><a class="affiliate-button" href="https://www.amazon.co.uk/s?k=dance+books&amp;tag=sweepstakewheel-21" target="_blank" rel="nofollow sponsored noopener">Dance books</a><a class="affiliate-button" href="https://www.amazon.co.uk/s?k=party+snacks&amp;tag=sweepstakewheel-21" target="_blank" rel="nofollow sponsored noopener">Party snacks</a><a class="affiliate-button" href="https://www.amazon.co.uk/s?k=party+games&amp;tag=sweepstakewheel-21" target="_blank" rel="nofollow sponsored noopener">Party games</a></div><p class="affiliate-disclosure">Some links below are affiliate links. As an Amazon Associate I earn from qualifying purchases.</p></section>
+
+<section class="adsterra-zone" aria-label="Advertisement">
+  <div class="adsterra-banner-wrap">
+    <div class="adsterra-desktop-banner">
+      <script>
+        atOptions = {
+          'key' : '99e11ca2295280c788575f1d9157e73c',
+          'format' : 'iframe',
+          'height' : 90,
+          'width' : 728,
+          'params' : {}
+        };
+      </script>
+      <script src="https://www.highperformanceformat.com/99e11ca2295280c788575f1d9157e73c/invoke.js"></script>
+    </div>
+    <div class="adsterra-mobile-banner">
+      <script>
+        atOptions = {
+          'key' : '18f45593ba81985f80d618445a0a98af',
+          'format' : 'iframe',
+          'height' : 50,
+          'width' : 320,
+          'params' : {}
+        };
+      </script>
+      <script src="https://www.highperformanceformat.com/18f45593ba81985f80d618445a0a98af/invoke.js"></script>
+    </div>
+  </div>
+  <div class="adsterra-native-wrap">
+    <script async="async" data-cfasync="false" src="https://pl29765732.effectivecpmnetwork.com/5a5842a43beb490d9f7da00a7de2e0e4/invoke.js"></script>
+    <div id="container-5a5842a43beb490d9f7da00a7de2e0e4"></div>
+  </div>
+</section>
+
 
 <section class="content"><article class="card"><h2>Strictly Sweepstake Wheel FAQs</h2><details><summary>How do I run this draw?</summary><p>Add names, edit the list, load the draw and spin the wheel to assign entries randomly.</p></details><details><summary>Can I edit the list?</summary><p>Yes. Paste the confirmed list before running your draw.</p></details><details><summary>Can I use this for an office sweepstake?</summary><p>Yes. It is designed for offices, group chats, families and friendship groups.</p></details></article><article class="card"><h2>Why this page is useful</h2><p>This page is built for a specific seasonal moment, with editable entries, fair random assignment and shareable results for groups.</p></article></section>
 

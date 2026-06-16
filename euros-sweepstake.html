@@ -2081,6 +2081,21 @@ body.sw-presenting .presenter-toolbar{
 @media(max-width:880px){.event-switcher,.event-strip{grid-template-columns:1fr!important}}
 </style>
 
+
+<style id="adsterra-placement-styles">
+.adsterra-zone{width:min(1180px,calc(100% - 32px));margin:18px auto 30px;display:grid;gap:14px}
+.adsterra-banner-wrap,.adsterra-native-wrap{border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.035);border-radius:18px;padding:12px;overflow:hidden}
+.adsterra-banner-wrap{display:flex;justify-content:center;align-items:center;min-height:74px}
+.adsterra-desktop-banner{display:flex;justify-content:center;align-items:center}
+.adsterra-mobile-banner{display:none;justify-content:center;align-items:center}
+@media(max-width:760px){
+  .adsterra-desktop-banner{display:none!important}
+  .adsterra-mobile-banner{display:flex!important}
+  .adsterra-zone{width:min(100% - 24px,1180px)}
+  .adsterra-banner-wrap,.adsterra-native-wrap{padding:10px;border-radius:16px}
+}
+</style>
+
 </head><body class="seasonal-clean theme-euros" style="--season-bg:linear-gradient(135deg,#0f172a 0%,#1d4ed8 48%,#052e16 100%);--season-accent:#60a5fa;--season-accent-2:#facc15;"><div class="celebrate" id="celebration"></div><div class="wrap"><nav class="top"><a class="brand" href="index.html" style="text-decoration:none;color:inherit"><span class="brand-mark">SW</span>Sweepstake Wheel</a><div class="navlinks"><a href="spin-the-wheel.html">Spin the Wheel</a><a href="random-name-picker.html">Random Name Picker</a><a href="giveaway-wheel.html">Giveaway</a><details class="nav-more nav-sports active"><summary>Sports</summary><div class="nav-menu"><a href="world-cup-sweepstake.html">World Cup</a><a href="womens-world-cup-sweepstake.html">Women’s World Cup</a><a href="wimbledon-sweepstake.html">Wimbledon</a><a href="tour-de-france-sweepstake.html">Tour de France</a><a href="the-open-golf-sweepstake.html">The Open Golf</a><a href="world-matchplay-darts-sweepstake.html">World Matchplay Darts</a><a href="commonwealth-games-sweepstake.html">Commonwealth Games</a><a href="premier-league-sweepstake.html">Premier League</a><a href="champions-league-sweepstake.html">Champions League</a><a href="grand-national-sweepstake.html">Grand National</a><a href="cheltenham-sweepstake.html">Cheltenham</a><a href="melbourne-cup-sweepstake.html">Melbourne Cup</a><a href="formula-1-sweepstake.html">Formula 1</a><a href="rugby-world-cup-sweepstake.html">Rugby World Cup</a><a href="euros-sweepstake.html" class="active">Euros</a><a href="darts-world-championship-sweepstake.html">Darts Worlds</a><a href="super-bowl-squares.html">Super Bowl Squares</a></div></details><details class="nav-more nav-events"><summary>TV & Events</summary><div class="nav-menu"><a href="secret-santa-wheel.html">Secret Santa</a><a href="eurovision-sweepstake.html">Eurovision</a><a href="oscar-sweepstake.html">Oscars</a><a href="im-a-celeb-sweepstake.html">I'm A Celeb</a><a href="strictly-sweepstake.html">Strictly</a><a href="traitors-sweepstake.html">Traitors</a></div></details><details class="nav-more nav-tools"><summary>More Tools</summary><div class="nav-menu"><a href="decision-wheel.html">Decision Wheel</a><a href="yes-or-no-wheel.html">Yes or No Wheel</a><a href="spin-the-wheel.html">Spin the Wheel</a><a href="random-name-picker.html">Random Name Picker</a><a href="giveaway-wheel.html">Giveaway Wheel</a></div></details></div></nav><header class="page-intro"><div class="pill">Free European Championship draw</div><h1>Euros Sweepstake Wheel</h1><p>Add players, update the qualified teams, and randomly assign countries for the Euros.</p></header>
 <section class="event-switcher" aria-label="Related sweepstake pages"><a href="world-cup-sweepstake.html">World Cup Sweepstake<span>Use the live men’s international tournament page now.</span></a><a href="womens-world-cup-sweepstake.html">Women’s World Cup<span>Keep tournament football pages building long-term traffic.</span></a><a href="champions-league-sweepstake.html">Champions League Sweepstake<span>An evergreen football page to bridge seasons.</span></a></section><section class="event-strip"><div><strong>Tournament build-up</strong><span>Ready well ahead of the next European Championship.</span></div><div><strong>Editable team list</strong><span>Paste the finalists once qualification is complete.</span></div><div><strong>Football group draw</strong><span>Built for offices, schools and fan groups.</span></div></section>
 <main id="generator" class="tool"><div class="toolhead"><div><h2>Free Euros Sweepstake Wheel</h2><p>Add names, edit the country list, then spin the wheel for a fair European Championship draw.</p></div><div class="buttons"><button class="secondary" onclick="startPaidCsvExport()">Get Results</button><button class="warning" onclick="toggleFullscreenMode()">Full-screen Draw</button><button class="danger" onclick="resetDraw()">Reset Draw</button></div></div><div class="grid"><aside class="panel"><h3>Setup</h3><label for="peopleInput">People entering</label><textarea id="peopleInput" placeholder="One person per line, e.g.
@@ -2127,6 +2142,40 @@ Team 24</textarea><div class="hint">Teams are editable. Update the list once qua
   <div class="affiliate-buttons"><a class="affiliate-button" href="https://www.amazon.co.uk/s?k=europe+football+shirts&amp;tag=sweepstakewheel-21" target="_blank" rel="nofollow sponsored noopener">Football shirts</a><a class="affiliate-button" href="https://www.amazon.co.uk/s?k=football+party+decorations&amp;tag=sweepstakewheel-21" target="_blank" rel="nofollow sponsored noopener">Football party supplies</a><a class="affiliate-button" href="https://www.amazon.co.uk/s?k=europe+flags+bunting&amp;tag=sweepstakewheel-21" target="_blank" rel="nofollow sponsored noopener">Flags and bunting</a><a class="affiliate-button" href="https://www.amazon.co.uk/s?k=football+books&amp;tag=sweepstakewheel-21" target="_blank" rel="nofollow sponsored noopener">Football books</a></div>
   <p class="affiliate-disclosure">Some links below are affiliate links. As an Amazon Associate I earn from qualifying purchases.</p>
 </section>
+
+<section class="adsterra-zone" aria-label="Advertisement">
+  <div class="adsterra-banner-wrap">
+    <div class="adsterra-desktop-banner">
+      <script>
+        atOptions = {
+          'key' : '99e11ca2295280c788575f1d9157e73c',
+          'format' : 'iframe',
+          'height' : 90,
+          'width' : 728,
+          'params' : {}
+        };
+      </script>
+      <script src="https://www.highperformanceformat.com/99e11ca2295280c788575f1d9157e73c/invoke.js"></script>
+    </div>
+    <div class="adsterra-mobile-banner">
+      <script>
+        atOptions = {
+          'key' : '18f45593ba81985f80d618445a0a98af',
+          'format' : 'iframe',
+          'height' : 50,
+          'width' : 320,
+          'params' : {}
+        };
+      </script>
+      <script src="https://www.highperformanceformat.com/18f45593ba81985f80d618445a0a98af/invoke.js"></script>
+    </div>
+  </div>
+  <div class="adsterra-native-wrap">
+    <script async="async" data-cfasync="false" src="https://pl29765732.effectivecpmnetwork.com/5a5842a43beb490d9f7da00a7de2e0e4/invoke.js"></script>
+    <div id="container-5a5842a43beb490d9f7da00a7de2e0e4"></div>
+  </div>
+</section>
+
 
 <section class="content"><article class="card"><h2>Suggested Euros sweepstake rules</h2><ul><li>One country per person.</li><li>Use the confirmed tournament teams before the draw.</li><li>Winner is the person with the tournament winner.</li><li>Optional runner-up or top scorer bonus prizes.</li></ul></article><article class="card"><h2>Euro 2028 sweepstake planning</h2><p>This page is designed to be indexed early and updated later. Once the final teams are confirmed, paste them into the editable list and run the draw.</p></article></section><section class="content"><article class="card"><h2>More sweepstake tools</h2><p>Running more than one draw? Try another related sweepstake wheel from the same site.</p><div class="chips"><a class="pill" href="world-cup-sweepstake.html">World Cup</a> <a class="pill" href="champions-league-sweepstake.html">Champions League</a> <a class="pill" href="premier-league-sweepstake.html">Premier League</a> <a class="pill" href="rugby-world-cup-sweepstake.html">Rugby World Cup</a> <a class="pill" href="secret-santa-wheel.html">Secret Santa</a></div></article></section><section class="content"><article class="card"><h2>Euros sweepstake FAQs</h2><details><summary>How do I run a Euros sweepstake?</summary><p>Add players, edit the country list and spin the wheel to assign teams randomly.</p></details><details><summary>Can I use it for Euro 2028?</summary><p>Yes. Update the team list once qualification is complete.</p></details><details><summary>What if fewer people enter than teams?</summary><p>Only the people entered receive countries. Remaining countries stay unused.</p></details><details><summary>Can I copy the results?</summary><p>Yes. You can copy a free summary or use the CSV upgrade where available.</p></details></article><article class="card"><h2>Other wheel tools</h2><p>Need a more general tool? Use the random name picker, yes or no wheel, decision wheel, giveaway wheel or general spin the wheel page.</p><p><a class="supportbtn" href="random-name-picker.html">Random Name Picker</a> <a class="supportbtn" href="giveaway-wheel.html">Giveaway Wheel</a> <a class="supportbtn" href="decision-wheel.html">Decision Wheel</a></p></article></section>
 
