@@ -2063,9 +2063,105 @@ body.sw-presenting .presenter-toolbar{
 }
 </style>
 
+
+<style id="wimbledon-visual-refresh">
+/* Wimbledon refresh: grass-court feel, cleaner summer cards */
+body.theme-wimbledon{
+  --season-bg:
+    radial-gradient(circle at 12% 10%, rgba(187,247,208,.12), transparent 28%),
+    radial-gradient(circle at 88% 12%, rgba(216,180,254,.12), transparent 26%),
+    linear-gradient(135deg,#103d2b 0%,#1a523a 28%,#22204f 68%,#31164d 100%)!important;
+}
+body.theme-wimbledon::before{
+  background:
+    repeating-linear-gradient(90deg, rgba(255,255,255,.022) 0 1px, transparent 1px 62px),
+    repeating-linear-gradient(0deg, rgba(255,255,255,.018) 0 1px, transparent 1px 62px),
+    repeating-linear-gradient(135deg, rgba(186,250,203,.040) 0 18px, rgba(255,255,255,0) 18px 36px)!important;
+  opacity:.78!important;
+}
+body.theme-wimbledon .court-lines{
+  position:fixed; inset:0; pointer-events:none; z-index:1;
+  background:
+    linear-gradient(90deg, transparent 49.2%, rgba(255,255,255,.09) 49.2%, rgba(255,255,255,.09) 50.8%, transparent 50.8%),
+    linear-gradient(0deg, transparent 28%, rgba(255,255,255,.07) 28%, rgba(255,255,255,.07) 29%, transparent 29%, transparent 71%, rgba(255,255,255,.07) 71%, rgba(255,255,255,.07) 72%, transparent 72%),
+    linear-gradient(0deg, transparent 9%, rgba(255,255,255,.04) 9%, rgba(255,255,255,.04) 9.6%, transparent 9.6%, transparent 90.4%, rgba(255,255,255,.04) 90.4%, rgba(255,255,255,.04) 91%, transparent 91%);
+  opacity:.24!important;
+}
+body.theme-wimbledon .page-intro{
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.09), rgba(255,255,255,.04)),
+    repeating-linear-gradient(135deg, rgba(185,255,191,.05) 0 16px, rgba(255,255,255,0) 16px 32px)!important;
+  border-color:rgba(209,250,229,.22)!important;
+  box-shadow:0 24px 70px rgba(0,0,0,.28)!important;
+}
+body.theme-wimbledon .page-intro::before{
+  content:""!important; position:absolute; left:22px; top:-18px; width:74px; height:74px; border-radius:50%;
+  background:
+    radial-gradient(circle at 50% 50%, #d8f771 0 61%, #b7e53f 62% 100%);
+  box-shadow:
+    0 0 0 2px rgba(255,255,255,.18),
+    inset 0 0 0 1px rgba(255,255,255,.12);
+  opacity:.96;
+}
+body.theme-wimbledon .page-intro::after{
+  content:""!important; position:absolute; right:28px; top:20px; width:220px; height:220px; border-radius:50%;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(216,247,113,.88) 0 56%, rgba(183,229,63,.72) 57% 100%);
+  opacity:.12;
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,.10);
+}
+body.theme-wimbledon .page-intro h1{padding-top:10px;}
+body.theme-wimbledon .page-intro .pill{
+  background:rgba(17,56,40,.72)!important;
+  border:1px solid rgba(216,247,113,.22)!important;
+  color:#eff9e0!important;
+}
+body.theme-wimbledon .page-intro .pill::before{content:"🎾 ";}
+body.theme-wimbledon .event-switcher,
+body.theme-wimbledon .event-strip{width:min(1180px,calc(100% - 32px))!important; margin-left:auto!important; margin-right:auto!important;}
+body.theme-wimbledon .event-switcher{margin-bottom:14px!important;}
+body.theme-wimbledon .event-switcher a,
+body.theme-wimbledon .event-strip div{
+  border:1px solid rgba(255,255,255,.12)!important;
+  background:linear-gradient(135deg, rgba(255,255,255,.075), rgba(255,255,255,.035))!important;
+  border-radius:20px!important;
+  box-shadow:0 14px 34px rgba(0,0,0,.14)!important;
+}
+body.theme-wimbledon .event-switcher a{padding:16px 18px!important;}
+body.theme-wimbledon .event-switcher a:hover{transform:translateY(-2px); border-color:rgba(216,247,113,.24)!important;}
+body.theme-wimbledon .event-switcher a{transition:transform .18s ease,border-color .18s ease,background .18s ease;}
+body.theme-wimbledon .event-switcher a:first-child{border-left:4px solid #8af0be!important;}
+body.theme-wimbledon .event-switcher a:nth-child(2){border-left:4px solid #d8f771!important;}
+body.theme-wimbledon .event-switcher a:nth-child(3){border-left:4px solid #d4a5ff!important;}
+body.theme-wimbledon .event-switcher span{margin-top:6px!important; font-size:13px!important; line-height:1.4!important;}
+body.theme-wimbledon .event-strip{margin-bottom:18px!important;}
+body.theme-wimbledon .event-strip div{padding:15px 18px!important;}
+body.theme-wimbledon .event-strip strong{color:#d8f771!important; font-size:13px!important; text-transform:uppercase; letter-spacing:.08em!important;}
+body.theme-wimbledon .event-strip span{font-size:13px!important; line-height:1.45!important; color:#dbe7f4!important;}
+body.theme-wimbledon .toolhead{
+  background:linear-gradient(90deg, rgba(216,247,113,.11), rgba(192,132,252,.08))!important;
+}
+body.theme-wimbledon .affiliate-card{
+  background:
+    radial-gradient(circle at 86% 20%, rgba(216,247,113,.13), transparent 28%),
+    radial-gradient(circle at 14% 16%, rgba(255,255,255,.08), transparent 22%),
+    linear-gradient(135deg, rgba(255,255,255,.105), rgba(255,255,255,.04))!important;
+  border-color:rgba(216,247,113,.18)!important;
+}
+body.theme-wimbledon .affiliate-card::after{
+  content:""; position:absolute; right:22px; bottom:18px; width:68px; height:68px; border-radius:50%;
+  background:radial-gradient(circle at 50% 50%, rgba(216,247,113,.92) 0 61%, rgba(183,229,63,.82) 62% 100%);
+  box-shadow:0 0 0 2px rgba(255,255,255,.08); opacity:.16;
+}
+@media(max-width:760px){
+  body.theme-wimbledon .page-intro::before{left:auto; right:18px; top:16px; width:48px; height:48px; opacity:.85;}
+  body.theme-wimbledon .page-intro::after{display:none!important;}
+}
+</style>
+
 </head><body class="seasonal-clean theme-wimbledon" style="--season-bg:linear-gradient(135deg,#143d2a 0%,#2d174c 55%,#0b1f16 100%);--season-accent:#a7f3d0;--season-accent-2:#c084fc;"><div class="celebrate" id="celebration"></div><div class="court-lines" aria-hidden="true"></div><div class="wrap"><nav class="top"><a class="brand" href="index.html" style="text-decoration:none;color:inherit"><span class="brand-mark">SW</span>Sweepstake Wheel</a><div class="navlinks"><a href="spin-the-wheel.html">Spin the Wheel</a><a href="random-name-picker.html">Random Name Picker</a><a href="giveaway-wheel.html">Giveaway</a><details class="nav-more nav-sports active"><summary>Sports</summary><div class="nav-menu"><a href="world-cup-sweepstake.html">World Cup</a><a href="womens-world-cup-sweepstake.html">Women’s World Cup</a><a href="wimbledon-sweepstake.html" class="active">Wimbledon</a><a href="tour-de-france-sweepstake.html">Tour de France</a><a href="the-open-golf-sweepstake.html">The Open Golf</a><a href="world-matchplay-darts-sweepstake.html">World Matchplay Darts</a><a href="commonwealth-games-sweepstake.html">Commonwealth Games</a><a href="premier-league-sweepstake.html">Premier League</a><a href="champions-league-sweepstake.html">Champions League</a><a href="grand-national-sweepstake.html">Grand National</a><a href="cheltenham-sweepstake.html">Cheltenham</a><a href="melbourne-cup-sweepstake.html">Melbourne Cup</a><a href="formula-1-sweepstake.html">Formula 1</a><a href="rugby-world-cup-sweepstake.html">Rugby World Cup</a><a href="euros-sweepstake.html">Euros</a><a href="darts-world-championship-sweepstake.html">Darts Worlds</a><a href="super-bowl-squares.html">Super Bowl Squares</a></div></details><details class="nav-more nav-events"><summary>TV & Events</summary><div class="nav-menu"><a href="secret-santa-wheel.html">Secret Santa</a><a href="eurovision-sweepstake.html">Eurovision</a><a href="oscar-sweepstake.html">Oscars</a><a href="im-a-celeb-sweepstake.html">I'm A Celeb</a><a href="strictly-sweepstake.html">Strictly</a><a href="traitors-sweepstake.html">Traitors</a></div></details><details class="nav-more nav-tools"><summary>More Tools</summary><div class="nav-menu"><a href="decision-wheel.html">Decision Wheel</a><a href="yes-or-no-wheel.html">Yes or No Wheel</a><a href="spin-the-wheel.html">Spin the Wheel</a><a href="random-name-picker.html">Random Name Picker</a><a href="giveaway-wheel.html">Giveaway Wheel</a></div></details></div></nav><header class="page-intro"><div class="pill">Wimbledon 2026: 29 June – 12 July</div><h1>Wimbledon Sweepstake Wheel</h1><p>Create a free Wimbledon sweepstake draw for your office, family or friends. Add names, paste the singles draw or seed list, then spin to assign tennis players.</p></header>
-<section class="event-switcher" aria-label="Other active sweepstake tools"><a href="world-cup-sweepstake.html">Still need World Cup?<span>Run a late World Cup sweepstake from the full or edited team list.</span></a><a href="tour-de-france-sweepstake.html">Tour de France Sweepstake<span>Starts during Wimbledon, so the page is ready early.</span></a><a href="the-open-golf-sweepstake.html">The Open Golf Sweepstake<span>Draw golfers for the July major.</span></a></section>
-<section class="event-strip"><div><strong>Wimbledon is next</strong><span>The Championships run 29 June to 12 July 2026.</span></div><div><strong>Editable player list</strong><span>Paste the confirmed singles draw once it is released.</span></div><div><strong>Office-ready draw</strong><span>Built for work sweepstakes, tennis clubs and group chats.</span></div></section>
+<section class="event-switcher" aria-label="Other active sweepstake tools"><a href="world-cup-sweepstake.html">Still need World Cup?<span>Run a late World Cup draw from the live 48-team list or your own edited team list.</span></a><a href="tour-de-france-sweepstake.html">Tour de France Sweepstake<span>Keep the summer sports run going with a July cycling sweepstake for work or friends.</span></a><a href="the-open-golf-sweepstake.html">The Open Golf Sweepstake<span>Ready for July — draw golfers fairly for one more easy summer sweepstake.</span></a></section>
+<section class="event-strip"><div><strong>Wimbledon fortnight</strong><span>The Championships run 29 June to 12 July 2026 on the grass courts at SW19.</span></div><div><strong>Editable singles draw</strong><span>Paste the confirmed men’s or women’s singles field once the final draw is released.</span></div><div><strong>Perfect for groups</strong><span>Ideal for office sweepstakes, tennis clubs, watch parties and group chats.</span></div></section>
 <main id="generator" class="tool"><div class="toolhead"><div><h2>Free Wimbledon Sweepstake Wheel</h2><p>Add names, paste tennis players, then spin the wheel for a fair Wimbledon draw.</p></div><div class="buttons"><button class="secondary" onclick="startPaidCsvExport()">Get Results</button><button class="warning" onclick="toggleFullscreenMode()">Full-screen Draw</button><button class="danger" onclick="resetDraw()">Reset Draw</button></div></div><div class="grid"><aside class="panel"><h3>Setup</h3><label for="peopleInput">People entering</label><textarea id="peopleInput" placeholder="One person per line, e.g.
 Luke
 Sarah
