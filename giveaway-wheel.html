@@ -804,18 +804,102 @@ body.sw-presenting .presenter-toolbar{
 
 
 <style id="adsterra-placement-styles">
-.adsterra-zone{width:min(1180px,calc(100% - 32px));margin:18px auto 30px;display:grid;gap:14px}
-.adsterra-banner-wrap,.adsterra-native-wrap{border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.035);border-radius:18px;padding:12px;overflow:hidden}
-.adsterra-banner-wrap{display:flex;justify-content:center;align-items:center;min-height:74px}
-.adsterra-desktop-banner{display:flex;justify-content:center;align-items:center}
-.adsterra-mobile-banner{display:none;justify-content:center;align-items:center}
+.adsterra-zone{
+  width:min(1180px,calc(100% - 32px));
+  margin:18px auto 30px;
+  display:grid;
+  gap:14px;
+}
+.adsterra-heading{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  color:rgba(255,255,255,.66);
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin:0;
+}
+.adsterra-heading span{
+  opacity:.72;
+  text-transform:none;
+  letter-spacing:0;
+  font-size:12px;
+}
+.adsterra-banner-wrap,
+.adsterra-native-wrap{
+  position:relative;
+  border:1px dashed rgba(255,255,255,.20);
+  background:rgba(255,255,255,.055);
+  border-radius:18px;
+  padding:12px;
+  overflow:hidden;
+}
+.adsterra-banner-wrap{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:116px;
+}
+.adsterra-native-wrap{
+  min-height:120px;
+}
+.adsterra-banner-wrap::before,
+.adsterra-native-wrap::before{
+  content:"Ad loading…";
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  color:rgba(255,255,255,.44);
+  font-size:13px;
+  font-weight:850;
+  pointer-events:none;
+  z-index:0;
+}
+.adsterra-banner-wrap script,
+.adsterra-native-wrap script,
+.adsterra-banner-wrap iframe,
+.adsterra-native-wrap iframe,
+.adsterra-native-wrap > div{
+  position:relative;
+  z-index:2;
+}
+.adsterra-desktop-banner{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-width:728px;
+  min-height:90px;
+}
+.adsterra-mobile-banner{
+  display:none;
+  justify-content:center;
+  align-items:center;
+  min-width:320px;
+  min-height:50px;
+}
 @media(max-width:760px){
   .adsterra-desktop-banner{display:none!important}
   .adsterra-mobile-banner{display:flex!important}
   .adsterra-zone{width:min(100% - 24px,1180px)}
   .adsterra-banner-wrap,.adsterra-native-wrap{padding:10px;border-radius:16px}
+  .adsterra-banner-wrap{min-height:82px}
 }
 </style>
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SV4FCEKD9C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SV4FCEKD9C');
+</script>
 
 </head><body class="tool-page page-giveaway"><div class="celebrate" id="celebration"></div><div class="wrap"><nav class="top"><a class="brand" href="index.html" style="text-decoration:none;color:inherit"><span class="brand-mark">SW</span>Sweepstake Wheel</a><div class="navlinks"><a href="spin-the-wheel.html">Spin the Wheel</a><a href="random-name-picker.html">Random Name Picker</a><a href="giveaway-wheel.html" class="active">Giveaway</a><details class="nav-more nav-sports"><summary>Sports</summary><div class="nav-menu"><a href="world-cup-sweepstake.html">World Cup</a><a href="womens-world-cup-sweepstake.html">Women’s World Cup</a><a href="wimbledon-sweepstake.html">Wimbledon</a><a href="tour-de-france-sweepstake.html">Tour de France</a><a href="the-open-golf-sweepstake.html">The Open Golf</a><a href="world-matchplay-darts-sweepstake.html">World Matchplay Darts</a><a href="commonwealth-games-sweepstake.html">Commonwealth Games</a><a href="premier-league-sweepstake.html">Premier League</a><a href="champions-league-sweepstake.html">Champions League</a><a href="grand-national-sweepstake.html">Grand National</a><a href="cheltenham-sweepstake.html">Cheltenham</a><a href="melbourne-cup-sweepstake.html">Melbourne Cup</a><a href="formula-1-sweepstake.html">Formula 1</a><a href="rugby-world-cup-sweepstake.html">Rugby World Cup</a><a href="euros-sweepstake.html">Euros</a><a href="darts-world-championship-sweepstake.html">Darts Worlds</a><a href="super-bowl-squares.html">Super Bowl Squares</a></div></details><details class="nav-more nav-events"><summary>TV & Events</summary><div class="nav-menu"><a href="secret-santa-wheel.html">Secret Santa</a><a href="eurovision-sweepstake.html">Eurovision</a><a href="oscar-sweepstake.html">Oscars</a><a href="im-a-celeb-sweepstake.html">I'm A Celeb</a><a href="strictly-sweepstake.html">Strictly</a><a href="traitors-sweepstake.html">Traitors</a></div></details><details class="nav-more nav-tools active"><summary>More Tools</summary><div class="nav-menu"><a href="decision-wheel.html">Decision Wheel</a><a href="yes-or-no-wheel.html">Yes or No Wheel</a><a href="spin-the-wheel.html">Spin the Wheel</a><a href="random-name-picker.html">Random Name Picker</a><a href="giveaway-wheel.html" class="active">Giveaway Wheel</a></div></details></div></nav>
 <header class="page-intro"><div class="pill">🎁 Giveaway winner picker</div><h1>Giveaway Wheel</h1><p>Add entrants, spin for a random winner, then create a simple winner proof screenshot.</p></header>
@@ -846,6 +930,7 @@ body.sw-presenting .presenter-toolbar{
 </section>
 
 <section class="adsterra-zone" aria-label="Advertisement">
+  <p class="adsterra-heading">Advertisement <span>banner + native ad area</span></p>
   <div class="adsterra-banner-wrap">
     <div class="adsterra-desktop-banner">
       <script>
