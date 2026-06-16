@@ -1884,6 +1884,185 @@ body.sw-presenting .presenter-toolbar{
 }
 </style>
 
+
+<style id="affiliate-and-utility-polish">
+/* Cleaner draw utility controls */
+.save-share-bar{
+  width:min(1180px,calc(100% - 32px))!important;
+  margin:18px auto 18px!important;
+  border:1px solid rgba(255,255,255,.12)!important;
+  background:rgba(255,255,255,.045)!important;
+  border-radius:20px!important;
+  padding:12px 14px!important;
+  display:grid!important;
+  grid-template-columns:minmax(190px,1fr) auto!important;
+  gap:12px!important;
+  align-items:center!important;
+  box-shadow:none!important;
+}
+.save-share-bar .save-note{
+  color:var(--muted,#b8c7dc)!important;
+  font-size:12px!important;
+  line-height:1.35!important;
+}
+.save-share-bar .save-note strong{
+  color:var(--ink,#fff)!important;
+}
+.save-share-actions{
+  display:flex!important;
+  gap:7px!important;
+  flex-wrap:wrap!important;
+  justify-content:flex-end!important;
+}
+.save-share-actions button{
+  min-height:34px!important;
+  padding:8px 11px!important;
+  border-radius:999px!important;
+  font-size:12px!important;
+  font-weight:950!important;
+  box-shadow:none!important;
+  border:1px solid rgba(255,255,255,.12)!important;
+}
+.save-share-actions button:nth-child(n+4){
+  background:rgba(255,255,255,.10)!important;
+  color:var(--ink,#fff)!important;
+}
+
+/* Bigger, more useful Amazon section */
+.affiliate-card{
+  position:relative!important;
+  width:min(1180px,calc(100% - 32px))!important;
+  margin:24px auto 34px!important;
+  border:1px solid rgba(255,255,255,.18)!important;
+  border-radius:30px!important;
+  padding:26px!important;
+  overflow:hidden!important;
+  background:
+    radial-gradient(circle at 18% 18%,rgba(255,209,102,.20),transparent 32%),
+    radial-gradient(circle at 86% 18%,rgba(53,208,127,.15),transparent 30%),
+    linear-gradient(135deg,rgba(255,255,255,.105),rgba(255,255,255,.045))!important;
+  box-shadow:0 22px 80px rgba(0,0,0,.26)!important;
+}
+.affiliate-card:before{
+  content:"Useful extras";
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  width:max-content;
+  margin-bottom:12px;
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.10);
+  color:var(--season-accent,#ffd166);
+  border-radius:999px;
+  padding:7px 11px;
+  font-size:12px;
+  font-weight:1000;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.affiliate-card h2{
+  margin:0 0 8px!important;
+  font-size:clamp(28px,4vw,46px)!important;
+  line-height:1!important;
+  letter-spacing:-1.2px!important;
+}
+.affiliate-card p{
+  max-width:780px!important;
+  margin:0 0 18px!important;
+  color:var(--muted,#b8c7dc)!important;
+  font-size:16px!important;
+  line-height:1.55!important;
+}
+.affiliate-buttons{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:12px!important;
+  margin-top:14px!important;
+}
+.affiliate-button{
+  position:relative!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:12px!important;
+  min-height:78px!important;
+  border-radius:22px!important;
+  padding:16px 17px!important;
+  text-decoration:none!important;
+  color:#07121f!important;
+  font-weight:1000!important;
+  line-height:1.1!important;
+  background:linear-gradient(135deg,var(--season-accent,#ffd166),var(--season-accent-2,#35d07f))!important;
+  box-shadow:0 16px 34px rgba(0,0,0,.26)!important;
+  border:1px solid rgba(255,255,255,.38)!important;
+  transition:transform .18s ease, box-shadow .18s ease, filter .18s ease!important;
+}
+.affiliate-button:after{
+  content:"↗";
+  flex:0 0 auto;
+  width:30px;
+  height:30px;
+  border-radius:999px;
+  display:grid;
+  place-items:center;
+  background:rgba(7,18,31,.14);
+  font-size:17px;
+}
+.affiliate-button:hover{
+  transform:translateY(-2px)!important;
+  box-shadow:0 22px 44px rgba(0,0,0,.34)!important;
+  filter:saturate(1.08)!important;
+}
+.affiliate-disclosure{
+  margin-top:14px!important;
+  margin-bottom:0!important;
+  color:rgba(255,255,255,.66)!important;
+  font-size:12px!important;
+  line-height:1.45!important;
+}
+
+/* Make the affiliate card clearly visible after the draw, without making it spammy */
+.affiliate-card.prominent{
+  outline:1px solid rgba(255,255,255,.06)!important;
+}
+@media(max-width:920px){
+  .save-share-bar{
+    grid-template-columns:1fr!important;
+  }
+  .save-share-actions{
+    justify-content:flex-start!important;
+  }
+  .affiliate-buttons{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+}
+@media(max-width:560px){
+  .save-share-bar{
+    width:min(100% - 24px,1180px)!important;
+    padding:11px!important;
+  }
+  .save-share-actions{
+    display:grid!important;
+    grid-template-columns:1fr 1fr!important;
+  }
+  .save-share-actions button{
+    width:100%!important;
+    font-size:11px!important;
+  }
+  .affiliate-card{
+    width:min(100% - 24px,1180px)!important;
+    padding:20px!important;
+    border-radius:24px!important;
+  }
+  .affiliate-buttons{
+    grid-template-columns:1fr!important;
+  }
+  .affiliate-button{
+    min-height:64px!important;
+  }
+}
+</style>
+
 </head><body class="seasonal-clean theme-traitors" style="--season-bg:linear-gradient(135deg,#111827 0%,#3f1d1d 50%,#0f172a 100%);--season-accent:#dc2626;--season-accent-2:#e5e7eb;"><div class="celebrate" id="celebration"></div><div class="traitor-mist" aria-hidden="true"></div><div class="wrap"><nav class="top"><a class="brand" href="index.html" style="text-decoration:none;color:inherit"><span class="brand-mark">SW</span>Sweepstake Wheel</a><div class="navlinks"><a href="spin-the-wheel.html">Spin the Wheel</a><a href="random-name-picker.html">Random Name Picker</a><a href="giveaway-wheel.html">Giveaway</a><details class="nav-more nav-sports"><summary>Sports</summary><div class="nav-menu"><a href="world-cup-sweepstake.html">World Cup</a><a href="womens-world-cup-sweepstake.html">Women’s World Cup</a><a href="wimbledon-sweepstake.html">Wimbledon</a><a href="tour-de-france-sweepstake.html">Tour de France</a><a href="the-open-golf-sweepstake.html">The Open Golf</a><a href="world-matchplay-darts-sweepstake.html">World Matchplay Darts</a><a href="commonwealth-games-sweepstake.html">Commonwealth Games</a><a href="premier-league-sweepstake.html">Premier League</a><a href="champions-league-sweepstake.html">Champions League</a><a href="grand-national-sweepstake.html">Grand National</a><a href="cheltenham-sweepstake.html">Cheltenham</a><a href="melbourne-cup-sweepstake.html">Melbourne Cup</a><a href="formula-1-sweepstake.html">Formula 1</a><a href="rugby-world-cup-sweepstake.html">Rugby World Cup</a><a href="euros-sweepstake.html">Euros</a><a href="darts-world-championship-sweepstake.html">Darts Worlds</a><a href="super-bowl-squares.html">Super Bowl Squares</a></div></details><details class="nav-more nav-events active"><summary>TV & Events</summary><div class="nav-menu"><a href="secret-santa-wheel.html">Secret Santa</a><a href="eurovision-sweepstake.html">Eurovision</a><a href="oscar-sweepstake.html">Oscars</a><a href="im-a-celeb-sweepstake.html">I'm A Celeb</a><a href="strictly-sweepstake.html">Strictly</a><a href="traitors-sweepstake.html" class="active">Traitors</a></div></details><details class="nav-more nav-tools"><summary>More Tools</summary><div class="nav-menu"><a href="decision-wheel.html">Decision Wheel</a><a href="yes-or-no-wheel.html">Yes or No Wheel</a><a href="spin-the-wheel.html">Spin the Wheel</a><a href="random-name-picker.html">Random Name Picker</a><a href="giveaway-wheel.html">Giveaway Wheel</a></div></details></div></nav><header class="page-intro"><div class="pill">Free Traitors contestant draw</div><h1>The Traitors Sweepstake Wheel</h1><p>Add names, paste contestants, and randomly assign players for a The Traitors office or group-chat sweepstake.</p></header>
 <section class="event-strip"><div><strong>Faithful or traitor</strong><span>Assign contestants before the series starts.</span></div><div><strong>Editable contestants</strong><span>Paste the confirmed cast once announced.</span></div><div><strong>Group-chat friendly</strong><span>Copy results for WhatsApp, Teams or Slack.</span></div></section>
 <main id="generator" class="tool"><div class="toolhead"><div><h2>Free The Traitors Sweepstake Wheel</h2><p>Add names, paste contestants, then spin the wheel for a fair contestant draw.</p></div><div class="buttons"><button class="secondary" onclick="startPaidCsvExport()">Get Results</button><button class="warning" onclick="toggleFullscreenMode()">Full-screen Draw</button><button class="danger" onclick="resetDraw()">Reset Draw</button></div></div><div class="grid"><aside class="panel"><h3>Setup</h3><label for="peopleInput">People entering</label><textarea id="peopleInput" placeholder="One person per line, e.g.
@@ -1910,12 +2089,12 @@ Contestant 18
 Contestant 19
 Contestant 20</textarea><div class="hint">Contestants are editable. Paste the confirmed cast before running the draw.</div><div class="buttons"><button onclick="loadDraw()">Load Draw</button><button class="secondary" onclick="shufflePeople()">Shuffle People</button><button class="secondary" onclick="tryDemo()">Try Demo Draw</button></div><div class="mini-tools"><div class="mini-card"><h4>Prize split calculator</h4><div class="calc-grid"><div><label for="entryFee">Entry £</label><input id="entryFee" type="number" value="5" min="0" step="0.5" oninput="updatePrizeCalc()"></div><div><label for="charityPct">Charity %</label><input id="charityPct" type="number" value="50" min="0" max="100" step="1" oninput="updatePrizeCalc()"></div><div><label for="winnerPct">Winner %</label><input id="winnerPct" type="number" value="35" min="0" max="100" step="1" oninput="updatePrizeCalc()"></div><div><label for="runnerPct">Runner-up %</label><input id="runnerPct" type="number" value="15" min="0" max="100" step="1" oninput="updatePrizeCalc()"></div></div><div class="calc-output" id="calcOutput"></div></div><div class="mini-card"><h4>Useful extras</h4><div class="buttons"><button class="secondary" onclick="startPaidCsvExport()">Get Results</button><button class="secondary" onclick="toggleSound()">Sound: Off</button></div><div class="trust-note">Fairness note: draws run randomly in your browser. Names and results are not uploaded or stored.</div></div></div><div class="latest" id="resultBox"><div class="hint">Latest draw</div><div class="resultmain" id="latestResult">—</div></div></aside><section class="stage"><div class="pointer"></div><div class="topwinner" id="topWinnerLabel"></div><div class="wheel" id="wheel"><svg id="wheelSvg" viewBox="0 0 500 500"></svg></div><div class="centre" id="centreCard"><div><div class="clabel" id="centreLabel"></div><div class="person" id="currentPerson">Load draw</div><div class="country" id="winningCountry"></div></div></div><div class="controls"><div class="next"><span>Next person</span><strong id="nextPerson">—</strong></div><button id="spinButton" onclick="spinWheel()" disabled>Spin Wheel</button><button id="autoButton" class="auto" onclick="toggleAutoDraw()" disabled>Auto Draw Everyone</button></div></section><aside class="panel results not-loaded"><h3>Draw results</h3><p class="start-prompt" id="startPrompt">Add names to get started — your live draw stats will appear once the draw is loaded.</p><div class="stats"><div class="stat"><div class="num" id="peopleCount">0</div><div class="slabel">People</div></div><div class="stat"><div class="num" id="teamCount">40</div><div class="slabel">Contestants left</div></div><div class="stat"><div class="num" id="drawnCount">0</div><div class="slabel">Drawn</div></div></div><div class="drawlist" id="drawList"></div><div class="support-card"><h3>Need the results?</h3><p>Copy a free summary, or unlock the formatted CSV if you want a cleaner spreadsheet-ready version.</p><div class="buttons"><button class="secondary" onclick="copyFreeSummary()">Copy Free Summary</button><button class="support-button" onclick="startPaidCsvExport()">CSV Upgrade £2.99</button></div></div></aside></div></main>
 <section class="save-share-bar" aria-label="Save and share draw">
-  <div class="save-note"><strong>Draw safety:</strong> your setup and results save on this device automatically. You can restore them if the page refreshes.</div>
+  <div class="save-note"><strong>Draw tools:</strong> present the draw, share results to Teams, or restore a saved draw on this device.</div>
   <div class="save-share-actions">
-    <button type="button" onclick="swShareToTeams()">Share to Teams</button>
-    <button type="button" class="secondary" onclick="swCopyResultsForTeams()">Copy for Teams</button>
-    <button type="button" class="ghost" onclick="swRestoreSavedDraw()">Restore saved draw</button>
-    <button type="button" class="ghost" onclick="swClearSavedDraw()">Clear saved draw</button>
+    <button type="button" onclick="swShareToTeams()">Teams Share</button>
+    <button type="button" class="secondary" onclick="swCopyResultsForTeams()">Copy Results</button>
+    <button type="button" class="ghost" onclick="swRestoreSavedDraw()">Restore</button>
+    <button type="button" class="ghost" onclick="swClearSavedDraw()">Clear</button>
   </div>
 </section>
 

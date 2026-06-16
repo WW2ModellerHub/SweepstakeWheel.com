@@ -1854,6 +1854,185 @@ body.sw-presenting #winnerText{font-size:clamp(26px,5vw,72px)!important;line-hei
 }
 </style>
 
+
+<style id="affiliate-and-utility-polish">
+/* Cleaner draw utility controls */
+.save-share-bar{
+  width:min(1180px,calc(100% - 32px))!important;
+  margin:18px auto 18px!important;
+  border:1px solid rgba(255,255,255,.12)!important;
+  background:rgba(255,255,255,.045)!important;
+  border-radius:20px!important;
+  padding:12px 14px!important;
+  display:grid!important;
+  grid-template-columns:minmax(190px,1fr) auto!important;
+  gap:12px!important;
+  align-items:center!important;
+  box-shadow:none!important;
+}
+.save-share-bar .save-note{
+  color:var(--muted,#b8c7dc)!important;
+  font-size:12px!important;
+  line-height:1.35!important;
+}
+.save-share-bar .save-note strong{
+  color:var(--ink,#fff)!important;
+}
+.save-share-actions{
+  display:flex!important;
+  gap:7px!important;
+  flex-wrap:wrap!important;
+  justify-content:flex-end!important;
+}
+.save-share-actions button{
+  min-height:34px!important;
+  padding:8px 11px!important;
+  border-radius:999px!important;
+  font-size:12px!important;
+  font-weight:950!important;
+  box-shadow:none!important;
+  border:1px solid rgba(255,255,255,.12)!important;
+}
+.save-share-actions button:nth-child(n+4){
+  background:rgba(255,255,255,.10)!important;
+  color:var(--ink,#fff)!important;
+}
+
+/* Bigger, more useful Amazon section */
+.affiliate-card{
+  position:relative!important;
+  width:min(1180px,calc(100% - 32px))!important;
+  margin:24px auto 34px!important;
+  border:1px solid rgba(255,255,255,.18)!important;
+  border-radius:30px!important;
+  padding:26px!important;
+  overflow:hidden!important;
+  background:
+    radial-gradient(circle at 18% 18%,rgba(255,209,102,.20),transparent 32%),
+    radial-gradient(circle at 86% 18%,rgba(53,208,127,.15),transparent 30%),
+    linear-gradient(135deg,rgba(255,255,255,.105),rgba(255,255,255,.045))!important;
+  box-shadow:0 22px 80px rgba(0,0,0,.26)!important;
+}
+.affiliate-card:before{
+  content:"Useful extras";
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  width:max-content;
+  margin-bottom:12px;
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.10);
+  color:var(--season-accent,#ffd166);
+  border-radius:999px;
+  padding:7px 11px;
+  font-size:12px;
+  font-weight:1000;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.affiliate-card h2{
+  margin:0 0 8px!important;
+  font-size:clamp(28px,4vw,46px)!important;
+  line-height:1!important;
+  letter-spacing:-1.2px!important;
+}
+.affiliate-card p{
+  max-width:780px!important;
+  margin:0 0 18px!important;
+  color:var(--muted,#b8c7dc)!important;
+  font-size:16px!important;
+  line-height:1.55!important;
+}
+.affiliate-buttons{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:12px!important;
+  margin-top:14px!important;
+}
+.affiliate-button{
+  position:relative!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:12px!important;
+  min-height:78px!important;
+  border-radius:22px!important;
+  padding:16px 17px!important;
+  text-decoration:none!important;
+  color:#07121f!important;
+  font-weight:1000!important;
+  line-height:1.1!important;
+  background:linear-gradient(135deg,var(--season-accent,#ffd166),var(--season-accent-2,#35d07f))!important;
+  box-shadow:0 16px 34px rgba(0,0,0,.26)!important;
+  border:1px solid rgba(255,255,255,.38)!important;
+  transition:transform .18s ease, box-shadow .18s ease, filter .18s ease!important;
+}
+.affiliate-button:after{
+  content:"↗";
+  flex:0 0 auto;
+  width:30px;
+  height:30px;
+  border-radius:999px;
+  display:grid;
+  place-items:center;
+  background:rgba(7,18,31,.14);
+  font-size:17px;
+}
+.affiliate-button:hover{
+  transform:translateY(-2px)!important;
+  box-shadow:0 22px 44px rgba(0,0,0,.34)!important;
+  filter:saturate(1.08)!important;
+}
+.affiliate-disclosure{
+  margin-top:14px!important;
+  margin-bottom:0!important;
+  color:rgba(255,255,255,.66)!important;
+  font-size:12px!important;
+  line-height:1.45!important;
+}
+
+/* Make the affiliate card clearly visible after the draw, without making it spammy */
+.affiliate-card.prominent{
+  outline:1px solid rgba(255,255,255,.06)!important;
+}
+@media(max-width:920px){
+  .save-share-bar{
+    grid-template-columns:1fr!important;
+  }
+  .save-share-actions{
+    justify-content:flex-start!important;
+  }
+  .affiliate-buttons{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+}
+@media(max-width:560px){
+  .save-share-bar{
+    width:min(100% - 24px,1180px)!important;
+    padding:11px!important;
+  }
+  .save-share-actions{
+    display:grid!important;
+    grid-template-columns:1fr 1fr!important;
+  }
+  .save-share-actions button{
+    width:100%!important;
+    font-size:11px!important;
+  }
+  .affiliate-card{
+    width:min(100% - 24px,1180px)!important;
+    padding:20px!important;
+    border-radius:24px!important;
+  }
+  .affiliate-buttons{
+    grid-template-columns:1fr!important;
+  }
+  .affiliate-button{
+    min-height:64px!important;
+  }
+}
+</style>
+
 </head>
 <body class="seasonal-clean theme-worldcup" style="--season-bg:linear-gradient(135deg,#07121f 0%,#123d2a 55%,#07121f 100%);--season-accent:#ffd166;--season-accent-2:#35d07f;">
 <div class="wrap">
