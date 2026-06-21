@@ -2081,94 +2081,6 @@ body.sw-presenting .presenter-toolbar{
 </style>
 
 
-<style id="adsterra-placement-styles">
-.adsterra-zone{
-  width:min(1180px,calc(100% - 32px));
-  margin:18px auto 30px;
-  display:grid;
-  gap:14px;
-}
-.adsterra-heading{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  color:rgba(255,255,255,.66);
-  font-size:11px;
-  font-weight:900;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  margin:0;
-}
-.adsterra-heading span{
-  opacity:.72;
-  text-transform:none;
-  letter-spacing:0;
-  font-size:12px;
-}
-.adsterra-banner-wrap,
-.adsterra-native-wrap{
-  position:relative;
-  border:1px dashed rgba(255,255,255,.20);
-  background:rgba(255,255,255,.055);
-  border-radius:18px;
-  padding:12px;
-  overflow:hidden;
-}
-.adsterra-banner-wrap{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  min-height:116px;
-}
-.adsterra-native-wrap{
-  min-height:120px;
-}
-.adsterra-banner-wrap::before,
-.adsterra-native-wrap::before{
-  content:"Ad loading…";
-  position:absolute;
-  inset:0;
-  display:grid;
-  place-items:center;
-  color:rgba(255,255,255,.44);
-  font-size:13px;
-  font-weight:850;
-  pointer-events:none;
-  z-index:0;
-}
-.adsterra-banner-wrap script,
-.adsterra-native-wrap script,
-.adsterra-banner-wrap iframe,
-.adsterra-native-wrap iframe,
-.adsterra-native-wrap > div{
-  position:relative;
-  z-index:2;
-}
-.adsterra-desktop-banner{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  min-width:728px;
-  min-height:90px;
-}
-.adsterra-mobile-banner{
-  display:none;
-  justify-content:center;
-  align-items:center;
-  min-width:320px;
-  min-height:50px;
-}
-@media(max-width:760px){
-  .adsterra-desktop-banner{display:none!important}
-  .adsterra-mobile-banner{display:flex!important}
-  .adsterra-zone{width:min(100% - 24px,1180px)}
-  .adsterra-banner-wrap,.adsterra-native-wrap{padding:10px;border-radius:16px}
-  .adsterra-banner-wrap{min-height:82px}
-}
-</style>
-
-
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SV4FCEKD9C"></script>
 <script>
@@ -2178,6 +2090,135 @@ body.sw-presenting .presenter-toolbar{
 
   gtag('config', 'G-SV4FCEKD9C');
 </script>
+
+<!-- START - We recommend to place the below code in head tag of your website html  -->
+
+<style>
+  @font-face {
+    font-display: block;
+    font-family: Roboto;
+    src: url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/7529907e9eaf8ebb5220c5f9850e3811.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/25c678feafdc175a70922a116c9be3e7.woff) format("woff")
+  }
+
+  @font-face {
+    font-display: fallback;
+    font-family: Roboto;
+    font-weight: 600;
+    src: url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/6e9caeeafb1f3491be3e32744bc30440.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/71501f0d8d5aa95960f6475d5487d4c2.woff) format("woff")
+  }
+
+  @font-face {
+    font-display: fallback;
+    font-family: Roboto;
+    font-weight: 700;
+    src: url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/3ef7cf158f310cf752d5ad08cd0e7e60.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/ece3a1d82f18b60bcce0211725c476aa.woff) format("woff")
+  }
+
+  :where(.sib-form-message-panel) {
+    display: none;
+  }
+
+  :where(.sib-form-message-panel .sib-notification__icon) {
+    width: 20px;
+    height: 20px;
+  }
+
+
+  #sib-container input:-ms-input-placeholder {
+    font-family: Helvetica, sans-serif;
+    text-align: left;
+    color: #c0ccda;
+  }
+
+  #sib-container input::placeholder {
+    font-family: Helvetica, sans-serif;
+    text-align: left;
+    color: #c0ccda;
+  }
+
+  #sib-container textarea::placeholder {
+    font-family: Helvetica, sans-serif;
+    text-align: left;
+    color: #c0ccda;
+  }
+
+
+  #sib-container a {
+    text-decoration: underline;
+    color: #2BB2FC;
+  }
+</style>
+<link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
+
+
+<!--  END - We recommend to place the above code in head tag of your website html -->
+
+<style id="email-capture-styles">
+.email-capture-card{
+  width:min(1180px,calc(100% - 32px));
+  margin:24px auto 32px;
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:28px;
+  padding:24px;
+  background:
+    radial-gradient(circle at 12% 18%,rgba(216,247,113,.13),transparent 32%),
+    linear-gradient(135deg,rgba(255,255,255,.09),rgba(255,255,255,.045));
+  box-shadow:0 22px 70px rgba(0,0,0,.22);
+}
+.brevo-email-capture .sib-form{
+  background:transparent!important;
+  padding:0!important;
+  font-family:inherit!important;
+}
+.brevo-email-capture .sib-form-container{
+  display:block!important;
+}
+.brevo-email-capture #sib-container{
+  max-width:780px!important;
+  width:100%!important;
+  margin:0 auto!important;
+  border:1px solid rgba(255,255,255,.14)!important;
+  border-radius:22px!important;
+  background:rgba(255,255,255,.96)!important;
+  box-shadow:0 18px 50px rgba(0,0,0,.18)!important;
+  padding:20px!important;
+}
+.brevo-email-capture .sib-form-block p{
+  margin-top:0!important;
+}
+.brevo-email-capture .sib-form-block__button{
+  border-radius:999px!important;
+  background:linear-gradient(135deg,#173c2d,#365e35)!important;
+  text-align:center!important;
+  padding:13px 22px!important;
+  min-height:46px!important;
+  letter-spacing:.02em;
+}
+.brevo-email-capture .entry__field{
+  border-radius:999px!important;
+  overflow:hidden!important;
+}
+.brevo-email-capture input.input{
+  min-height:46px!important;
+}
+.brevo-email-capture .entry__choice{
+  margin:8px 0!important;
+}
+.brevo-email-capture .sib-form-message-panel{
+  margin:0 auto 12px!important;
+}
+@media(max-width:760px){
+  .email-capture-card{
+    width:min(100% - 24px,1180px);
+    padding:16px;
+    border-radius:22px;
+  }
+  .brevo-email-capture #sib-container{
+    padding:14px!important;
+    border-radius:18px!important;
+  }
+}
+</style>
 
 </head><body class="seasonal-clean theme-darts" style="--season-bg:linear-gradient(135deg,#111827 0%,#166534 52%,#7f1d1d 100%);--season-accent:#22c55e;--season-accent-2:#ef4444;"><div class="celebrate" id="celebration"></div><div class="darts-board" aria-hidden="true"></div><div class="wrap"><nav class="top"><a class="brand" href="index.html" style="text-decoration:none;color:inherit"><span class="brand-mark">SW</span>Sweepstake Wheel</a><div class="navlinks"><a href="spin-the-wheel.html">Spin the Wheel</a><a href="random-name-picker.html">Random Name Picker</a><a href="giveaway-wheel.html">Giveaway</a><details class="nav-more nav-sports active"><summary>Sports</summary><div class="nav-menu"><a href="world-cup-sweepstake.html">World Cup</a><a href="womens-world-cup-sweepstake.html">Women’s World Cup</a><a href="wimbledon-sweepstake.html">Wimbledon</a><a href="tour-de-france-sweepstake.html">Tour de France</a><a href="the-open-golf-sweepstake.html">The Open Golf</a><a href="world-matchplay-darts-sweepstake.html">World Matchplay Darts</a><a href="commonwealth-games-sweepstake.html">Commonwealth Games</a><a href="premier-league-sweepstake.html">Premier League</a><a href="champions-league-sweepstake.html">Champions League</a><a href="grand-national-sweepstake.html">Grand National</a><a href="cheltenham-sweepstake.html">Cheltenham</a><a href="melbourne-cup-sweepstake.html">Melbourne Cup</a><a href="formula-1-sweepstake.html">Formula 1</a><a href="rugby-world-cup-sweepstake.html">Rugby World Cup</a><a href="euros-sweepstake.html">Euros</a><a href="darts-world-championship-sweepstake.html" class="active">Darts Worlds</a><a href="super-bowl-squares.html">Super Bowl Squares</a></div></details><details class="nav-more nav-events"><summary>TV & Events</summary><div class="nav-menu"><a href="secret-santa-wheel.html">Secret Santa</a><a href="eurovision-sweepstake.html">Eurovision</a><a href="oscar-sweepstake.html">Oscars</a><a href="im-a-celeb-sweepstake.html">I'm A Celeb</a><a href="strictly-sweepstake.html">Strictly</a><a href="traitors-sweepstake.html">Traitors</a></div></details><details class="nav-more nav-tools"><summary>More Tools</summary><div class="nav-menu"><a href="decision-wheel.html">Decision Wheel</a><a href="yes-or-no-wheel.html">Yes or No Wheel</a><a href="spin-the-wheel.html">Spin the Wheel</a><a href="random-name-picker.html">Random Name Picker</a><a href="giveaway-wheel.html">Giveaway Wheel</a></div></details></div></nav><header class="page-intro"><div class="pill">Free darts player draw</div><h1>Darts World Championship Sweepstake Wheel</h1><p>Add names, paste players, and randomly assign darts players for a Christmas or New Year sweepstake.</p></header>
 <section class="event-switcher" aria-label="Related sweepstake pages"><a href="world-matchplay-darts-sweepstake.html">World Matchplay Darts<span>Keep darts pages connected across the calendar.</span></a><a href="secret-santa-wheel.html">Secret Santa Wheel<span>Another strong late-year office page.</span></a><a href="strictly-sweepstake.html">Strictly Sweepstake<span>A TV and events page that also peaks in winter.</span></a></section><section class="event-strip"><div><strong>Winter darts page</strong><span>Useful through December and January each year.</span></div><div><strong>Editable player list</strong><span>Update the draw once the field is confirmed.</span></div><div><strong>Party-season fit</strong><span>Built for offices, pubs and Christmas gatherings.</span></div></section>
@@ -2213,39 +2254,241 @@ Josh Rock</textarea><div class="hint">Players are editable. Paste the confirmed 
 
 <section class="affiliate-card prominent" aria-label="Recommended related Amazon links"><h2>Darts night extras</h2><p>Make the darts sweepstake more fun with boards, accessories and party supplies.</p><div class="affiliate-buttons"><a class="affiliate-button" href="https://www.amazon.co.uk/s?k=dartboard&amp;tag=sweepstakewheel-21" target="_blank" rel="nofollow sponsored noopener">Dartboards</a><a class="affiliate-button" href="https://www.amazon.co.uk/s?k=darts+accessories&amp;tag=sweepstakewheel-21" target="_blank" rel="nofollow sponsored noopener">Darts accessories</a><a class="affiliate-button" href="https://www.amazon.co.uk/s?k=darts+shirt&amp;tag=sweepstakewheel-21" target="_blank" rel="nofollow sponsored noopener">Darts shirts</a><a class="affiliate-button" href="https://www.amazon.co.uk/s?k=party+snacks&amp;tag=sweepstakewheel-21" target="_blank" rel="nofollow sponsored noopener">Party snacks</a></div><p class="affiliate-disclosure">Some links below are affiliate links. As an Amazon Associate I earn from qualifying purchases.</p></section>
 
-<section class="adsterra-zone" aria-label="Advertisement">
-  <p class="adsterra-heading">Advertisement <span>banner + native ad area</span></p>
-  <div class="adsterra-banner-wrap">
-    <div class="adsterra-desktop-banner">
-      <script>
-        atOptions = {
-          'key' : '99e11ca2295280c788575f1d9157e73c',
-          'format' : 'iframe',
-          'height' : 90,
-          'width' : 728,
-          'params' : {}
-        };
-      </script>
-      <script src="https://www.highperformanceformat.com/99e11ca2295280c788575f1d9157e73c/invoke.js"></script>
+<section class="email-capture-card brevo-email-capture" aria-label="Email reminders">
+  <!-- START - We recommend to place the below code where you want the form in your website html  -->
+<div class="sib-form" style="text-align: center;
+         background-color: transparent; 
+        
+        
+        
+        ">
+  <div id="sib-form-container" class="sib-form-container">
+    <div id="error-message" class="sib-form-message-panel" style="font-family:Helvetica, sans-serif; font-size:16px; text-align:left; color:#661d1d; background-color:#ffeded; border-color:#ff4949; border-radius:3px;
+        max-width:540px;">
+      <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+        <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
+          <path d="M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-11.49 120h22.979c6.823 0 12.274 5.682 11.99 12.5l-7 168c-.268 6.428-5.556 11.5-11.99 11.5h-8.979c-6.433 0-11.722-5.073-11.99-11.5l-7-168c-.283-6.818 5.167-12.5 11.99-12.5zM256 340c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28z" />
+        </svg>
+        <span class="sib-form-message-panel__inner-text">
+
+
+                Your subscription could not be saved. Please try again.
+              
+            
+          </span>
+      </div>
     </div>
-    <div class="adsterra-mobile-banner">
-      <script>
-        atOptions = {
-          'key' : '18f45593ba81985f80d618445a0a98af',
-          'format' : 'iframe',
-          'height' : 50,
-          'width' : 320,
-          'params' : {}
-        };
-      </script>
-      <script src="https://www.highperformanceformat.com/18f45593ba81985f80d618445a0a98af/invoke.js"></script>
+    <div></div>
+    <div id="success-message" class="sib-form-message-panel" style="font-family:Helvetica, sans-serif; font-size:16px; text-align:left; color:#085229; background-color:#e7faf0; border-color:#13ce66; border-radius:3px;
+        max-width:540px;">
+      <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+        <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
+          <path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 464c-118.664 0-216-96.055-216-216 0-118.663 96.055-216 216-216 118.664 0 216 96.055 216 216 0 118.663-96.055 216-216 216zm141.63-274.961L217.15 376.071c-4.705 4.667-12.303 4.637-16.97-.068l-85.878-86.572c-4.667-4.705-4.637-12.303.068-16.97l8.52-8.451c4.705-4.667 12.303-4.637 16.97.068l68.976 69.533 163.441-162.13c4.705-4.667 12.303-4.637 16.97.068l8.451 8.52c4.668 4.705 4.637 12.303-.068 16.97z" />
+        </svg>
+        <span class="sib-form-message-panel__inner-text">
+
+
+                Your subscription has been successful.
+             
+            
+          </span>
+      </div>
+    </div>
+    <div></div>
+    <div id="sib-container" class="sib-container--large sib-container--vertical" style="max-width:540px; text-align:center; background-color:rgba(255,255,255,1); border-width:1px; border-style:solid; border-color:#C0CCD9; border-radius:3px; direction:ltr">
+      <form id="sib-form" method="POST" action="https://16080b24.sibforms.com/serve/MUIFAKiBImVHLHalUmgW3RreZZs_Ihy-Bisr3xA3wDQSZJ9scIPUkvRcyCkxPqHMVNFYSumjrsdHGEguezojkf19kSxH0Hes2ldIC90Jr-9VZ9w60QXHsETpFL5Grns1Ktz1M83x6ldzoOtQJLb1a8OE-6Kz7h1rToPfDsfjMy1j5zciA_lRb_q7RiblxZodc1b25MEQm45ZJw-ysQ==" data-type="subscription">
+
+
+        <div style="padding: 8px 0;">
+
+
+          <div class="sib-form-block" style="font-family:Helvetica, sans-serif; font-size:32px; font-weight:700; text-align:left; color:#3C4858; background-color:transparent; text-align:left">
+            <p>Get reminded before the next big sweepstake</p>
+          </div>
+
+
+
+        </div>
+
+
+
+        <div style="padding: 8px 0;">
+
+
+          <div class="sib-form-block" style="font-family:Helvetica, sans-serif; font-size:16px; text-align:left; color:#3C4858; background-color:transparent; text-align:left">
+            <div class="sib-text-form-block">
+              <p>World Cup, Wimbledon, Secret Santa, Grand National, Eurovision and more — choose what you want reminders for.</p>
+            </div>
+          </div>
+
+
+
+        </div>
+
+
+
+        <div style="padding: 8px 0;">
+
+
+
+          <div class="sib-input sib-form-block">
+            <div class="form__entry entry_block">
+              <div class="form__label-row ">
+
+
+                <label class="entry__label" style="font-weight: 700; text-align: left; font-family:Helvetica, sans-serif; font-size:16px; font-weight:700; text-align:left; color:#3c4858;" for="EMAIL" data-required="*">Email address</label>
+
+
+
+
+                <div class="entry__field">
+
+                  <input class="input " type="text" id="EMAIL" name="EMAIL" autocomplete="off" value="" placeholder="you@example.com" data-required="true" required />
+
+                </div>
+
+              </div>
+
+              <label class="entry__error entry__error--primary" style="font-family:Helvetica, sans-serif; font-size:16px; text-align:left; color:#661d1d; background-color:#ffeded; border-color:#ff4949; border-radius:3px;">
+              </label>
+
+
+
+              <label class="entry__specification" style="font-family:Helvetica, sans-serif; font-size:12px; text-align:left; color:#8390A4; text-align: left ">
+                We’ll only email you occasional sweepstake reminders. You can unsubscribe at any time.
+              </label>
+
+            </div>
+          </div>
+
+
+
+
+        </div>
+
+
+
+        <div style="padding: 8px 0;">
+
+
+
+
+          <div class="sib-checkbox-group sib-form-block" data-required="true">
+            <div class="form__entry entry_mcq">
+              <div class="form__label-row ">
+
+
+                <label class="entry__label" style="font-weight: 700; text-align: left; font-family:Helvetica, sans-serif; font-size:16px; font-weight:700; text-align:left; color:#3c4858;" data-required="*">Choose your reminders</label>
+
+
+                <div style="">
+
+                  <div class="entry__choice">
+                    <label class="checkbox__label">
+                      <input type="checkbox" class="input_replaced" name="lists_25[]" data-value="All Sweepstakes" value="3" data-required="true" />
+
+                      <span class="checkbox checkbox_tick_positive"
+                style="margin-left:"
+                ></span><span style="font-family:Helvetica, sans-serif; font-size:16px; text-align:left; color:#3C4858; background-color:transparent;">All Sweepstakes</span>
+
+                    </label>
+                  </div>
+
+                  <div class="entry__choice">
+                    <label class="checkbox__label">
+                      <input type="checkbox" class="input_replaced" name="lists_25[]" data-value="Secret Santa" value="8" data-required="true" />
+
+                      <span class="checkbox checkbox_tick_positive"
+                style="margin-left:"
+                ></span><span style="font-family:Helvetica, sans-serif; font-size:16px; text-align:left; color:#3C4858; background-color:transparent;">Secret Santa</span>
+
+                    </label>
+                  </div>
+
+                  <div class="entry__choice">
+                    <label class="checkbox__label">
+                      <input type="checkbox" class="input_replaced" name="lists_25[]" data-value="Sports" value="6" data-required="true" />
+
+                      <span class="checkbox checkbox_tick_positive"
+                style="margin-left:"
+                ></span><span style="font-family:Helvetica, sans-serif; font-size:16px; text-align:left; color:#3C4858; background-color:transparent;">Sports</span>
+
+                    </label>
+                  </div>
+
+                  <div class="entry__choice">
+                    <label class="checkbox__label">
+                      <input type="checkbox" class="input_replaced" name="lists_25[]" data-value="TV &amp; Events" value="7" data-required="true" />
+
+                      <span class="checkbox checkbox_tick_positive"
+                style="margin-left:"
+                ></span><span style="font-family:Helvetica, sans-serif; font-size:16px; text-align:left; color:#3C4858; background-color:transparent;">TV &amp; Events</span>
+
+                    </label>
+                  </div>
+
+                  <div class="entry__choice">
+                    <label class="checkbox__label">
+                      <input type="checkbox" class="input_replaced" name="lists_25[]" data-value="Office tools" value="9" data-required="true" />
+
+                      <span class="checkbox checkbox_tick_positive"
+                style="margin-left:"
+                ></span><span style="font-family:Helvetica, sans-serif; font-size:16px; text-align:left; color:#3C4858; background-color:transparent;">Office tools</span>
+
+                    </label>
+                  </div>
+
+                </div>
+              </div>
+              <label class="entry__error entry__error--primary" style="font-family:Helvetica, sans-serif; font-size:16px; text-align:left; color:#661d1d; background-color:#ffeded; border-color:#ff4949; border-radius:3px;">
+              </label>
+
+
+
+            </div>
+          </div>
+
+
+
+
+        </div>
+
+
+
+        <div style="padding: 8px 0;">
+
+
+          <div class="sib-form-block" style="text-align: left">
+            <button class="sib-form-block__button sib-form-block__button-with-loader" style="font-family:Helvetica, sans-serif; font-size:16px; font-weight:700; text-align:left; color:#FFFFFF; background-color:#3E4857; border-width:0px; border-radius:3px;" form="sib-form" type="submit">
+              <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512">
+                <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z" />
+              </svg>
+              SUBSCRIBE
+            </button>
+
+
+          </div>
+
+
+
+        </div>
+
+
+
+        <input type="text" name="email_address_check" value="" class="input--hidden">
+
+
+        <input type="hidden" name="locale" value="en">
+
+
+      </form>
     </div>
   </div>
-  <div class="adsterra-native-wrap">
-    <script async="async" data-cfasync="false" src="https://pl29765732.effectivecpmnetwork.com/5a5842a43beb490d9f7da00a7de2e0e4/invoke.js"></script>
-    <div id="container-5a5842a43beb490d9f7da00a7de2e0e4"></div>
-  </div>
+</div>
+<!-- END - We recommend to place the above code where you want the form in your website html  -->
 </section>
+
+
 
 
 <section class="content"><article class="card"><h2>Darts World Championship Sweepstake Wheel FAQs</h2><details><summary>How do I run this draw?</summary><p>Add names, edit the list, load the draw and spin the wheel to assign entries randomly.</p></details><details><summary>Can I edit the list?</summary><p>Yes. Paste the confirmed list before running your draw.</p></details><details><summary>Can I use this for an office sweepstake?</summary><p>Yes. It is designed for offices, group chats, families and friendship groups.</p></details></article><article class="card"><h2>Why this page is useful</h2><p>This page is built for a specific seasonal moment, with editable entries, fair random assignment and shareable results for groups.</p></article></section>
@@ -3077,4 +3320,55 @@ window.addEventListener("load", function(){
 })();
 </script>
 
+<!-- START - We recommend to place the below code in footer or bottom of your website html  -->
+<script>
+  window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
+  window.LOCALE = 'en';
+
+
+
+
+  window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
+
+
+
+
+
+  window.REQUIRED_ERROR_MESSAGE = "This field cannot be left blank. ";
+
+  window.GENERIC_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
+
+
+  window.INVALID_NUMBER = "The information provided is invalid. Please review the field format and try again.";
+
+
+
+
+  window.INVALID_DATE = "Please enter a valid date";
+
+
+
+  window.REQUIRED_MULTISELECT_MESSAGE = 'Please select at least 1 option';
+
+
+  window.translation = {
+    common: {
+      selectedList: '{quantity} list selected',
+      selectedLists: '{quantity} lists selected',
+      selectedOption: '{quantity} selected',
+      selectedOptions: '{quantity} selected',
+    }
+  };
+
+  var AUTOHIDE = Boolean(0);
+</script>
+
+
+
+<script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+
+
+
+
+<!-- END - We recommend to place the above code in footer or bottom of your website html  -->
 </body></html>
