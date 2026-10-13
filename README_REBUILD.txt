@@ -1,27 +1,19 @@
-SweepstakeWheel.com V2 rebuild
-Generated: 2026-10-10T10:22:39
+SweepstakeWheel.com V2
+Updated: 2026-10-12
 
-What changed:
-- Full-width homepage with event cards and search/filtering.
-- Clean sweepstake builder: choose template, add entrants, edit options, load draw, spin one or auto draw.
-- Multiple sweepstake templates are stored in /data/events.json and mirrored inside /assets/app.js as a safe fallback.
-- Paid export flow preserved using Buy Me a Coffee product:
-  https://buymeacoffee.com/sweepstakewheel/e/542346
-- Normal support link preserved:
-  https://buymeacoffee.com/sweepstakewheel
-- Copy Results is not included.
-- Old flat event URLs redirect to new folder URLs where possible.
-- Google Analytics ID preserved: G-SV4FCEKD9C.
-- AdSense publisher ID preserved: ca-pub-2707875272714409.
+Site features:
+- Free browser-based sweepstake generator with individual spins and automatic draws.
+- Free CSV download of completed assignments.
+- Canonical event landing pages with unique setup guidance, FAQs and internal links.
+- Fifteen immersive standalone event pages with distinct themes and event-locked builders.
+- Crawlable template directory, sitemap, robots.txt and structured data.
+- Amazon UK Associates recommendations using tracking tag sweepstakewheel-21.
+- Google AdSense publisher ID ca-pub-2707875272714409.
+- Google Analytics measurement ID G-SV4FCEKD9C.
+- Legacy event URLs redirect to their canonical folder URLs and are marked noindex.
 
-Important:
-Upload the whole contents of this ZIP to the GitHub Pages repo root.
-Because this is a rebuild, delete old unused files from the repo if GitHub leaves them behind.
-Source marker in HTML:
+All draw and CSV download features are free to use; there is no separate paid-download flow.
+Sweepstake Wheel is funded through advertising and eligible Amazon affiliate purchases.
+
+Source marker in index.html:
 SWEEPSTAKEWHEEL_V2_FULL_REBUILD
-
-Checks run:
-- app.js syntax checked with node --check.
-- index.html created.
-- event pages created.
-- sitemap and robots created.
