@@ -4,14 +4,14 @@
     "name": "World Cup Sweepstake",
     "shortName": "World Cup",
     "category": "Football",
-    "badge": "Big traffic event",
+    "badge": "Major tournament",
     "season": "Every 4 years",
     "status": "Evergreen",
     "emoji": "🏆",
     "bestFor": "office sweepstakes and big group draws",
     "entries": "48 teams",
-    "headline": "Run a World Cup sweepstake in seconds",
-    "intro": "Add names, load the World Cup teams, spin the wheel or auto-draw everyone, then download the final results.",
+    "headline": "Create a World Cup sweepstake",
+    "intro": "Add the entrants, load the World Cup teams and randomly assign one to each person.",
     "seoTitle": "World Cup Sweepstake Generator | Free Office Sweepstake Wheel",
     "seoDescription": "Create a free World Cup sweepstake online. Add names, spin the wheel, auto-draw teams and download the results.",
     "options": [
@@ -63,7 +63,24 @@
       "Sweden",
       "DR Congo",
       "Algeria"
-    ]
+    ],
+    "promotion": {
+      "label": "World Cup season",
+      "priority": 110,
+      "accent": "#146c43",
+      "tint": "#e3f8ec",
+      "windows": [
+        {
+          "start": "05-01",
+          "end": "07-25",
+          "years": [
+            2026,
+            2030,
+            2034
+          ]
+        }
+      ]
+    }
   },
   {
     "slug": "euros-sweepstake",
@@ -76,8 +93,8 @@
     "emoji": "⚽",
     "bestFor": "workplace football sweepstakes",
     "entries": "24 teams",
-    "headline": "Create a Euros sweepstake for work or friends",
-    "intro": "Use the football sweepstake wheel for a quick Euros draw with teams, players or custom entries.",
+    "headline": "Create a Euros sweepstake",
+    "intro": "Add the entrants, check the competing nations and randomly assign one team to each person.",
     "seoTitle": "Euros Sweepstake Generator | Free Office Sweepstake Wheel",
     "seoDescription": "Create a free Euros sweepstake online. Add names, draw teams and download your results.",
     "options": [
@@ -105,7 +122,24 @@
       "Hungary",
       "Romania",
       "Albania"
-    ]
+    ],
+    "promotion": {
+      "label": "Euros season",
+      "priority": 110,
+      "accent": "#2453ff",
+      "tint": "#edf1ff",
+      "windows": [
+        {
+          "start": "05-15",
+          "end": "07-20",
+          "years": [
+            2028,
+            2032,
+            2036
+          ]
+        }
+      ]
+    }
   },
   {
     "slug": "premier-league-sweepstake",
@@ -118,8 +152,8 @@
     "emoji": "🥅",
     "bestFor": "season predictions and office leagues",
     "entries": "20 clubs",
-    "headline": "Draw Premier League teams for your sweepstake",
-    "intro": "Randomly assign Premier League clubs for a season-long sweepstake, winner, top four or relegation game.",
+    "headline": "Create a Premier League sweepstake",
+    "intro": "Randomly assign Premier League clubs for a season-long game covering the title, top four or relegation.",
     "seoTitle": "Premier League Sweepstake Generator | Free Team Draw Wheel",
     "seoDescription": "Create a Premier League sweepstake and randomly assign clubs to friends, colleagues or family.",
     "options": [
@@ -143,7 +177,19 @@
       "Tottenham Hotspur",
       "West Ham United",
       "Wolves"
-    ]
+    ],
+    "promotion": {
+      "label": "New football season",
+      "priority": 45,
+      "accent": "#5a189a",
+      "tint": "#f4e9ff",
+      "windows": [
+        {
+          "start": "07-15",
+          "end": "09-15"
+        }
+      ]
+    }
   },
   {
     "slug": "champions-league-sweepstake",
@@ -155,9 +201,9 @@
     "status": "Popular",
     "emoji": "🌟",
     "bestFor": "club football nights",
-    "entries": "Custom clubs",
+    "entries": "Clubs from one stage",
     "headline": "Create a Champions League sweepstake",
-    "intro": "Paste in the current clubs or use a custom list, then randomly assign teams to everyone taking part.",
+    "intro": "Add the entrants, choose the clubs from one stage and randomly assign a team to each person.",
     "seoTitle": "Champions League Sweepstake Generator | Free Football Draw",
     "seoDescription": "Create a Champions League sweepstake online with a free random draw wheel.",
     "options": [
@@ -185,7 +231,23 @@
       "Bayer Leverkusen",
       "PSV",
       "Club Brugge"
-    ]
+    ],
+    "promotion": {
+      "label": "European football",
+      "priority": 35,
+      "accent": "#113b8a",
+      "tint": "#e7efff",
+      "windows": [
+        {
+          "start": "08-20",
+          "end": "10-01"
+        },
+        {
+          "start": "02-01",
+          "end": "03-10"
+        }
+      ]
+    }
   },
   {
     "slug": "grand-national-sweepstake",
@@ -197,9 +259,9 @@
     "status": "Seasonal",
     "emoji": "🐎",
     "bestFor": "office charity sweepstakes",
-    "entries": "Up to 40 horses",
-    "headline": "Run a Grand National sweepstake quickly",
-    "intro": "Paste in the runners when declared, add names and draw horses fairly for your office sweepstake.",
+    "entries": "Declared runners",
+    "headline": "Create a Grand National sweepstake",
+    "intro": "Add the declared runners, enter the names and randomly assign the horses to your group.",
     "seoTitle": "Grand National Sweepstake Generator | Free Horse Draw",
     "seoDescription": "Create a free Grand National sweepstake online. Add names, paste the runners and draw horses at random.",
     "options": [
@@ -243,7 +305,19 @@
       "Horse 38",
       "Horse 39",
       "Horse 40"
-    ]
+    ],
+    "promotion": {
+      "label": "Grand National season",
+      "priority": 90,
+      "accent": "#7a3e00",
+      "tint": "#fff1dc",
+      "windows": [
+        {
+          "start": "03-15",
+          "end": "04-15"
+        }
+      ]
+    }
   },
   {
     "slug": "cheltenham-sweepstake",
@@ -255,9 +329,9 @@
     "status": "Seasonal",
     "emoji": "🏇",
     "bestFor": "race-by-race office fun",
-    "entries": "Custom runners",
-    "headline": "Build a Cheltenham sweepstake draw",
-    "intro": "Paste the horses, add entrants and draw a fair sweepstake for any Cheltenham race.",
+    "entries": "Runners from one race",
+    "headline": "Create a Cheltenham sweepstake",
+    "intro": "Choose one Cheltenham race, paste the declared runners and randomly assign the horses.",
     "seoTitle": "Cheltenham Sweepstake Generator | Free Racing Draw Wheel",
     "seoDescription": "Create a Cheltenham sweepstake online. Paste runners, add names and draw horses randomly.",
     "options": [
@@ -281,7 +355,19 @@
       "Runner 18",
       "Runner 19",
       "Runner 20"
-    ]
+    ],
+    "promotion": {
+      "label": "Cheltenham Festival season",
+      "priority": 95,
+      "accent": "#0f7b5c",
+      "tint": "#e5f8f0",
+      "windows": [
+        {
+          "start": "02-10",
+          "end": "03-20"
+        }
+      ]
+    }
   },
   {
     "slug": "eurovision-sweepstake",
@@ -293,9 +379,9 @@
     "status": "Seasonal",
     "emoji": "🎤",
     "bestFor": "watch parties and office fun",
-    "entries": "Finalists/custom",
+    "entries": "Countries or acts",
     "headline": "Create a Eurovision sweepstake",
-    "intro": "Paste the finalists, add your group and let the wheel assign each person a Eurovision act.",
+    "intro": "Add your group, check the finalists and randomly assign each person a country or act.",
     "seoTitle": "Eurovision Sweepstake Generator | Free Party Draw Wheel",
     "seoDescription": "Create a Eurovision sweepstake for a party, office or group chat with a free random draw wheel.",
     "options": [
@@ -325,7 +411,19 @@
       "Estonia",
       "Lithuania",
       "Latvia"
-    ]
+    ],
+    "promotion": {
+      "label": "Eurovision season",
+      "priority": 90,
+      "accent": "#d63384",
+      "tint": "#ffe8f3",
+      "windows": [
+        {
+          "start": "04-01",
+          "end": "05-20"
+        }
+      ]
+    }
   },
   {
     "slug": "formula-1-sweepstake",
@@ -337,9 +435,9 @@
     "status": "Popular",
     "emoji": "🏎️",
     "bestFor": "race predictions",
-    "entries": "Drivers/custom",
-    "headline": "Draw F1 drivers or teams at random",
-    "intro": "Add friends or colleagues and randomly assign drivers, teams or finishing positions for a race weekend.",
+    "entries": "Drivers or teams",
+    "headline": "Create a Formula 1 sweepstake",
+    "intro": "Add the entrants and randomly assign the current drivers, constructors or your own race options.",
     "seoTitle": "Formula 1 Sweepstake Generator | Free F1 Draw Wheel",
     "seoDescription": "Create an F1 sweepstake online. Randomly assign drivers, teams or race positions.",
     "options": [
@@ -363,7 +461,19 @@
       "Zhou Guanyu",
       "Daniel Ricciardo",
       "Logan Sargeant"
-    ]
+    ],
+    "promotion": {
+      "label": "Formula 1 season",
+      "priority": 30,
+      "accent": "#d62828",
+      "tint": "#ffe9e9",
+      "windows": [
+        {
+          "start": "03-01",
+          "end": "04-01"
+        }
+      ]
+    }
   },
   {
     "slug": "wimbledon-sweepstake",
@@ -375,9 +485,9 @@
     "status": "Seasonal",
     "emoji": "🎾",
     "bestFor": "tennis draws and office sweepstakes",
-    "entries": "Players/custom",
-    "headline": "Run a Wimbledon sweepstake",
-    "intro": "Paste in players, seeds or countries and randomly assign them to entrants.",
+    "entries": "Players or seeds",
+    "headline": "Create a Wimbledon sweepstake",
+    "intro": "Add the entrants, paste the players or seeds and randomly assign them to your group.",
     "seoTitle": "Wimbledon Sweepstake Generator | Free Tennis Draw Wheel",
     "seoDescription": "Create a Wimbledon sweepstake online. Add names, paste players and draw entries randomly.",
     "options": [
@@ -397,7 +507,19 @@
       "Player 14",
       "Player 15",
       "Player 16"
-    ]
+    ],
+    "promotion": {
+      "label": "Wimbledon season",
+      "priority": 95,
+      "accent": "#287a3b",
+      "tint": "#edf8eb",
+      "windows": [
+        {
+          "start": "05-20",
+          "end": "07-20"
+        }
+      ]
+    }
   },
   {
     "slug": "strictly-sweepstake",
@@ -409,9 +531,9 @@
     "status": "Seasonal",
     "emoji": "💃",
     "bestFor": "family and office TV sweepstakes",
-    "entries": "Celebrities/custom",
-    "headline": "Create a Strictly-style sweepstake",
-    "intro": "Add contestants, celebrities or couples and randomly assign them to everyone taking part.",
+    "entries": "Celebrities or couples",
+    "headline": "Create a Strictly sweepstake",
+    "intro": "Add the confirmed celebrities or couples and randomly assign one to each entrant.",
     "seoTitle": "Strictly Sweepstake Generator | Free TV Draw Wheel",
     "seoDescription": "Create a Strictly sweepstake online for work, friends or family.",
     "options": [
@@ -430,7 +552,19 @@
       "Contestant 13",
       "Contestant 14",
       "Contestant 15"
-    ]
+    ],
+    "promotion": {
+      "label": "Strictly season",
+      "priority": 55,
+      "accent": "#8e44ad",
+      "tint": "#f8eaff",
+      "windows": [
+        {
+          "start": "08-20",
+          "end": "10-31"
+        }
+      ]
+    }
   },
   {
     "slug": "im-a-celeb-sweepstake",
@@ -442,9 +576,9 @@
     "status": "Seasonal",
     "emoji": "🌴",
     "bestFor": "group chats and office fun",
-    "entries": "Celebrities/custom",
-    "headline": "Draw I’m A Celeb contestants",
-    "intro": "Paste in the campmates and randomly assign each person a celebrity.",
+    "entries": "Campmates",
+    "headline": "Create an I’m A Celeb sweepstake",
+    "intro": "Add the announced campmates and randomly assign one celebrity to each entrant.",
     "seoTitle": "I’m A Celeb Sweepstake Generator | Free TV Draw Wheel",
     "seoDescription": "Create an I’m A Celeb sweepstake online for work, friends or family.",
     "options": [
@@ -460,7 +594,19 @@
       "Campmate 10",
       "Campmate 11",
       "Campmate 12"
-    ]
+    ],
+    "promotion": {
+      "label": "I’m A Celeb season",
+      "priority": 85,
+      "accent": "#1b7f5a",
+      "tint": "#e6f8ef",
+      "windows": [
+        {
+          "start": "10-20",
+          "end": "12-10"
+        }
+      ]
+    }
   },
   {
     "slug": "secret-santa-wheel",
@@ -472,9 +618,9 @@
     "status": "Seasonal",
     "emoji": "🎅",
     "bestFor": "Christmas draws",
-    "entries": "Names/custom",
+    "entries": "Names and gift options",
     "headline": "Create a quick Secret Santa draw",
-    "intro": "Add names and use the wheel for a quick festive draw. For private recipient matching, use a dedicated Secret Santa tool.",
+    "intro": "Add names, gifts or prizes and use the wheel for a visible group draw. For confidential recipient matching, use a dedicated Secret Santa service.",
     "seoTitle": "Secret Santa Wheel | Free Christmas Name Picker",
     "seoDescription": "Create a quick Secret Santa wheel or Christmas name picker online.",
     "options": [
@@ -488,23 +634,35 @@
       "Gift 8",
       "Gift 9",
       "Gift 10"
-    ]
+    ],
+    "promotion": {
+      "label": "Christmas draw season",
+      "priority": 100,
+      "accent": "#c1121f",
+      "tint": "#fff0f1",
+      "windows": [
+        {
+          "start": "10-01",
+          "end": "12-25"
+        }
+      ]
+    }
   },
   {
     "slug": "darts-world-championship-sweepstake",
-    "name": "Darts World Championship Sweepstake",
-    "shortName": "Darts Worlds",
+    "name": "World Darts Championship Sweepstake",
+    "shortName": "World Darts",
     "category": "Darts",
     "badge": "Winter sport",
     "season": "December/January",
     "status": "Seasonal",
     "emoji": "🎯",
     "bestFor": "pub and office sweepstakes",
-    "entries": "Players/custom",
-    "headline": "Draw darts players at random",
-    "intro": "Paste in the players and run a quick darts sweepstake for the World Championship or any event.",
-    "seoTitle": "Darts Sweepstake Generator | Free Draw Wheel",
-    "seoDescription": "Create a darts sweepstake online and randomly assign players to entrants.",
+    "entries": "Tournament players",
+    "headline": "Create a World Darts Championship sweepstake",
+    "intro": "Add the tournament players and randomly assign one to everyone taking part.",
+    "seoTitle": "World Darts Championship Sweepstake | Free Draw",
+    "seoDescription": "Create a World Darts Championship sweepstake and randomly assign players online.",
     "options": [
       "Player 1",
       "Player 2",
@@ -522,11 +680,23 @@
       "Player 14",
       "Player 15",
       "Player 16"
-    ]
+    ],
+    "promotion": {
+      "label": "World Darts season",
+      "priority": 80,
+      "accent": "#006d77",
+      "tint": "#e4f7f7",
+      "windows": [
+        {
+          "start": "11-15",
+          "end": "01-07"
+        }
+      ]
+    }
   },
   {
     "slug": "super-bowl-squares",
-    "name": "Super Bowl Squares",
+    "name": "Super Bowl Party Draw",
     "shortName": "Super Bowl",
     "category": "American Football",
     "badge": "Party game",
@@ -534,11 +704,11 @@
     "status": "Seasonal",
     "emoji": "🏈",
     "bestFor": "watch parties",
-    "entries": "Squares/custom",
+    "entries": "Numbers or prizes",
     "headline": "Create a Super Bowl party draw",
-    "intro": "Use the sweepstake builder for a simple Super Bowl draw, party game or numbers picker.",
-    "seoTitle": "Super Bowl Squares & Sweepstake Generator",
-    "seoDescription": "Create a Super Bowl sweepstake or party draw online.",
+    "intro": "Use the wheel for a Super Bowl draw with numbers, prizes or your own game-night options.",
+    "seoTitle": "Super Bowl Squares Alternative | Free Party Draw",
+    "seoDescription": "Use this free alternative to a traditional Super Bowl squares grid to randomly assign numbers, prizes or custom game-night options.",
     "options": [
       "Square 1",
       "Square 2",
@@ -556,7 +726,19 @@
       "Square 14",
       "Square 15",
       "Square 16"
-    ]
+    ],
+    "promotion": {
+      "label": "Super Bowl season",
+      "priority": 90,
+      "accent": "#0b3d91",
+      "tint": "#e7efff",
+      "windows": [
+        {
+          "start": "01-05",
+          "end": "02-15"
+        }
+      ]
+    }
   },
   {
     "slug": "custom-sweepstake-generator",
@@ -568,9 +750,9 @@
     "status": "Core tool",
     "emoji": "✨",
     "bestFor": "anything with names and options",
-    "entries": "Unlimited/custom",
-    "headline": "Build your own sweepstake from scratch",
-    "intro": "Use your own names and your own options. Works for teams, players, horses, prizes, numbers, TV contestants and decisions.",
+    "entries": "Your own lists",
+    "headline": "Create a custom sweepstake",
+    "intro": "Add your entrants and options, then use the wheel to create a random draw for any event.",
     "seoTitle": "Custom Sweepstake Generator | Free Random Draw Wheel",
     "seoDescription": "Build a custom sweepstake online. Add names, add options and create a random draw in seconds.",
     "options": [
