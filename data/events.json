@@ -80,6 +80,13 @@
           ]
         }
       ]
+    },
+    "dataStatus": {
+      "mode": "automatic-when-key-present",
+      "status": "curated",
+      "sourceName": "football-data.org",
+      "expectedMin": 48,
+      "expectedMax": 48
     }
   },
   {
@@ -139,6 +146,13 @@
           ]
         }
       ]
+    },
+    "dataStatus": {
+      "mode": "automatic-when-key-present",
+      "status": "curated",
+      "sourceName": "football-data.org",
+      "expectedMin": 24,
+      "expectedMax": 24
     }
   },
   {
@@ -189,6 +203,13 @@
           "end": "09-15"
         }
       ]
+    },
+    "dataStatus": {
+      "mode": "automatic-when-key-present",
+      "status": "curated",
+      "sourceName": "football-data.org",
+      "expectedMin": 20,
+      "expectedMax": 20
     }
   },
   {
@@ -247,6 +268,13 @@
           "end": "03-10"
         }
       ]
+    },
+    "dataStatus": {
+      "mode": "automatic-when-key-present",
+      "status": "curated",
+      "sourceName": "football-data.org",
+      "expectedMin": 36,
+      "expectedMax": 36
     }
   },
   {
@@ -317,6 +345,13 @@
           "end": "04-15"
         }
       ]
+    },
+    "dataStatus": {
+      "mode": "review-required",
+      "status": "template",
+      "sourceName": "Confirmed race declarations",
+      "expectedMin": 20,
+      "expectedMax": 40
     }
   },
   {
@@ -367,6 +402,13 @@
           "end": "03-20"
         }
       ]
+    },
+    "dataStatus": {
+      "mode": "review-required",
+      "status": "template",
+      "sourceName": "Confirmed race declarations",
+      "expectedMin": 4,
+      "expectedMax": 40
     }
   },
   {
@@ -423,6 +465,13 @@
           "end": "05-20"
         }
       ]
+    },
+    "dataStatus": {
+      "mode": "review-required",
+      "status": "curated",
+      "sourceName": "Official Eurovision announcements",
+      "expectedMin": 20,
+      "expectedMax": 40
     }
   },
   {
@@ -441,26 +490,28 @@
     "seoTitle": "Formula 1 Sweepstake Generator | Free F1 Draw Wheel",
     "seoDescription": "Create an F1 sweepstake online. Randomly assign drivers, teams or race positions.",
     "options": [
-      "Max Verstappen",
       "Lando Norris",
-      "Oscar Piastri",
-      "Lewis Hamilton",
-      "Charles Leclerc",
-      "George Russell",
-      "Carlos Sainz",
-      "Fernando Alonso",
-      "Sergio Pérez",
-      "Alex Albon",
-      "Yuki Tsunoda",
+      "Max Verstappen",
+      "Gabriel Bortoleto",
+      "Isack Hadjar",
       "Pierre Gasly",
-      "Esteban Ocon",
+      "Sergio Perez",
+      "Kimi Antonelli",
+      "Fernando Alonso",
+      "Charles Leclerc",
       "Lance Stroll",
-      "Nico Hülkenberg",
-      "Kevin Magnussen",
+      "Alexander Albon",
+      "Nico Hulkenberg",
+      "Liam Lawson",
+      "Esteban Ocon",
+      "Arvid Lindblad",
+      "Franco Colapinto",
+      "Lewis Hamilton",
+      "Carlos Sainz",
+      "George Russell",
       "Valtteri Bottas",
-      "Zhou Guanyu",
-      "Daniel Ricciardo",
-      "Logan Sargeant"
+      "Oscar Piastri",
+      "Oliver Bearman"
     ],
     "promotion": {
       "label": "Formula 1 season",
@@ -473,6 +524,17 @@
           "end": "04-01"
         }
       ]
+    },
+    "dataStatus": {
+      "mode": "automatic",
+      "status": "confirmed",
+      "sourceName": "OpenF1",
+      "expectedMin": 18,
+      "expectedMax": 26,
+      "sourceUrl": "https://openf1.org/docs/",
+      "edition": "2026",
+      "checkedAt": "2026-10-13T19:22:18.805Z",
+      "updatedAt": "2026-10-13T19:22:18.805Z"
     }
   },
   {
@@ -519,6 +581,13 @@
           "end": "07-20"
         }
       ]
+    },
+    "dataStatus": {
+      "mode": "review-required",
+      "status": "template",
+      "sourceName": "Official or licensed Wimbledon draw",
+      "expectedMin": 16,
+      "expectedMax": 128
     }
   },
   {
@@ -564,6 +633,13 @@
           "end": "10-31"
         }
       ]
+    },
+    "dataStatus": {
+      "mode": "review-required",
+      "status": "template",
+      "sourceName": "Official programme announcements",
+      "expectedMin": 8,
+      "expectedMax": 24
     }
   },
   {
@@ -606,35 +682,32 @@
           "end": "12-10"
         }
       ]
+    },
+    "dataStatus": {
+      "mode": "review-required",
+      "status": "template",
+      "sourceName": "Official programme announcements",
+      "expectedMin": 8,
+      "expectedMax": 24
     }
   },
   {
     "slug": "secret-santa-wheel",
-    "name": "Secret Santa Wheel",
+    "name": "Secret Santa Name Draw",
     "shortName": "Secret Santa",
     "category": "Christmas",
     "badge": "Christmas",
     "season": "December",
     "status": "Seasonal",
     "emoji": "🎅",
-    "bestFor": "Christmas draws",
-    "entries": "Names and gift options",
-    "headline": "Create a quick Secret Santa draw",
-    "intro": "Add names, gifts or prizes and use the wheel for a visible group draw. For confidential recipient matching, use a dedicated Secret Santa service.",
-    "seoTitle": "Secret Santa Wheel | Free Christmas Name Picker",
-    "seoDescription": "Create a quick Secret Santa wheel or Christmas name picker online.",
-    "options": [
-      "Gift 1",
-      "Gift 2",
-      "Gift 3",
-      "Gift 4",
-      "Gift 5",
-      "Gift 6",
-      "Gift 7",
-      "Gift 8",
-      "Gift 9",
-      "Gift 10"
-    ],
+    "bestFor": "private Christmas gift draws",
+    "entries": "Private name matches",
+    "headline": "Create a private Secret Santa draw",
+    "intro": "Add everyone taking part, create a no-self match, then pass the device so each person can privately reveal who they are buying for.",
+    "seoTitle": "Secret Santa Generator | Free Private Name Draw",
+    "seoDescription": "Create a free private Secret Santa draw. Add names, prevent self-matches and reveal each recipient privately on one shared device.",
+    "mode": "private-name-draw",
+    "options": [],
     "promotion": {
       "label": "Christmas draw season",
       "priority": 100,
@@ -646,6 +719,11 @@
           "end": "12-25"
         }
       ]
+    },
+    "dataStatus": {
+      "mode": "self-contained",
+      "status": "self-contained",
+      "sourceName": "Names entered by the group"
     }
   },
   {
@@ -692,6 +770,13 @@
           "end": "01-07"
         }
       ]
+    },
+    "dataStatus": {
+      "mode": "review-required",
+      "status": "template",
+      "sourceName": "Official tournament field",
+      "expectedMin": 16,
+      "expectedMax": 128
     }
   },
   {
@@ -738,6 +823,11 @@
           "end": "02-15"
         }
       ]
+    },
+    "dataStatus": {
+      "mode": "self-contained",
+      "status": "self-contained",
+      "sourceName": "Custom game-night options"
     }
   },
   {
@@ -764,6 +854,11 @@
       "Option 6",
       "Option 7",
       "Option 8"
-    ]
+    ],
+    "dataStatus": {
+      "mode": "self-contained",
+      "status": "self-contained",
+      "sourceName": "Options entered by the group"
+    }
   }
 ]

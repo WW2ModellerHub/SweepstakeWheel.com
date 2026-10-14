@@ -46,6 +46,10 @@ h1{font-size:clamp(42px,6vw,78px);line-height:.93;letter-spacing:-.07em;margin:1
 .hero-card{background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.9);box-shadow:var(--shadow);border-radius:32px;padding:22px;position:relative;transition:border-color .25s ease,box-shadow .25s ease}
 .hero-card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
 .hero-card h2{margin:0;font-size:22px;letter-spacing:-.04em}
+.hero-shop-card>p{color:#52627a;font-size:14px;line-height:1.5;margin:0 0 12px}
+.hero-shop-card .affiliate-disclosure.is-prominent{color:#725400;font-size:12px;font-weight:900;background:#fff7d9;border-radius:12px;padding:10px 12px;margin-bottom:14px}
+.hero-shop-card .affiliate-links{margin-top:4px}
+.hero-shop-card .affiliate-links a{border:1px solid var(--line);background:#fff;box-shadow:0 8px 24px rgba(10,30,70,.06)}
 .mini-pill{border:1px solid var(--line);background:#f8fbff;border-radius:999px;padding:7px 10px;font-size:12px;font-weight:1000;color:#43516a}
 .preview-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 .preview-tile{background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px;min-height:96px;display:flex;flex-direction:column;justify-content:space-between;color:inherit;text-decoration:none;transition:transform .2s ease,border-color .2s ease,background .2s ease}
@@ -84,8 +88,14 @@ body.has-seasonal-focus .preview-tile.is-seasonal-focus{background:var(--season-
 .event-open-link{display:flex;align-items:center;justify-content:space-between;gap:10px;flex:1;min-width:0;padding:11px 13px;border-radius:14px;background:#07121f;color:#fff;text-decoration:none;font-size:13px;font-weight:1000}
 .event-open-link span{font-size:17px;transition:transform .18s ease}
 .event-open-link:hover span{transform:translateX(3px)}
-.quick-draw-btn{border:1px solid var(--line);background:#fff;color:#40516a;border-radius:14px;padding:10px 12px;font-size:12px;font-weight:1000;cursor:pointer;white-space:nowrap}
+.quick-draw-btn{border:1px solid var(--line);background:#fff;color:#40516a;border-radius:14px;padding:10px 12px;font-size:12px;font-weight:1000;cursor:pointer;white-space:nowrap;text-decoration:none}
 .quick-draw-btn:hover{background:#eef4ff;color:#07121f}
+.data-status-notice{display:grid;gap:3px;margin:0 0 16px;padding:12px 14px;border-radius:14px;background:#eaf2ff;border:1px solid #bad0ff;color:#15315b}
+.data-status-notice strong{font-size:13px}
+.data-status-notice span{font-size:12px;line-height:1.4;color:#40516a}
+.data-status-notice.is-review{background:#fff7d9;border-color:#ffe18a;color:#644900}
+.data-status-notice.is-confirmed{background:#e8fff1;border-color:#a8e5c1;color:#0f5b3b}
+.data-status-notice[hidden]{display:none}
 .builder-wrap{background:linear-gradient(180deg,#07121f,#10213b);color:white;border-radius:34px;padding:24px;box-shadow:var(--shadow)}
 .builder-head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin-bottom:20px}
 .builder-head h2{color:white}
@@ -153,13 +163,50 @@ textarea{min-height:142px;resize:vertical;line-height:1.35}
 .guide-steps h3{margin:0 0 10px}
 .guide-steps ol{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 30px;margin:0;padding-left:22px}
 .affiliate-section{padding-top:16px;padding-bottom:16px}
+.affiliate-section.affiliate-featured{padding-top:28px;padding-bottom:28px}
 .affiliate-card{display:grid;grid-template-columns:1.1fr 1fr;gap:24px;align-items:center;background:linear-gradient(135deg,#07121f,#173157);color:#fff;border-radius:30px;padding:28px;box-shadow:var(--shadow)}
 .affiliate-card h2{color:#fff;margin:8px 0 10px}
 .affiliate-card p{color:#c9d7e9;line-height:1.55;margin:0}
+.affiliate-label{display:inline-flex;align-items:center;gap:7px;padding:7px 10px;border-radius:999px;background:#fff3c8;color:#5d4100;font-size:12px;font-weight:1000}
 .affiliate-links{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .affiliate-links a{display:flex;justify-content:space-between;gap:8px;align-items:center;background:#fff;color:#07121f;text-decoration:none;border-radius:15px;padding:13px 14px;font-weight:1000}
 .affiliate-links a:hover{background:#fff4c7}
 .affiliate-card .affiliate-disclosure{grid-column:1/-1;color:#aebed3;font-size:12px}
+.affiliate-card .affiliate-disclosure.is-prominent{color:#fff3c8;margin-top:12px}
+.affiliate-featured .affiliate-card{border:1px solid rgba(255,209,102,.34)}
+.affiliate-featured .affiliate-links a span{font-size:18px}
+@media(min-width:981px){
+  .affiliate-featured .affiliate-card>.affiliate-disclosure.is-prominent{grid-column:2;grid-row:1;align-self:end;margin:0 0 2px}
+  .affiliate-featured .affiliate-card>.affiliate-links{grid-column:2;grid-row:2}
+  .affiliate-featured .affiliate-card>div:first-child{grid-row:1/3}
+}
+.secret-santa-layout{display:grid;grid-template-columns:minmax(320px,440px) minmax(0,1fr);gap:20px}
+.secret-santa-summary{display:flex;flex-direction:column;gap:18px}
+.secret-santa-summary h3{margin:0;font-size:26px;letter-spacing:-.04em}
+.secret-santa-summary p{margin:0;color:#56657a;line-height:1.6}
+.secret-santa-status{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.secret-santa-status .stat{background:#f7faff}
+.secret-santa-privacy{padding:22px;border-radius:22px;background:linear-gradient(135deg,#e8fff1,#fff7d9);border:1px solid #d8ecd8}
+.secret-santa-privacy strong{display:block;font-size:20px;margin-bottom:7px}
+.secret-santa-gift-box{padding:18px;border-radius:20px;background:#07121f;color:#fff}
+.secret-santa-gift-box h3{color:#fff;font-size:21px;margin:0 0 6px}
+.secret-santa-gift-box p{color:#c9d7e9;margin:0 0 12px}
+.secret-santa-gift-box .affiliate-disclosure{display:block;color:#aebed3;font-size:11px;margin-top:10px}
+.secret-santa-dialog{width:min(620px,calc(100% - 28px));border:0;border-radius:30px;padding:0;box-shadow:0 32px 100px rgba(0,0,0,.38);color:#07121f;background:#fff}
+.secret-santa-dialog::backdrop{background:rgba(5,18,31,.78);backdrop-filter:blur(8px)}
+.secret-santa-dialog-view{padding:34px;text-align:center}
+.secret-santa-dialog-view[hidden]{display:none}
+.secret-santa-dialog .dialog-icon{display:flex;width:76px;height:76px;margin:0 auto 18px;align-items:center;justify-content:center;border-radius:26px;background:linear-gradient(135deg,#fff0f1,#e8fff1);font-size:38px}
+.secret-santa-dialog h2,.secret-santa-dialog h3{margin:0 0 12px;letter-spacing:-.04em}
+.secret-santa-dialog h2{font-size:clamp(30px,7vw,48px)}
+.secret-santa-dialog h3{font-size:28px}
+.secret-santa-dialog p{color:#56657a;line-height:1.55;margin:0 auto 20px;max-width:470px}
+.secret-santa-recipient{display:block;margin:18px 0;padding:24px;border-radius:22px;background:linear-gradient(135deg,#b51f32,#0f7150);color:#fff;font-size:clamp(32px,8vw,56px);line-height:1;font-weight:1000;letter-spacing:-.055em;outline:none}
+.secret-santa-dialog-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.secret-santa-dialog .btn{min-height:50px}
+.secret-santa-dialog .private-affiliate{margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}
+.secret-santa-dialog .private-affiliate small{display:block;color:#6a7890;margin-top:8px}
+.secret-santa-progress{min-height:24px;color:#ffe7a0!important;font-weight:900}
 .related-links{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
 .related-links a{display:grid;gap:6px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:17px;text-decoration:none;color:#07121f}
 .related-links span{font-size:28px}.related-links strong{font-size:16px}.related-links small{color:var(--muted);line-height:1.4}
@@ -174,7 +221,7 @@ textarea{min-height:142px;resize:vertical;line-height:1.35}
 .toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:#07121f;color:white;border-radius:999px;padding:13px 18px;box-shadow:0 18px 50px rgba(0,0,0,.24);font-weight:900;z-index:90;display:none}
 .toast.show{display:block}
 @media(max-width:980px){
-  .hero-inner,.builder-layout,.wheel-stage{grid-template-columns:1fr}
+  .hero-inner,.builder-layout,.wheel-stage,.secret-santa-layout{grid-template-columns:1fr}
   .event-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .affiliate-card{grid-template-columns:1fr}
   .affiliate-card .affiliate-disclosure{grid-column:auto}
@@ -190,4 +237,6 @@ textarea{min-height:142px;resize:vertical;line-height:1.35}
   .section{padding:38px 14px}
   .form-actions,.spin-actions,.status-strip{grid-template-columns:1fr}
   .result-row{grid-template-columns:1fr}
+  .secret-santa-status{grid-template-columns:1fr}
+  .secret-santa-dialog-view{padding:26px 18px}
 }

@@ -1,0 +1,38 @@
+{
+  "period": "2026-10",
+  "lastSuccessfulRun": "2026-10-13T19:24:52.533Z",
+  "policy": "Last-known-good event data is retained when a provider fails validation, and failures are surfaced in the maintained review issue.",
+  "automaticProviders": [
+    "OpenF1",
+    "football-data.org when FOOTBALL_DATA_API_KEY is configured"
+  ],
+  "lastRunSummary": [
+    {
+      "slug": "world-cup-sweepstake",
+      "provider": "football-data",
+      "result": "out-of-season"
+    },
+    {
+      "slug": "euros-sweepstake",
+      "provider": "football-data",
+      "result": "out-of-season"
+    },
+    {
+      "slug": "premier-league-sweepstake",
+      "provider": "football-data",
+      "result": "waiting-for-api-key"
+    },
+    {
+      "slug": "champions-league-sweepstake",
+      "provider": "football-data",
+      "result": "waiting-for-api-key"
+    },
+    {
+      "slug": "formula-1-sweepstake",
+      "provider": "openf1",
+      "result": "verified"
+    }
+  ],
+  "overallStatus": "partial",
+  "lastRunRecordedAt": "2026-10-13T19:24:52.533Z"
+}

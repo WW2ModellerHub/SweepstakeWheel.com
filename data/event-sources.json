@@ -1,0 +1,150 @@
+{
+  "version": 1,
+  "timeZone": "Europe/London",
+  "events": {
+    "world-cup-sweepstake": {
+      "mode": "automatic-when-key-present",
+      "provider": "football-data",
+      "competitionCode": "WC",
+      "expectedMin": 48,
+      "expectedMax": 48,
+      "editionRule": "cycle-year",
+      "editionAnchor": 2026,
+      "editionCycleYears": 4,
+      "editionSwitchAfter": "08-01",
+      "refreshLeadDays": 365,
+      "checkIntervalDays": 7,
+      "maxAgeDays": 14,
+      "sourceName": "football-data.org"
+    },
+    "euros-sweepstake": {
+      "mode": "automatic-when-key-present",
+      "provider": "football-data",
+      "competitionCode": "EC",
+      "expectedMin": 24,
+      "expectedMax": 24,
+      "editionRule": "cycle-year",
+      "editionAnchor": 2028,
+      "editionCycleYears": 4,
+      "editionSwitchAfter": "08-01",
+      "refreshLeadDays": 365,
+      "checkIntervalDays": 7,
+      "maxAgeDays": 14,
+      "sourceName": "football-data.org"
+    },
+    "premier-league-sweepstake": {
+      "mode": "automatic-when-key-present",
+      "provider": "football-data",
+      "competitionCode": "PL",
+      "expectedMin": 20,
+      "expectedMax": 20,
+      "editionRule": "season-start-year",
+      "refreshAlways": true,
+      "checkIntervalDays": 7,
+      "maxAgeDays": 14,
+      "sourceName": "football-data.org"
+    },
+    "champions-league-sweepstake": {
+      "mode": "automatic-when-key-present",
+      "provider": "football-data",
+      "competitionCode": "CL",
+      "expectedMin": 36,
+      "expectedMax": 36,
+      "editionRule": "season-start-year",
+      "refreshAlways": true,
+      "checkIntervalDays": 7,
+      "maxAgeDays": 14,
+      "sourceName": "football-data.org"
+    },
+    "formula-1-sweepstake": {
+      "mode": "automatic",
+      "provider": "openf1",
+      "expectedMin": 18,
+      "expectedMax": 26,
+      "editionRule": "calendar-year",
+      "refreshAlways": true,
+      "checkIntervalDays": 7,
+      "maxAgeDays": 14,
+      "sourceName": "OpenF1",
+      "sourceUrl": "https://openf1.org/docs/"
+    },
+    "wimbledon-sweepstake": {
+      "mode": "review-required",
+      "provider": "licensed-tennis-feed",
+      "expectedMin": 16,
+      "expectedMax": 128,
+      "maxAgeDays": 14,
+      "overrideMaxAgeDays": 30,
+      "sourceName": "Official or licensed Wimbledon draw"
+    },
+    "grand-national-sweepstake": {
+      "mode": "review-required",
+      "provider": "licensed-racing-feed",
+      "expectedMin": 20,
+      "expectedMax": 40,
+      "maxAgeDays": 3,
+      "overrideMaxAgeDays": 14,
+      "sourceName": "Confirmed race declarations"
+    },
+    "cheltenham-sweepstake": {
+      "mode": "review-required",
+      "provider": "licensed-racing-feed",
+      "expectedMin": 4,
+      "expectedMax": 40,
+      "maxAgeDays": 3,
+      "overrideMaxAgeDays": 14,
+      "sourceName": "Confirmed race declarations"
+    },
+    "eurovision-sweepstake": {
+      "mode": "review-required",
+      "provider": "official-announcements",
+      "expectedMin": 20,
+      "expectedMax": 40,
+      "maxAgeDays": 14,
+      "overrideMaxAgeDays": 30,
+      "sourceName": "Official Eurovision announcements"
+    },
+    "strictly-sweepstake": {
+      "mode": "review-required",
+      "provider": "official-announcements",
+      "expectedMin": 8,
+      "expectedMax": 24,
+      "maxAgeDays": 7,
+      "overrideMaxAgeDays": 14,
+      "sourceName": "Official programme announcements"
+    },
+    "im-a-celeb-sweepstake": {
+      "mode": "review-required",
+      "provider": "official-announcements",
+      "expectedMin": 8,
+      "expectedMax": 24,
+      "maxAgeDays": 7,
+      "overrideMaxAgeDays": 14,
+      "sourceName": "Official programme announcements"
+    },
+    "darts-world-championship-sweepstake": {
+      "mode": "review-required",
+      "provider": "official-announcements",
+      "expectedMin": 16,
+      "expectedMax": 128,
+      "maxAgeDays": 14,
+      "overrideMaxAgeDays": 30,
+      "sourceName": "Official tournament field"
+    },
+    "secret-santa-wheel": {
+      "mode": "self-contained",
+      "provider": "browser",
+      "sourceName": "Names entered by the group"
+    },
+    "super-bowl-squares": {
+      "mode": "self-contained",
+      "provider": "browser",
+      "sourceName": "Custom game-night options"
+    },
+    "custom-sweepstake-generator": {
+      "mode": "self-contained",
+      "provider": "browser",
+      "sourceName": "Options entered by the group"
+    }
+  }
+}

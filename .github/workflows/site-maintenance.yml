@@ -1,0 +1,87 @@
+name: Self-manage event data
+
+on:
+  schedule:
+    - cron: "17 4 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: sweepstake-site-maintenance
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Refresh approved event sources
+        env:
+          FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
+        run: node scripts/manage-event-data.mjs
+
+      - name: Rebuild generated fallback data
+        run: node scripts/build-derived.mjs
+
+      - name: Validate the full site
+        run: node scripts/validate-site.mjs
+
+      - name: Check active and upcoming lists
+        id: freshness
+        run: node scripts/check-freshness.mjs
+
+      - name: Create or update one review issue
+        if: steps.freshness.outputs.needs_review == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPORT_PATH: ${{ steps.freshness.outputs.report_path }}
+        shell: bash
+        run: |
+          issue_number="$(gh issue list --state open --search 'Event data review needed in:title' --json number --jq '.[0].number')"
+          if [ -n "$issue_number" ]; then
+            gh issue edit "$issue_number" --body-file "$REPORT_PATH"
+          else
+            gh issue create --title "Event data review needed" --body-file "$REPORT_PATH"
+          fi
+
+      - name: Close resolved review issue
+        if: steps.freshness.outputs.needs_review != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          issue_number="$(gh issue list --state open --search 'Event data review needed in:title' --json number --jq '.[0].number')"
+          if [ -n "$issue_number" ]; then
+            gh issue close "$issue_number" --comment "All active and upcoming placeholder lists have been resolved by the site maintenance workflow."
+          fi
+
+      - name: Commit verified changes only
+        shell: bash
+        run: |
+          git config user.name "sweepstakewheel-data-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/events.json data/health.json assets/events-fallback.js
+          if ! git diff --quiet; then
+            echo "Unexpected files were modified by maintenance:"
+            git diff --name-only
+            exit 1
+          fi
+          if git diff --cached --quiet; then
+            echo "No verified data changes to publish."
+            exit 0
+          fi
+          git commit -m "Refresh managed sweepstake data"
+          git push origin HEAD:main

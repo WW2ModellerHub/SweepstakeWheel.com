@@ -1,5 +1,5 @@
 
-const EVENTS_FALLBACK = [{"slug":"world-cup-sweepstake","name":"World Cup Sweepstake","shortName":"World Cup","category":"Football","badge":"Major tournament","season":"Every 4 years","status":"Evergreen","emoji":"🏆","bestFor":"office sweepstakes and big group draws","entries":"48 teams","headline":"Create a World Cup sweepstake","intro":"Add the entrants, load the World Cup teams and randomly assign one to each person.","seoTitle":"World Cup Sweepstake Generator | Free Office Sweepstake Wheel","seoDescription":"Create a free World Cup sweepstake online. Add names, spin the wheel, auto-draw teams and download the results.","options":["Argentina","Australia","Austria","Belgium","Brazil","Canada","Cape Verde","Colombia","Côte d'Ivoire","Croatia","Curaçao","Ecuador","Egypt","England","France","Germany","Ghana","Haiti","Iran","Iraq","Japan","Jordan","Mexico","Morocco","Netherlands","New Zealand","Norway","Panama","Paraguay","Portugal","Qatar","Saudi Arabia","Scotland","Senegal","South Africa","South Korea","Spain","Switzerland","Tunisia","Türkiye","United States","Uruguay","Uzbekistan","Czech Republic","Bosnia and Herzegovina","Sweden","DR Congo","Algeria"],"promotion":{"label":"World Cup season","priority":110,"accent":"#146c43","tint":"#e3f8ec","windows":[{"start":"05-01","end":"07-25","years":[2026,2030,2034]}]}},{"slug":"euros-sweepstake","name":"Euros Sweepstake","shortName":"Euros","category":"Football","badge":"Tournament","season":"Summer tournament","status":"Seasonal","emoji":"⚽","bestFor":"workplace football sweepstakes","entries":"24 teams","headline":"Create a Euros sweepstake","intro":"Add the entrants, check the competing nations and randomly assign one team to each person.","seoTitle":"Euros Sweepstake Generator | Free Office Sweepstake Wheel","seoDescription":"Create a free Euros sweepstake online. Add names, draw teams and download your results.","options":["England","Scotland","Wales","France","Spain","Germany","Portugal","Italy","Netherlands","Belgium","Croatia","Denmark","Switzerland","Austria","Poland","Czech Republic","Türkiye","Ukraine","Serbia","Slovakia","Slovenia","Hungary","Romania","Albania"],"promotion":{"label":"Euros season","priority":110,"accent":"#2453ff","tint":"#edf1ff","windows":[{"start":"05-15","end":"07-20","years":[2028,2032,2036]}]}},{"slug":"premier-league-sweepstake","name":"Premier League Sweepstake","shortName":"Premier League","category":"Football","badge":"Season long","season":"August to May","status":"Popular","emoji":"🥅","bestFor":"season predictions and office leagues","entries":"20 clubs","headline":"Create a Premier League sweepstake","intro":"Randomly assign Premier League clubs for a season-long game covering the title, top four or relegation.","seoTitle":"Premier League Sweepstake Generator | Free Team Draw Wheel","seoDescription":"Create a Premier League sweepstake and randomly assign clubs to friends, colleagues or family.","options":["Arsenal","Aston Villa","Bournemouth","Brentford","Brighton","Burnley","Chelsea","Crystal Palace","Everton","Fulham","Leeds United","Liverpool","Manchester City","Manchester United","Newcastle United","Nottingham Forest","Sunderland","Tottenham Hotspur","West Ham United","Wolves"],"promotion":{"label":"New football season","priority":45,"accent":"#5a189a","tint":"#f4e9ff","windows":[{"start":"07-15","end":"09-15"}]}},{"slug":"champions-league-sweepstake","name":"Champions League Sweepstake","shortName":"Champions League","category":"Football","badge":"Club football","season":"Autumn to spring","status":"Popular","emoji":"🌟","bestFor":"club football nights","entries":"Clubs from one stage","headline":"Create a Champions League sweepstake","intro":"Add the entrants, choose the clubs from one stage and randomly assign a team to each person.","seoTitle":"Champions League Sweepstake Generator | Free Football Draw","seoDescription":"Create a Champions League sweepstake online with a free random draw wheel.","options":["Real Madrid","Barcelona","Bayern Munich","Borussia Dortmund","PSG","Inter Milan","AC Milan","Juventus","Manchester City","Liverpool","Arsenal","Chelsea","Atletico Madrid","Benfica","Porto","Ajax","Celtic","Sporting CP","RB Leipzig","Napoli","Roma","Bayer Leverkusen","PSV","Club Brugge"],"promotion":{"label":"European football","priority":35,"accent":"#113b8a","tint":"#e7efff","windows":[{"start":"08-20","end":"10-01"},{"start":"02-01","end":"03-10"}]}},{"slug":"grand-national-sweepstake","name":"Grand National Sweepstake","shortName":"Grand National","category":"Racing","badge":"Office classic","season":"April","status":"Seasonal","emoji":"🐎","bestFor":"office charity sweepstakes","entries":"Declared runners","headline":"Create a Grand National sweepstake","intro":"Add the declared runners, enter the names and randomly assign the horses to your group.","seoTitle":"Grand National Sweepstake Generator | Free Horse Draw","seoDescription":"Create a free Grand National sweepstake online. Add names, paste the runners and draw horses at random.","options":["Horse 1","Horse 2","Horse 3","Horse 4","Horse 5","Horse 6","Horse 7","Horse 8","Horse 9","Horse 10","Horse 11","Horse 12","Horse 13","Horse 14","Horse 15","Horse 16","Horse 17","Horse 18","Horse 19","Horse 20","Horse 21","Horse 22","Horse 23","Horse 24","Horse 25","Horse 26","Horse 27","Horse 28","Horse 29","Horse 30","Horse 31","Horse 32","Horse 33","Horse 34","Horse 35","Horse 36","Horse 37","Horse 38","Horse 39","Horse 40"],"promotion":{"label":"Grand National season","priority":90,"accent":"#7a3e00","tint":"#fff1dc","windows":[{"start":"03-15","end":"04-15"}]}},{"slug":"cheltenham-sweepstake","name":"Cheltenham Sweepstake","shortName":"Cheltenham","category":"Racing","badge":"Festival","season":"March","status":"Seasonal","emoji":"🏇","bestFor":"race-by-race office fun","entries":"Runners from one race","headline":"Create a Cheltenham sweepstake","intro":"Choose one Cheltenham race, paste the declared runners and randomly assign the horses.","seoTitle":"Cheltenham Sweepstake Generator | Free Racing Draw Wheel","seoDescription":"Create a Cheltenham sweepstake online. Paste runners, add names and draw horses randomly.","options":["Runner 1","Runner 2","Runner 3","Runner 4","Runner 5","Runner 6","Runner 7","Runner 8","Runner 9","Runner 10","Runner 11","Runner 12","Runner 13","Runner 14","Runner 15","Runner 16","Runner 17","Runner 18","Runner 19","Runner 20"],"promotion":{"label":"Cheltenham Festival season","priority":95,"accent":"#0f7b5c","tint":"#e5f8f0","windows":[{"start":"02-10","end":"03-20"}]}},{"slug":"eurovision-sweepstake","name":"Eurovision Sweepstake","shortName":"Eurovision","category":"TV & Entertainment","badge":"Party draw","season":"May","status":"Seasonal","emoji":"🎤","bestFor":"watch parties and office fun","entries":"Countries or acts","headline":"Create a Eurovision sweepstake","intro":"Add your group, check the finalists and randomly assign each person a country or act.","seoTitle":"Eurovision Sweepstake Generator | Free Party Draw Wheel","seoDescription":"Create a Eurovision sweepstake for a party, office or group chat with a free random draw wheel.","options":["United Kingdom","Ireland","France","Spain","Germany","Italy","Sweden","Norway","Finland","Denmark","Netherlands","Belgium","Austria","Switzerland","Portugal","Greece","Cyprus","Ukraine","Poland","Croatia","Serbia","Slovenia","Australia","Estonia","Lithuania","Latvia"],"promotion":{"label":"Eurovision season","priority":90,"accent":"#d63384","tint":"#ffe8f3","windows":[{"start":"04-01","end":"05-20"}]}},{"slug":"formula-1-sweepstake","name":"Formula 1 Sweepstake","shortName":"Formula 1","category":"Motorsport","badge":"Race weekend","season":"March to December","status":"Popular","emoji":"🏎️","bestFor":"race predictions","entries":"Drivers or teams","headline":"Create a Formula 1 sweepstake","intro":"Add the entrants and randomly assign the current drivers, constructors or your own race options.","seoTitle":"Formula 1 Sweepstake Generator | Free F1 Draw Wheel","seoDescription":"Create an F1 sweepstake online. Randomly assign drivers, teams or race positions.","options":["Max Verstappen","Lando Norris","Oscar Piastri","Lewis Hamilton","Charles Leclerc","George Russell","Carlos Sainz","Fernando Alonso","Sergio Pérez","Alex Albon","Yuki Tsunoda","Pierre Gasly","Esteban Ocon","Lance Stroll","Nico Hülkenberg","Kevin Magnussen","Valtteri Bottas","Zhou Guanyu","Daniel Ricciardo","Logan Sargeant"],"promotion":{"label":"Formula 1 season","priority":30,"accent":"#d62828","tint":"#ffe9e9","windows":[{"start":"03-01","end":"04-01"}]}},{"slug":"wimbledon-sweepstake","name":"Wimbledon Sweepstake","shortName":"Wimbledon","category":"Tennis","badge":"Summer sport","season":"June/July","status":"Seasonal","emoji":"🎾","bestFor":"tennis draws and office sweepstakes","entries":"Players or seeds","headline":"Create a Wimbledon sweepstake","intro":"Add the entrants, paste the players or seeds and randomly assign them to your group.","seoTitle":"Wimbledon Sweepstake Generator | Free Tennis Draw Wheel","seoDescription":"Create a Wimbledon sweepstake online. Add names, paste players and draw entries randomly.","options":["Player 1","Player 2","Player 3","Player 4","Player 5","Player 6","Player 7","Player 8","Player 9","Player 10","Player 11","Player 12","Player 13","Player 14","Player 15","Player 16"],"promotion":{"label":"Wimbledon season","priority":95,"accent":"#287a3b","tint":"#edf8eb","windows":[{"start":"05-20","end":"07-20"}]}},{"slug":"strictly-sweepstake","name":"Strictly Sweepstake","shortName":"Strictly","category":"TV & Entertainment","badge":"TV night","season":"Autumn","status":"Seasonal","emoji":"💃","bestFor":"family and office TV sweepstakes","entries":"Celebrities or couples","headline":"Create a Strictly sweepstake","intro":"Add the confirmed celebrities or couples and randomly assign one to each entrant.","seoTitle":"Strictly Sweepstake Generator | Free TV Draw Wheel","seoDescription":"Create a Strictly sweepstake online for work, friends or family.","options":["Contestant 1","Contestant 2","Contestant 3","Contestant 4","Contestant 5","Contestant 6","Contestant 7","Contestant 8","Contestant 9","Contestant 10","Contestant 11","Contestant 12","Contestant 13","Contestant 14","Contestant 15"],"promotion":{"label":"Strictly season","priority":55,"accent":"#8e44ad","tint":"#f8eaff","windows":[{"start":"08-20","end":"10-31"}]}},{"slug":"im-a-celeb-sweepstake","name":"I’m A Celeb Sweepstake","shortName":"I’m A Celeb","category":"TV & Entertainment","badge":"TV favourite","season":"November","status":"Seasonal","emoji":"🌴","bestFor":"group chats and office fun","entries":"Campmates","headline":"Create an I’m A Celeb sweepstake","intro":"Add the announced campmates and randomly assign one celebrity to each entrant.","seoTitle":"I’m A Celeb Sweepstake Generator | Free TV Draw Wheel","seoDescription":"Create an I’m A Celeb sweepstake online for work, friends or family.","options":["Campmate 1","Campmate 2","Campmate 3","Campmate 4","Campmate 5","Campmate 6","Campmate 7","Campmate 8","Campmate 9","Campmate 10","Campmate 11","Campmate 12"],"promotion":{"label":"I’m A Celeb season","priority":85,"accent":"#1b7f5a","tint":"#e6f8ef","windows":[{"start":"10-20","end":"12-10"}]}},{"slug":"secret-santa-wheel","name":"Secret Santa Wheel","shortName":"Secret Santa","category":"Christmas","badge":"Christmas","season":"December","status":"Seasonal","emoji":"🎅","bestFor":"Christmas draws","entries":"Names and gift options","headline":"Create a quick Secret Santa draw","intro":"Add names, gifts or prizes and use the wheel for a visible group draw. For confidential recipient matching, use a dedicated Secret Santa service.","seoTitle":"Secret Santa Wheel | Free Christmas Name Picker","seoDescription":"Create a quick Secret Santa wheel or Christmas name picker online.","options":["Gift 1","Gift 2","Gift 3","Gift 4","Gift 5","Gift 6","Gift 7","Gift 8","Gift 9","Gift 10"],"promotion":{"label":"Christmas draw season","priority":100,"accent":"#c1121f","tint":"#fff0f1","windows":[{"start":"10-01","end":"12-25"}]}},{"slug":"darts-world-championship-sweepstake","name":"World Darts Championship Sweepstake","shortName":"World Darts","category":"Darts","badge":"Winter sport","season":"December/January","status":"Seasonal","emoji":"🎯","bestFor":"pub and office sweepstakes","entries":"Tournament players","headline":"Create a World Darts Championship sweepstake","intro":"Add the tournament players and randomly assign one to everyone taking part.","seoTitle":"World Darts Championship Sweepstake | Free Draw","seoDescription":"Create a World Darts Championship sweepstake and randomly assign players online.","options":["Player 1","Player 2","Player 3","Player 4","Player 5","Player 6","Player 7","Player 8","Player 9","Player 10","Player 11","Player 12","Player 13","Player 14","Player 15","Player 16"],"promotion":{"label":"World Darts season","priority":80,"accent":"#006d77","tint":"#e4f7f7","windows":[{"start":"11-15","end":"01-07"}]}},{"slug":"super-bowl-squares","name":"Super Bowl Party Draw","shortName":"Super Bowl","category":"American Football","badge":"Party game","season":"February","status":"Seasonal","emoji":"🏈","bestFor":"watch parties","entries":"Numbers or prizes","headline":"Create a Super Bowl party draw","intro":"Use the wheel for a Super Bowl draw with numbers, prizes or your own game-night options.","seoTitle":"Super Bowl Squares Alternative | Free Party Draw","seoDescription":"Use this free alternative to a traditional Super Bowl squares grid to randomly assign numbers, prizes or custom game-night options.","options":["Square 1","Square 2","Square 3","Square 4","Square 5","Square 6","Square 7","Square 8","Square 9","Square 10","Square 11","Square 12","Square 13","Square 14","Square 15","Square 16"],"promotion":{"label":"Super Bowl season","priority":90,"accent":"#0b3d91","tint":"#e7efff","windows":[{"start":"01-05","end":"02-15"}]}},{"slug":"custom-sweepstake-generator","name":"Custom Sweepstake Generator","shortName":"Custom","category":"Custom","badge":"Build your own","season":"Any time","status":"Core tool","emoji":"✨","bestFor":"anything with names and options","entries":"Your own lists","headline":"Create a custom sweepstake","intro":"Add your entrants and options, then use the wheel to create a random draw for any event.","seoTitle":"Custom Sweepstake Generator | Free Random Draw Wheel","seoDescription":"Build a custom sweepstake online. Add names, add options and create a random draw in seconds.","options":["Option 1","Option 2","Option 3","Option 4","Option 5","Option 6","Option 7","Option 8"]}];
+const EVENTS_FALLBACK = window.SWEEPSTAKE_EVENTS_FALLBACK || [];
 
 let events = EVENTS_FALLBACK;
 let selectedEvent = null;
@@ -18,6 +18,40 @@ const DEFAULT_FEATURE_SLUGS = [
   "eurovision-sweepstake",
   "custom-sweepstake-generator"
 ];
+
+const AMAZON_TAG = "sweepstakewheel-21";
+const AMAZON_PICK_PRESETS = {
+  "secret-santa-wheel": [
+    ["£10-budget gift ideas on Amazon", "Secret Santa gift ideas £10 budget"],
+    ["£20-budget gift ideas on Amazon", "Secret Santa gift ideas £20 budget"],
+    ["Gifts for colleagues on Amazon", "Secret Santa gifts for colleagues"],
+    ["Gift bags & wrapping on Amazon", "Christmas gift bags wrapping paper"]
+  ],
+  "world-cup-sweepstake": [
+    ["Football party supplies on Amazon", "football party supplies"],
+    ["Country flags on Amazon", "World Cup country flags"],
+    ["Football gifts on Amazon", "football gifts"],
+    ["Winner trophies on Amazon", "football winner trophy"]
+  ],
+  "wimbledon-sweepstake": [
+    ["Tennis gifts on Amazon", "tennis gifts"],
+    ["Garden-party supplies on Amazon", "garden party supplies"],
+    ["Tennis balls on Amazon", "tennis balls"],
+    ["Tennis books on Amazon", "tennis books"]
+  ],
+  "grand-national-sweepstake": [
+    ["Racing-day party supplies on Amazon", "horse racing party supplies"],
+    ["Sweepstake envelopes on Amazon", "money envelopes sweepstake"],
+    ["Horse-racing gifts on Amazon", "horse racing gifts"],
+    ["Winner trophies on Amazon", "horse racing trophy"]
+  ],
+  "eurovision-sweepstake": [
+    ["Eurovision party supplies on Amazon", "Eurovision party supplies"],
+    ["Country flags on Amazon", "European country flags party"],
+    ["Karaoke microphones on Amazon", "karaoke microphone"],
+    ["Party prizes on Amazon", "party prizes"]
+  ]
+};
 
 const qs = (sel, root=document) => root.querySelector(sel);
 const qsa = (sel, root=document) => Array.from(root.querySelectorAll(sel));
@@ -48,6 +82,45 @@ function findEvent(slug){
 }
 function eventUrl(event){
   return event.slug === "custom-sweepstake-generator" ? "/custom-sweepstake-generator/" : `/${event.slug}/`;
+}
+function amazonSearchUrl(query){
+  const params = new URLSearchParams({k:query, tag:AMAZON_TAG});
+  return `https://www.amazon.co.uk/s?${params.toString()}`;
+}
+function amazonPicksFor(event){
+  if(event && AMAZON_PICK_PRESETS[event.slug]) return AMAZON_PICK_PRESETS[event.slug];
+  const label = event?.shortName || "Sweepstake";
+  return [
+    [`${label} gifts on Amazon`, `${label} gifts`],
+    ["Party supplies on Amazon", `${label} party supplies`],
+    ["Prize ideas on Amazon", "small prizes for adults"],
+    ["Draw essentials on Amazon", "raffle tickets prize envelopes"]
+  ];
+}
+function renderHomepageAmazon(event){
+  const links = qs("#homeShopLinks");
+  if(!links) return;
+  const focus = event || null;
+  const title = qs("#homeShopTitle");
+  const intro = qs("#homeShopIntro");
+  const heroShop = qs("#homeHeroShop");
+  if(title) title.textContent = focus ? `${focus.shortName} picks on Amazon` : "Sweepstake supplies and prize ideas on Amazon";
+  if(intro) intro.textContent = focus
+    ? `The site has put the most relevant ${focus.shortName} searches first. Amazon inventory refreshes automatically.`
+    : "Useful searches for prizes, party supplies and running your draw.";
+  if(heroShop) heroShop.textContent = focus?.slug === "secret-santa-wheel" ? "Shop Secret Santa gifts" : "Shop Amazon picks";
+  links.innerHTML = amazonPicksFor(focus).map(([label, query]) => `
+    <a href="${amazonSearchUrl(query)}" target="_blank" rel="sponsored nofollow noopener" data-affiliate-placement="home-seasonal">${escapeHtml(label)} <span aria-hidden="true">→</span></a>
+  `).join("");
+}
+function trackAffiliateClick(event){
+  const link = event.target.closest("a[href*='amazon.co.uk']");
+  if(!link || typeof window.gtag !== "function") return;
+  window.gtag("event", "affiliate_click", {
+    event_slug: seasonalFocus?.slug || slugFromPath() || "homepage",
+    placement: link.dataset.affiliatePlacement || "event-page",
+    link_label: String(link.textContent || "").trim().replace(/\s+/g," ").slice(0,80)
+  });
 }
 async function loadEventData(){
   try{
@@ -141,6 +214,7 @@ function renderSeasonalHomepage(){
     `).join("");
   }
 
+  renderHomepageAmazon(seasonalFocus);
   if(!seasonalFocus) return;
   document.body.classList.add("has-seasonal-focus");
   document.body.dataset.seasonalFocus = seasonalFocus.slug;
@@ -153,6 +227,7 @@ function renderSeasonalHomepage(){
   const cardTitle = qs("#homeHeroCardTitle");
   const cardLabel = qs("#homeHeroCardLabel");
   const card = qs(".hero-card");
+  const trustRow = qs("#homeTrustRow");
   if(eyebrow) eyebrow.textContent = `${seasonalFocus.emoji} ${seasonalFocus.promotion.label || "Featured now"}`;
   title.textContent = seasonalFocus.headline;
   if(intro) intro.textContent = seasonalFocus.intro;
@@ -163,6 +238,9 @@ function renderSeasonalHomepage(){
   if(cardTitle) cardTitle.textContent = `${seasonalFocus.shortName} is in season`;
   if(cardLabel) cardLabel.textContent = "Featured now";
   if(card) card.setAttribute("aria-label", `Seasonal focus: ${seasonalFocus.name}`);
+  if(trustRow && seasonalFocus.mode === "private-name-draw"){
+    trustRow.innerHTML = "<span>✅ Free draw</span><span>✅ No self-matches</span><span>✅ Private reveals</span><span>✅ Nothing saved</span>";
+  }
 }
 function toast(message){
   const el = qs("#toast");
@@ -196,7 +274,9 @@ function renderEventCards(){
       </div>
       <div class="card-actions">
         <a class="event-open-link" href="${eventUrl(e)}">Explore ${escapeHtml(e.shortName)} <span aria-hidden="true">→</span></a>
-        <button class="quick-draw-btn" data-use-event="${escapeHtml(e.slug)}">Quick draw</button>
+        ${e.mode === "private-name-draw"
+          ? `<a class="quick-draw-btn" href="${eventUrl(e)}">Private draw</a>`
+          : `<button class="quick-draw-btn" data-use-event="${escapeHtml(e.slug)}">Quick draw</button>`}
       </div>
     </article>
   `).join("");
@@ -220,8 +300,45 @@ function renderFilters(){
 function populateSelector(){
   const select = qs("#eventSelect");
   if(!select) return;
-  select.innerHTML = events.map(e => `<option value="${escapeHtml(e.slug)}">${escapeHtml(e.name)}</option>`).join("");
+  select.innerHTML = events.filter(e => e.mode !== "private-name-draw").map(e => `<option value="${escapeHtml(e.slug)}">${escapeHtml(e.name)}</option>`).join("");
   select.addEventListener("change", () => selectEvent(select.value, false));
+}
+function eventHasPlaceholderOptions(event){
+  return (event?.options || []).some(value => /^(?:player|contestant|campmate|horse|runner|gift|square|option)\s*\d+$/i.test(String(value).trim()));
+}
+function renderDataStatus(event){
+  const anchor = qs(".event-template-lock") || qs("#eventSelect")?.closest(".field");
+  if(!anchor) return;
+  let notice = qs("#dataStatusNotice");
+  if(!notice){
+    notice = document.createElement("div");
+    notice.id = "dataStatusNotice";
+    notice.className = "data-status-notice";
+    anchor.insertAdjacentElement("afterend", notice);
+  }
+  const status = event?.dataStatus || {};
+  notice.hidden = false;
+  if(status.mode === "self-contained"){
+    notice.hidden = true;
+    return;
+  }
+  if(eventHasPlaceholderOptions(event)){
+    notice.className = "data-status-notice is-review";
+    notice.innerHTML = `<strong>Official list pending</strong><span>This editable template is ready for you to paste the confirmed names before drawing.</span>`;
+    return;
+  }
+  if(status.status === "confirmed" && (status.checkedAt || status.updatedAt)){
+    const date = new Intl.DateTimeFormat("en-GB", {timeZone:"Europe/London", day:"numeric", month:"short", year:"numeric"}).format(new Date(status.checkedAt || status.updatedAt));
+    notice.className = "data-status-notice is-confirmed";
+    notice.innerHTML = `<strong>Current list verified</strong><span>${escapeHtml(status.sourceName || "Approved source")} · checked ${escapeHtml(date)}</span>`;
+    return;
+  }
+  if(String(status.mode || "").startsWith("automatic")){
+    notice.className = "data-status-notice";
+    notice.innerHTML = `<strong>Managed event list</strong><span>The maintenance job keeps this editable list current when its approved provider is available.</span>`;
+    return;
+  }
+  notice.hidden = true;
 }
 function selectEvent(slug, scroll){
   selectedEvent = findEvent(slug);
@@ -233,6 +350,7 @@ function selectEvent(slug, scroll){
   if(selectedName) selectedName.textContent = selectedEvent.name;
   const selectedIntro = qs("#selectedEventIntro");
   if(selectedIntro) selectedIntro.textContent = selectedEvent.intro;
+  renderDataStatus(selectedEvent);
   results = [];
   participants = [];
   drawPool = [...selectedEvent.options];
@@ -445,6 +563,7 @@ function bind(){
     renderWheel(drawPool);
     updateUi();
   });
+  document.addEventListener("click", trackAffiliateClick);
 }
 async function init(){
   await loadEventData();
@@ -455,6 +574,8 @@ async function init(){
   populateSelector();
   bind();
   maybeSeedNames();
-  selectEvent(slugFromPath() || seasonalFocus?.slug || "world-cup-sweepstake", false);
+  const pathSlug = slugFromPath();
+  const initialSlug = pathSlug || (seasonalFocus?.mode === "private-name-draw" ? "custom-sweepstake-generator" : seasonalFocus?.slug) || "world-cup-sweepstake";
+  selectEvent(initialSlug, false);
 }
 document.addEventListener("DOMContentLoaded", () => { void init(); });
