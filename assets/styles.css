@@ -101,9 +101,10 @@ body.has-seasonal-focus .preview-tile.is-seasonal-focus{background:var(--season-
 .builder-head h2{color:white}
 .builder-head p{color:#c5d3e7;margin:8px 0 0;max-width:700px}
 .builder-layout{display:grid;grid-template-columns:410px minmax(0,1fr);gap:20px}
-.panel{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:24px;padding:18px}
+.panel{min-width:0;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:24px;padding:18px}
 .panel-light{background:#fff;color:var(--ink)}
 .step{display:flex;gap:12px;align-items:flex-start;margin-bottom:16px}
+.step>div{min-width:0}
 .step-no{width:31px;height:31px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--gold),#35d07f);color:#07121f;font-weight:1000;flex:0 0 auto}
 .step h3{margin:2px 0 6px;font-size:17px}
 .step p{margin:0;color:#c5d3e7;font-size:13px;line-height:1.4}
@@ -163,6 +164,7 @@ textarea{min-height:142px;resize:vertical;line-height:1.35}
 .guide-steps h3{margin:0 0 10px}
 .guide-steps ol{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 30px;margin:0;padding-left:22px}
 .affiliate-section{padding-top:16px;padding-bottom:16px}
+.affiliate-section,.event-builder-section,.seo-guide{scroll-margin-top:78px}
 .affiliate-section.affiliate-featured{padding-top:28px;padding-bottom:28px}
 .affiliate-card{display:grid;grid-template-columns:1.1fr 1fr;gap:24px;align-items:center;background:linear-gradient(135deg,#07121f,#173157);color:#fff;border-radius:30px;padding:28px;box-shadow:var(--shadow)}
 .affiliate-card h2{color:#fff;margin:8px 0 10px}
@@ -231,12 +233,29 @@ textarea{min-height:142px;resize:vertical;line-height:1.35}
 @media(max-width:680px){
   .event-grid,.preview-grid,.info-grid,.faq,.guide-grid,.related-links,.affiliate-links,.guide-steps ol{grid-template-columns:1fr}
   .hero-inner{padding-top:44px}
-  .nav{padding:12px}
+  .nav{padding:10px 12px;gap:8px}
+  .logo,.nav-cta{min-width:0}
+  .logo{gap:8px;font-size:15px;line-height:1.05}
+  .logo-mark{width:34px;height:34px;flex:0 0 34px;border-radius:12px}
   .nav-cta .btn-secondary{display:none}
+  .nav-cta .btn-primary{padding:10px 12px;font-size:13px;box-shadow:none}
   .builder-wrap{padding:14px;border-radius:24px}
-  .section{padding:38px 14px}
-  .form-actions,.spin-actions,.status-strip{grid-template-columns:1fr}
+  .section{padding:30px 14px}
+  .builder-head{flex-direction:column;align-items:stretch;gap:12px;margin-bottom:18px}
+  .builder-head .eyebrow{align-self:flex-start}
+  .label{flex-wrap:wrap}
+  .step h3{overflow-wrap:anywhere}
+  .form-actions,.spin-actions{grid-template-columns:1fr}
+  .status-strip,.secret-santa-status{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+  .status-strip .stat,.secret-santa-status .stat{padding:9px 7px;min-width:0}
+  .status-strip .stat small,.secret-santa-status .stat small{font-size:9px;letter-spacing:0}
+  .status-strip .stat b,.secret-santa-status .stat b{font-size:20px}
   .result-row{grid-template-columns:1fr}
-  .secret-santa-status{grid-template-columns:1fr}
   .secret-santa-dialog-view{padding:26px 18px}
+  .affiliate-section.affiliate-featured{padding-top:18px;padding-bottom:18px}
+  .affiliate-card{padding:20px;border-radius:24px;gap:18px}
+  .affiliate-card h2{font-size:30px}
+  .affiliate-links{display:grid;grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(220px,78vw);overflow-x:auto;overscroll-behavior-inline:contain;scroll-snap-type:inline proximity;padding-bottom:5px;scrollbar-width:none}
+  .affiliate-links::-webkit-scrollbar{display:none}
+  .affiliate-links a{scroll-snap-align:start;min-height:52px}
 }
