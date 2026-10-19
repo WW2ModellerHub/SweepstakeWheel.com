@@ -21,7 +21,7 @@
       "category": { "type": "string", "minLength": 2 },
       "headline": { "type": "string", "minLength": 8 },
       "intro": { "type": "string", "minLength": 20 },
-      "mode": { "enum": ["private-name-draw"] },
+      "mode": { "enum": ["secret-santa-draw"] },
       "options": {
         "type": "array",
         "items": { "type": "string", "minLength": 1 },

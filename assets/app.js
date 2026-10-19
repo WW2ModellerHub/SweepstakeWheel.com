@@ -272,8 +272,8 @@ function renderSeasonalHomepage(){
   if(cardTitle) cardTitle.textContent = `${seasonalFocus.shortName} is in season`;
   if(cardLabel) cardLabel.textContent = "Featured now";
   if(card) card.setAttribute("aria-label", `Seasonal focus: ${seasonalFocus.name}`);
-  if(trustRow && seasonalFocus.mode === "private-name-draw"){
-    trustRow.innerHTML = "<span>✅ Free draw</span><span>✅ No self-matches</span><span>✅ Private reveals</span><span>✅ Nothing saved</span>";
+  if(trustRow && seasonalFocus.mode === "secret-santa-draw"){
+    trustRow.innerHTML = "<span>✅ Free draw</span><span>✅ No self-matches</span><span>✅ Two draw modes</span><span>✅ Names stay local</span>";
   }
 }
 function toast(message){
@@ -308,8 +308,8 @@ function renderEventCards(){
       </div>
       <div class="card-actions">
         <a class="event-open-link" href="${eventUrl(e)}">Explore ${escapeHtml(e.shortName)} <span aria-hidden="true">→</span></a>
-        ${e.mode === "private-name-draw"
-          ? `<a class="quick-draw-btn" href="${eventUrl(e)}">Private draw</a>`
+        ${e.mode === "secret-santa-draw"
+          ? `<a class="quick-draw-btn" href="${eventUrl(e)}">Choose a mode</a>`
           : `<button class="quick-draw-btn" data-use-event="${escapeHtml(e.slug)}">Quick draw</button>`}
       </div>
     </article>
@@ -334,7 +334,7 @@ function renderFilters(){
 function populateSelector(){
   const select = qs("#eventSelect");
   if(!select) return;
-  select.innerHTML = events.filter(e => e.mode !== "private-name-draw").map(e => `<option value="${escapeHtml(e.slug)}">${escapeHtml(e.name)}</option>`).join("");
+  select.innerHTML = events.filter(e => e.mode !== "secret-santa-draw").map(e => `<option value="${escapeHtml(e.slug)}">${escapeHtml(e.name)}</option>`).join("");
   select.addEventListener("change", () => selectEvent(select.value, false));
 }
 function eventHasPlaceholderOptions(event){
@@ -1008,7 +1008,7 @@ async function init(){
   bind();
   maybeSeedNames();
   const pathSlug = slugFromPath();
-  const initialSlug = pathSlug || (seasonalFocus?.mode === "private-name-draw" ? "custom-sweepstake-generator" : seasonalFocus?.slug) || "world-cup-sweepstake";
+  const initialSlug = pathSlug || (seasonalFocus?.mode === "secret-santa-draw" ? "custom-sweepstake-generator" : seasonalFocus?.slug) || "world-cup-sweepstake";
   selectEvent(initialSlug, false);
 }
 document.addEventListener("DOMContentLoaded", () => { void init(); });

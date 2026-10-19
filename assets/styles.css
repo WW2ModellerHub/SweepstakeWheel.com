@@ -206,6 +206,14 @@ textarea{min-height:142px;resize:vertical;line-height:1.35}
   .affiliate-featured .affiliate-card>div:first-child{grid-row:1/3}
 }
 .secret-santa-layout{display:grid;grid-template-columns:minmax(320px,440px) minmax(0,1fr);gap:20px}
+.secret-santa-mode-picker{display:grid;gap:10px;border:0;padding:0;margin:0 0 20px}
+.secret-santa-mode-card{display:grid;grid-template-columns:auto 1fr;align-items:start;gap:12px;padding:15px;border:2px solid rgba(255,255,255,.22);border-radius:18px;background:rgba(255,255,255,.08);cursor:pointer;transition:border-color .2s ease,background .2s ease,transform .2s ease}
+.secret-santa-mode-card:hover{transform:translateY(-1px);background:rgba(255,255,255,.12)}
+.secret-santa-mode-card:has(input:checked){border-color:#ffd166;background:rgba(255,209,102,.16)}
+.secret-santa-mode-card input{width:20px;height:20px;margin:2px 0 0;accent-color:#ffd166}
+.secret-santa-mode-card span{display:grid;gap:4px}
+.secret-santa-mode-card strong{font-size:16px;line-height:1.25}
+.secret-santa-mode-card small{color:#d5dfec;line-height:1.45}
 .secret-santa-summary{display:flex;flex-direction:column;gap:18px}
 .secret-santa-summary h3{margin:0;font-size:26px;letter-spacing:-.04em}
 .secret-santa-summary p{margin:0;color:#56657a;line-height:1.6}
@@ -217,7 +225,7 @@ textarea{min-height:142px;resize:vertical;line-height:1.35}
 .secret-santa-gift-box h3{color:#fff;font-size:21px;margin:0 0 6px}
 .secret-santa-gift-box p{color:#c9d7e9;margin:0 0 12px}
 .secret-santa-gift-box .affiliate-disclosure{display:block;color:#aebed3;font-size:11px;margin-top:10px}
-.secret-santa-dialog{width:min(620px,calc(100% - 28px));border:0;border-radius:30px;padding:0;box-shadow:0 32px 100px rgba(0,0,0,.38);color:#07121f;background:#fff}
+.secret-santa-dialog{width:min(620px,calc(100% - 28px));max-height:calc(100dvh - 28px);overflow:auto;border:0;border-radius:30px;padding:0;box-shadow:0 32px 100px rgba(0,0,0,.38);color:#07121f;background:#fff}
 .secret-santa-dialog::backdrop{background:rgba(5,18,31,.78);backdrop-filter:blur(8px)}
 .secret-santa-dialog-view{padding:34px;text-align:center}
 .secret-santa-dialog-view[hidden]{display:none}
@@ -231,6 +239,15 @@ textarea{min-height:142px;resize:vertical;line-height:1.35}
 .secret-santa-dialog .btn{min-height:50px}
 .secret-santa-dialog .private-affiliate{margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}
 .secret-santa-dialog .private-affiliate small{display:block;color:#6a7890;margin-top:8px}
+.secret-santa-organiser-view{padding-bottom:22px}
+.secret-santa-organiser-table{max-height:min(480px,48vh);overflow:auto;margin:18px 0;border:1px solid #cad5e4;border-radius:18px;text-align:left;overscroll-behavior:contain}
+.secret-santa-organiser-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;padding:12px 15px;border-top:1px solid #dce4ef;line-height:1.35}
+.secret-santa-organiser-row:first-child{border-top:0}
+.secret-santa-organiser-row.is-heading{position:sticky;top:0;background:#eaf0f8;color:#42536b;font-size:12px;font-weight:1000;letter-spacing:.07em;text-transform:uppercase}
+.secret-santa-organiser-row strong,.secret-santa-organiser-row span{overflow-wrap:anywhere}
+.secret-santa-organiser-row span{color:#0f7150;font-weight:1000}
+.secret-santa-organiser-status{min-height:22px!important;margin:14px auto 6px!important;color:#315c49!important;font-weight:900}
+.secret-santa-sensitive-note{display:block;color:#7b2942;font-weight:900;line-height:1.4}
 .secret-santa-progress{min-height:24px;color:#ffe7a0!important;font-weight:900}
 .related-links{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
 .related-links a{display:grid;gap:6px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:17px;text-decoration:none;color:#07121f}
@@ -290,6 +307,8 @@ textarea{min-height:142px;resize:vertical;line-height:1.35}
   body{background:#fff!important;color:#07121f!important}
   body.print-results-only>*{display:none!important}
   body.print-results-only>.print-sheet{display:block!important;font-family:Arial,sans-serif}
+  body.print-secret-santa>*{display:none!important}
+  body.print-secret-santa>.secret-santa-print-sheet{display:block!important;font-family:Arial,sans-serif}
   .print-sheet header{border-bottom:4px solid #07121f;margin-bottom:20px;padding-bottom:16px}
   .print-sheet header p{margin:0 0 7px;color:#7b2942;font-size:13px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
   .print-sheet h1{margin:0 0 7px;font-size:30px}

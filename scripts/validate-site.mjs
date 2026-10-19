@@ -104,7 +104,7 @@ for (const event of events) {
   if (!event.slug || slugs.has(event.slug)) fail(`Invalid or duplicate event slug: ${event.slug || "(missing)"}`);
   slugs.add(event.slug);
   if (!Array.isArray(event.options)) fail(`${event.slug} options must be an array.`);
-  if (event.mode !== "private-name-draw" && !(event.options || []).length) fail(`${event.slug} must have at least one option.`);
+  if (event.mode !== "secret-santa-draw" && !(event.options || []).length) fail(`${event.slug} must have at least one option.`);
   const optionKeys = (event.options || []).map((value) => String(value).trim().toLocaleLowerCase("en-GB"));
   if (new Set(optionKeys).size !== optionKeys.length) fail(`${event.slug} contains duplicate options.`);
   if (event.promotion && !Array.isArray(event.promotion.windows)) fail(`${event.slug} promotion windows must be an array.`);
@@ -216,8 +216,26 @@ const secretPage = await readFile(path.join(root, "secret-santa-wheel", "index.h
 for (const forbidden of ["optionsInput", "exportBtn", "visible group draw", "dedicated service"]) {
   if (secretPage.includes(forbidden)) fail(`Secret Santa page still contains obsolete content: ${forbidden}`);
 }
+for (const required of [
+  'name="ssMode" value="private"',
+  'name="ssMode" value="organiser"',
+  'id="ssOrganiserView"',
+  'id="ssOrganiserList"',
+  'id="ssCsvBtn"',
+  'id="ssPrintBtn"',
+  "Pass around privately",
+  "Organiser sees all"
+]) {
+  if (!secretPage.includes(required)) fail(`Secret Santa two-mode UI is missing: ${required}`);
+}
 if (!secretPage.includes("/assets/secret-santa.js")) fail("Secret Santa page does not load its dedicated private-draw script.");
 if (secretPage.includes("/assets/app.js")) fail("Secret Santa page still loads the generic sweepstake builder.");
+
+const secretScript = await readFile(path.join(root, "assets", "secret-santa.js"), "utf8");
+if (secretScript.includes("Math.random")) fail("Secret Santa must use Web Crypto rather than Math.random.");
+for (const required of ["preparePassView", "prepareOrganiserView", "downloadOrganiserCsv", "printOrganiserAssignments"]) {
+  if (!secretScript.includes(required)) fail(`Secret Santa script is missing two-mode behaviour: ${required}`);
+}
 
 const tools = require(path.join(root, "assets", "secret-santa.js"));
 for (let count = 2; count <= 100; count += 1) {
@@ -225,13 +243,23 @@ for (let count = 2; count <= 100; count += 1) {
   for (let run = 0; run < 30; run += 1) {
     const assignments = tools.createAssignments(names);
     if (assignments.length !== count) fail(`Secret Santa returned the wrong assignment count for ${count} people.`);
+    if (assignments.some((item, index) => item.giver !== names[index])) fail(`Secret Santa changed giver ordering for ${count} people.`);
+    if (new Set(assignments.map((item) => item.giver)).size !== count) fail(`Secret Santa reused a giver for ${count} people.`);
     if (assignments.some((item) => item.giver === item.recipient)) fail(`Secret Santa produced a self-match for ${count} people.`);
     if (new Set(assignments.map((item) => item.recipient)).size !== count) fail(`Secret Santa reused a recipient for ${count} people.`);
   }
 }
 try {
+  tools.createAssignments(["Only one person"]);
+  fail("Secret Santa accepted fewer than two people.");
+} catch {}
+try {
   tools.createAssignments(["Sam", " sam "]);
   fail("Secret Santa did not reject case-insensitive duplicate names.");
+} catch {}
+try {
+  tools.createAssignments(["Ａlex", "Alex"]);
+  fail("Secret Santa did not reject Unicode-normalised duplicate names.");
 } catch {}
 
 const { validateFairDraw } = await import("./validate-fair-draw.mjs");
