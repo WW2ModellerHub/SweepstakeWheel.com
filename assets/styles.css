@@ -116,11 +116,31 @@ select:focus-visible,textarea:focus-visible,input:focus-visible,button:focus-vis
 select option{color:#07121f}
 textarea{min-height:142px;resize:vertical;line-height:1.35}
 #optionsInput{min-height:178px}
-.form-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.allocation-choice{min-width:0;margin:18px 0 0;padding:0;border:0}
+.allocation-choice legend{padding:0;margin:0 0 9px;color:#dfe9f7;font-size:13px;font-weight:1000}
+.allocation-options{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.allocation-option{display:grid;grid-template-columns:auto minmax(0,1fr);gap:9px;align-items:start;min-width:0;padding:11px;border:1px solid rgba(255,255,255,.18);border-radius:15px;background:rgba(255,255,255,.06);cursor:pointer;transition:border-color .18s ease,background .18s ease,transform .18s ease}
+.allocation-option:hover{background:rgba(255,255,255,.1);transform:translateY(-1px)}
+.allocation-option:has(input:checked){border-color:#ffd166;background:rgba(255,209,102,.12)}
+.allocation-option:focus-within{outline:3px solid #ffd166;outline-offset:2px}
+.allocation-option input{width:18px;height:18px;margin:2px 0 0;padding:0;accent-color:#ffd166;outline:none}
+.allocation-option span{display:grid;gap:3px;min-width:0}
+.allocation-option strong{font-size:13px;line-height:1.25;color:#fff}
+.allocation-option small{font-size:11px;line-height:1.35;color:#b7c6da}
+.draw-plan-summary{margin:10px 0 0;padding:10px 12px;border-radius:13px;background:#e8fff1;color:#0b5435;font-size:13px;font-weight:900;line-height:1.4}
+.form-actions{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;margin-top:14px}
+.form-actions #loadBtn{min-height:48px;font-size:16px}
 .status-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
 .stat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px;color:#07121f}
 .stat small{display:block;color:#6a7890;font-weight:900;text-transform:uppercase;font-size:11px}
 .stat b{font-size:24px;letter-spacing:-.04em}
+.draw-progress{display:grid;grid-template-columns:minmax(0,1fr) minmax(130px,220px);gap:12px;align-items:center;margin:-2px 0 14px;padding:10px 12px;background:#f7faff;border:1px solid var(--line);border-radius:14px;color:#07121f}
+.draw-progress[hidden]{display:none}
+.draw-progress strong{min-width:0;font-size:13px;line-height:1.35}
+.draw-progress progress{display:block;width:100%;height:10px;border:0;border-radius:999px;overflow:hidden;background:#dfe7f3;color:var(--brand)}
+.draw-progress progress::-webkit-progress-bar{background:#dfe7f3;border-radius:999px}
+.draw-progress progress::-webkit-progress-value{background:linear-gradient(90deg,var(--brand),var(--brand2));border-radius:999px}
+.draw-progress progress::-moz-progress-bar{background:linear-gradient(90deg,var(--brand),var(--brand2));border-radius:999px}
 .wheel-stage{display:grid;grid-template-columns:minmax(280px,460px) minmax(0,1fr);gap:18px;align-items:start}
 .wheel-box{background:radial-gradient(circle at center,#1b2f52,#07121f);border:1px solid rgba(255,255,255,.12);border-radius:28px;padding:18px;text-align:center;position:relative}
 #wheelSvg{width:100%;max-width:430px;aspect-ratio:1/1;filter:drop-shadow(0 30px 45px rgba(0,0,0,.28))}
@@ -138,6 +158,9 @@ textarea{min-height:142px;resize:vertical;line-height:1.35}
 .download-card{margin-top:14px;background:linear-gradient(135deg,#fff7d9,#e8fff1);border:1px solid #ffe7a2;border-radius:20px;padding:16px;color:#07121f}
 .download-card h3{margin:0 0 6px}
 .download-card p{margin:0 0 12px;color:#56657a}
+.result-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.result-actions .btn{min-width:0;min-height:44px;padding:10px 12px;white-space:normal;line-height:1.2;text-align:center}
+.print-sheet{display:none}
 .info-band{background:white;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .info-card{background:#f8fbff;border:1px solid var(--line);border-radius:24px;padding:20px}
@@ -245,7 +268,10 @@ textarea{min-height:142px;resize:vertical;line-height:1.35}
   .builder-head .eyebrow{align-self:flex-start}
   .label{flex-wrap:wrap}
   .step h3{overflow-wrap:anywhere}
-  .form-actions,.spin-actions{grid-template-columns:1fr}
+  .allocation-options,.form-actions,.spin-actions,.draw-progress,.result-actions{grid-template-columns:1fr}
+  .allocation-option{padding:12px}
+  .form-actions #loadBtn{min-height:52px}
+  .draw-progress{align-items:stretch}
   .status-strip,.secret-santa-status{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
   .status-strip .stat,.secret-santa-status .stat{padding:9px 7px;min-width:0}
   .status-strip .stat small,.secret-santa-status .stat small{font-size:9px;letter-spacing:0}
@@ -258,4 +284,18 @@ textarea{min-height:142px;resize:vertical;line-height:1.35}
   .affiliate-links{display:grid;grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(220px,78vw);overflow-x:auto;overscroll-behavior-inline:contain;scroll-snap-type:inline proximity;padding-bottom:5px;scrollbar-width:none}
   .affiliate-links::-webkit-scrollbar{display:none}
   .affiliate-links a{scroll-snap-align:start;min-height:52px}
+}
+@media print{
+  @page{margin:16mm}
+  body{background:#fff!important;color:#07121f!important}
+  body.print-results-only>*{display:none!important}
+  body.print-results-only>.print-sheet{display:block!important;font-family:Arial,sans-serif}
+  .print-sheet header{border-bottom:4px solid #07121f;margin-bottom:20px;padding-bottom:16px}
+  .print-sheet header p{margin:0 0 7px;color:#7b2942;font-size:13px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+  .print-sheet h1{margin:0 0 7px;font-size:30px}
+  .print-sheet header span{color:#4e5d72;font-size:13px}
+  .print-sheet table{width:100%;border-collapse:collapse;font-size:14px}
+  .print-sheet th,.print-sheet td{border-bottom:1px solid #ccd5e2;padding:9px 8px;text-align:left;vertical-align:top}
+  .print-sheet thead th{background:#eef3f9;font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+  .print-sheet tbody th{width:34%}
 }

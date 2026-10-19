@@ -21,7 +21,7 @@
 <meta property="og:image:height" content="256">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="stylesheet" href="/assets/styles.css?v=20261015-ui">
+<link rel="stylesheet" href="/assets/styles.css?v=20261017-fair-draw">
 <link rel="stylesheet" href="/assets/event-themes.css?v=20261015-ui">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SV4FCEKD9C"></script>
 <script>
@@ -32,7 +32,7 @@ gtag('config','G-SV4FCEKD9C');
 </script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2707875272714409" crossorigin="anonymous"></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Cheltenham Sweepstake", "url": "https://sweepstakewheel.com/cheltenham-sweepstake/", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "description": "Create a Cheltenham sweepstake online. Paste runners, add names and draw horses randomly.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is Sweepstake Wheel free?","acceptedAnswer":{"@type":"Answer","text":"Yes. The draw, results and CSV download are free to use."}},{"@type":"Question","name":"How do I run a Cheltenham sweepstake?","acceptedAnswer":{"@type":"Answer","text":"Choose one race, add the entrants, paste the declared runners and randomly assign the horses."}},{"@type":"Question","name":"What if I have more people than options?","acceptedAnswer":{"@type":"Answer","text":"The generator reuses shuffled options so everyone can still take part. Agree how duplicated winning options will share any prize before the draw."}},{"@type":"Question","name":"Can I edit and download the results?","acceptedAnswer":{"@type":"Answer","text":"You can edit the names and options before drawing, then download the completed assignments as a free CSV file."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is Sweepstake Wheel free?","acceptedAnswer":{"@type":"Answer","text":"Yes. The draw, results and CSV download are free to use."}},{"@type":"Question","name":"How do I run a Cheltenham sweepstake?","acceptedAnswer":{"@type":"Answer","text":"Choose one race, add the entrants, paste the declared runners and randomly assign the horses."}},{"@type":"Question","name":"What if I have more people than options?","acceptedAnswer":{"@type":"Answer","text":"The default mode uses every unique option once and shares them as evenly as possible; if options are fewer than people, some entrants stay unmatched. One each requires at least as many options as people and leaves any extra options undrawn."}},{"@type":"Question","name":"Can I edit and download the results?","acceptedAnswer":{"@type":"Answer","text":"You can edit the names and options before drawing, then download the completed assignments as a free CSV file."}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Sweepstake Wheel","item":"https://sweepstakewheel.com/"},{"@type":"ListItem","position":2,"name":"Cheltenham Sweepstake","item":"https://sweepstakewheel.com/cheltenham-sweepstake/"}]}</script>
 </head>
 <body class="event-page theme-cheltenham" data-page-slug="cheltenham-sweepstake">
@@ -106,7 +106,7 @@ gtag('config','G-SV4FCEKD9C');
       <div>
         <span class="eyebrow">Live Cheltenham draw</span>
         <h2>Build your Cheltenham race draw</h2>
-        <p id="selectedEventIntro">Choose the race, add everyone taking part and load the Cheltenham draw.</p>
+        <p id="selectedEventIntro">Choose the race, add everyone taking part and start the Cheltenham draw.</p>
       </div>
     </div>
 
@@ -119,7 +119,7 @@ gtag('config','G-SV4FCEKD9C');
         </div>
         <select id="eventSelect" class="sr-only" aria-hidden="true" tabindex="-1"></select>
 
-        <div class="step"><div class="step-no">1</div><div><h3>Add people</h3><p>One entrant per line. If you have more people than options, the tool will double up automatically.</p></div></div>
+        <div class="step"><div class="step-no">1</div><div><h3>Add people</h3><p>One entrant per line. Choose below whether to share every option or give each person one.</p></div></div>
         <div class="field">
           <label class="label" for="namesInput">Entrants <span class="hint">one per line</span></label>
           <textarea id="namesInput" placeholder="Beth&#10;Ryan&#10;Luke&#10;Rach"></textarea>
@@ -131,8 +131,23 @@ gtag('config','G-SV4FCEKD9C');
           <textarea id="optionsInput"></textarea>
         </div>
 
+        <fieldset class="allocation-choice">
+          <legend>How should options be assigned?</legend>
+          <div class="allocation-options">
+            <label class="allocation-option">
+              <input type="radio" name="allocationMode" value="all" checked>
+              <span><strong>Distribute every runner</strong><small>Use every runner once and share them as evenly as possible.</small></span>
+            </label>
+            <label class="allocation-option">
+              <input type="radio" name="allocationMode" value="one">
+              <span><strong>One each</strong><small>Give each person one option; extras stay undrawn.</small></span>
+            </label>
+          </div>
+        </fieldset>
+        <p class="draw-plan-summary" id="drawPlanSummary" role="status" aria-live="polite" aria-atomic="true">Add people to see how the draw will be shared.</p>
+
         <div class="form-actions">
-          <button class="btn btn-primary" id="loadBtn">Load Cheltenham draw</button>
+          <button class="btn btn-primary" id="loadBtn" type="button">Start draw</button>
           <button class="btn btn-danger" id="resetBtn">Reset</button>
         </div>
       </div>
@@ -142,6 +157,10 @@ gtag('config','G-SV4FCEKD9C');
           <div class="stat"><small>Entrants</small><b id="statNames">0</b></div>
           <div class="stat"><small>Options</small><b id="statOptions">0</b></div>
           <div class="stat"><small>Drawn</small><b id="statDrawn">0/0</b></div>
+        </div>
+        <div class="draw-progress" id="drawProgress" hidden>
+          <strong id="drawProgressText" role="status" aria-live="polite" aria-atomic="true">Ready when you are</strong>
+          <progress id="drawProgressBar" max="1" value="0" aria-label="Draw progress">0%</progress>
         </div>
 
         <div class="wheel-stage">
@@ -153,7 +172,7 @@ gtag('config','G-SV4FCEKD9C');
             </div>
             <div class="spin-actions">
               <button class="btn btn-primary" id="spinBtn">Spin one</button>
-              <button class="btn btn-dark" id="autoBtn">Auto draw everyone</button>
+              <button class="btn btn-dark" id="autoBtn">Draw all</button>
             </div>
           </div>
 
@@ -166,9 +185,14 @@ gtag('config','G-SV4FCEKD9C');
               <div class="result-list" id="resultList" aria-live="polite"></div>
             </div>
             <div class="download-card">
-              <h3>Download results — free</h3>
-              <p>Save the completed assignments as a CSV for your records or group chat.</p>
-              <button class="btn btn-gold" id="exportBtn" disabled>Download CSV</button>
+              <h3>Save or share results — free</h3>
+              <p>Keep the completed assignments or send them to your group.</p>
+              <div class="result-actions">
+                <button class="btn btn-gold" id="shareBtn" type="button" disabled>Share draw</button>
+                <button class="btn btn-secondary" id="imageBtn" type="button" disabled>Download result image</button>
+                <button class="btn btn-secondary" id="printBtn" type="button" disabled>Print results</button>
+                <button class="btn btn-secondary" id="exportBtn" type="button" disabled>Download CSV</button>
+              </div>
             </div>
           </div>
         </div>
@@ -181,7 +205,7 @@ gtag('config','G-SV4FCEKD9C');
   <div class="section">
     <div class="info-grid">
       <div class="info-card"><h3>1. Check the runners</h3><p>Review the declared runners for one race. Every option remains editable before the draw.</p></div>
-      <div class="info-card"><h3>2. Add names</h3><p>Paste everyone taking part. If there are more people than options, the tool can reuse shuffled options automatically.</p></div>
+      <div class="info-card"><h3>2. Add names</h3><p>Paste everyone taking part. The default mode uses every option once. If there are fewer options than people, some entrants will remain unmatched.</p></div>
       <div class="info-card"><h3>3. Draw and download</h3><p>Spin one at a time or auto draw everyone, then download the completed results as a free CSV.</p></div>
     </div>
   </div>
@@ -200,7 +224,7 @@ gtag('config','G-SV4FCEKD9C');
   </div>
   <div class="guide-steps">
     <h3>Quick checklist</h3>
-    <ol><li>Confirm the entrant and option lists.</li><li>Write down the prize and redraw rules.</li><li>Load the draw and assign every entrant.</li><li>Download the free results CSV and share it with the group.</li></ol>
+    <ol><li>Confirm the entrant and option lists.</li><li>Write down the prize and redraw rules.</li><li>Choose the allocation mode and start the draw.</li><li>Download the free results CSV and share it with the group.</li></ol>
   </div>
 </section>
 
@@ -220,7 +244,7 @@ gtag('config','G-SV4FCEKD9C');
   <div class="faq">
     <details open><summary>Is Sweepstake Wheel free?</summary><p>Yes. The draw, results and CSV download are free to use.</p></details>
     <details><summary>How do I run a Cheltenham sweepstake?</summary><p>Choose one race, add the entrants, paste the declared runners and randomly assign the horses.</p></details>
-    <details><summary>What if I have more people than options?</summary><p>The generator reuses shuffled options so everyone can still take part. Agree how duplicated winning options will share any prize before the draw.</p></details>
+    <details><summary>What if I have more people than options?</summary><p>The default mode uses every unique option once and shares them as evenly as possible; if options are fewer than people, some entrants stay unmatched. One each requires at least as many options as people and leaves any extra options undrawn.</p></details>
     <details><summary>Can I edit and download the results?</summary><p>You can edit the names and options before drawing, then download the completed assignments as a free CSV file.</p></details>
   </div>
 </section>
@@ -241,7 +265,7 @@ gtag('config','G-SV4FCEKD9C');
 </footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </div>
-<script src="/assets/events-fallback.js"></script>
-<script src="/assets/app.js"></script>
+<script src="/assets/events-fallback.js?v=20261017-fair-draw"></script>
+<script src="/assets/app.js?v=20261017-fair-draw"></script>
 </body>
 </html>

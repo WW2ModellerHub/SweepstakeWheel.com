@@ -234,6 +234,11 @@ try {
   fail("Secret Santa did not reject case-insensitive duplicate names.");
 } catch {}
 
+const { validateFairDraw } = await import("./validate-fair-draw.mjs");
+const fairDrawValidation = await validateFairDraw({root});
+fairDrawValidation.errors.forEach(fail);
+fairDrawValidation.warnings.forEach(warn);
+
 warnings.forEach((message) => console.warn(`WARNING: ${message}`));
 if (errors.length) {
   errors.forEach((message) => console.error(`ERROR: ${message}`));

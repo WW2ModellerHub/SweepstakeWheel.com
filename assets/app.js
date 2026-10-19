@@ -7,6 +7,11 @@ let participants = [];
 let drawPool = [];
 let results = [];
 let spinning = false;
+let rosterLocked = false;
+let drawMode = "all";
+let drawTarget = 0;
+let lockedOptions = [];
+let participantOrder = [];
 let currentFilter = "All";
 let seasonalFocus = null;
 let activeSeasonalEvents = [];
@@ -62,13 +67,42 @@ function escapeHtml(value){
 function lines(value){
   return String(value || "").split(/\r?\n/).map(v => v.trim()).filter(Boolean);
 }
-function shuffle(items){
-  const arr = [...items];
-  for(let i=arr.length-1;i>0;i--){
-    const j = Math.floor(Math.random()*(i+1));
-    [arr[i],arr[j]]=[arr[j],arr[i]];
+function uniqueOptions(value){
+  const seen = new Set();
+  const items = [];
+  let duplicateCount = 0;
+  lines(value).forEach(item => {
+    const key = item.toLocaleLowerCase("en-GB");
+    if(seen.has(key)){
+      duplicateCount += 1;
+      return;
+    }
+    seen.add(key);
+    items.push(item);
+  });
+  return {items, duplicateCount};
+}
+function secureRandomAvailable(){
+  return !!(window.crypto && typeof window.crypto.getRandomValues === "function");
+}
+function randomIndex(length){
+  if(!Number.isSafeInteger(length) || length < 1) return 0;
+  if(!secureRandomAvailable()) throw new Error("Secure random selection is unavailable");
+  const range = 0x100000000;
+  const limit = range - (range % length);
+  const value = new Uint32Array(1);
+  do{
+    window.crypto.getRandomValues(value);
+  }while(value[0] >= limit);
+  return value[0] % length;
+}
+function secureShuffle(items){
+  const shuffled = [...items];
+  for(let index=shuffled.length - 1;index>0;index--){
+    const swapIndex = randomIndex(index + 1);
+    [shuffled[index], shuffled[swapIndex]] = [shuffled[swapIndex], shuffled[index]];
   }
-  return arr;
+  return shuffled;
 }
 function slugFromPath(){
   const bodySlug = document.body.dataset.pageSlug || "";
@@ -340,7 +374,84 @@ function renderDataStatus(event){
   }
   notice.hidden = true;
 }
+function readAllocationMode(){
+  const checked = qs('input[name="allocationMode"]:checked');
+  const select = qs("#allocationMode");
+  const value = String(checked?.value || select?.value || "all").toLowerCase();
+  return value === "one" || value === "one-each" || value === "oneeach" ? "one" : "all";
+}
+function getDraftState(){
+  const names = uniqueOptions(qs("#namesInput")?.value || "");
+  const options = uniqueOptions(qs("#optionsInput")?.value || "");
+  return {
+    names:names.items,
+    nameDuplicateCount:names.duplicateCount,
+    options:options.items,
+    duplicateCount:options.duplicateCount,
+    mode:readAllocationMode()
+  };
+}
+function plannedAssignments(mode, nameCount, optionCount){
+  if(!nameCount || !optionCount) return 0;
+  return mode === "one" ? nameCount : optionCount;
+}
+function allocationSummary(names, options, mode, duplicateCount=0, nameDuplicateCount=0){
+  const duplicateNote = duplicateCount
+    ? ` ${duplicateCount} duplicate option${duplicateCount === 1 ? "" : "s"} will be ignored.`
+    : "";
+  const nameDuplicateNote = nameDuplicateCount
+    ? ` Remove ${nameDuplicateCount} duplicate participant name${nameDuplicateCount === 1 ? "" : "s"} before starting.`
+    : "";
+  const notes = `${duplicateNote}${nameDuplicateNote}`;
+  if(!names.length && !options.length) return `Add people and options to preview the draw.${notes}`;
+  if(!names.length) return `Add at least one person to preview the allocation.${notes}`;
+  if(!options.length) return `Add at least one unique option to preview the allocation.${notes}`;
+  if(mode === "one"){
+    if(names.length > options.length){
+      const needed = names.length - options.length;
+      return `One each needs ${needed} more unique option${needed === 1 ? "" : "s"}.${notes}`;
+    }
+    const left = options.length - names.length;
+    return `${names.length} ${names.length === 1 ? "person gets" : "people get"} one option each${left ? ` · ${left} option${left === 1 ? "" : "s"} intentionally left unassigned` : ""}.${notes}`;
+  }
+  const minimum = Math.floor(options.length / names.length);
+  const extra = options.length % names.length;
+  if(!extra){
+    return `${options.length} unique option${options.length === 1 ? "" : "s"} · ${names.length} ${names.length === 1 ? "person" : "people"} · ${minimum} each.${notes}`;
+  }
+  const higher = minimum + 1;
+  return `${options.length} unique option${options.length === 1 ? "" : "s"} · ${names.length} ${names.length === 1 ? "person" : "people"} · ${minimum} or ${higher} each.${notes}`;
+}
+function setRosterLocked(locked){
+  rosterLocked = locked;
+  [qs("#namesInput"), qs("#optionsInput")].forEach(input => {
+    if(!input) return;
+    input.readOnly = locked;
+    input.setAttribute("aria-readonly", String(locked));
+  });
+  const eventSelect = qs("#eventSelect");
+  if(eventSelect) eventSelect.disabled = locked;
+  qsa('input[name="allocationMode"], #allocationMode').forEach(control => {
+    control.disabled = locked;
+  });
+  const loadButton = qs("#loadBtn");
+  if(loadButton) loadButton.disabled = locked;
+}
+function syncDraft(){
+  if(rosterLocked || spinning) return;
+  const draft = getDraftState();
+  participants = draft.names;
+  participantOrder = [];
+  drawMode = draft.mode;
+  lockedOptions = [];
+  drawPool = draft.options;
+  drawTarget = plannedAssignments(drawMode, participants.length, drawPool.length);
+  results = [];
+  renderWheel(drawPool);
+  updateUi();
+}
 function selectEvent(slug, scroll){
+  setRosterLocked(false);
   selectedEvent = findEvent(slug);
   const select = qs("#eventSelect");
   if(select) select.value = selectedEvent.slug;
@@ -353,7 +464,11 @@ function selectEvent(slug, scroll){
   renderDataStatus(selectedEvent);
   results = [];
   participants = [];
-  drawPool = [...selectedEvent.options];
+  lockedOptions = [];
+  participantOrder = [];
+  drawMode = readAllocationMode();
+  drawPool = uniqueOptions(selectedEvent.options.join("\n")).items;
+  drawTarget = 0;
   renderWheel(drawPool);
   updateUi();
   if(scroll) qs("#builder")?.scrollIntoView({behavior:"smooth", block:"start"});
@@ -365,85 +480,162 @@ function maybeSeedNames(){
   const input = qs("#namesInput");
   if(input && !input.value.trim()) input.placeholder = defaultNames().join("\n");
 }
-function buildPool(options, count){
-  if(!options.length) return [];
-  const pool = [];
-  while(pool.length < count){
-    pool.push(...shuffle(options));
-  }
-  return shuffle(pool.slice(0, count));
-}
 function loadDraw(){
+  if(rosterLocked) return true;
   const namesInput = qs("#namesInput");
   const optionsInput = qs("#optionsInput");
-  participants = lines(namesInput?.value || "");
-  const options = lines(optionsInput?.value || "");
-  if(participants.length < 1){
+  const draft = getDraftState();
+  if(draft.names.length < 1){
     toast("Add at least one person first.");
     namesInput?.focus();
-    return;
+    return false;
   }
-  if(options.length < 1){
-    toast("Add at least one team, horse, option or prize.");
+  if(draft.nameDuplicateCount){
+    toast(`Remove ${draft.nameDuplicateCount} duplicate participant name${draft.nameDuplicateCount === 1 ? "" : "s"} before starting.`);
+    namesInput?.focus();
+    return false;
+  }
+  if(draft.options.length < 1){
+    toast("Add at least one unique team, player, horse, option or prize.");
     optionsInput?.focus();
-    return;
+    return false;
   }
-  drawPool = buildPool(options, participants.length);
+  if(draft.mode === "one" && draft.names.length > draft.options.length){
+    const needed = draft.names.length - draft.options.length;
+    toast(`Add ${needed} more unique option${needed === 1 ? "" : "s"}, or choose distribute all.`);
+    optionsInput?.focus();
+    return false;
+  }
+  if(!secureRandomAvailable()){
+    toast("Secure random drawing is unavailable in this browser. Please update it and try again.");
+    return false;
+  }
+  participants = [...draft.names];
+  participantOrder = secureShuffle(draft.names);
+  lockedOptions = [...draft.options];
+  drawPool = [...draft.options];
+  drawMode = draft.mode;
+  drawTarget = plannedAssignments(drawMode, participants.length, drawPool.length);
   results = [];
+  setRosterLocked(true);
   renderWheel(drawPool);
   updateUi();
-  toast("Draw loaded. Spin one or auto draw everyone.");
-}
-function spinOne(){
-  if(spinning) return;
-  if(!participants.length || !drawPool.length){
-    loadDraw();
-    if(!participants.length || !drawPool.length) return;
+  if(draft.duplicateCount){
+    toast(`Draw ready. Order randomised; ${draft.duplicateCount} duplicate option${draft.duplicateCount === 1 ? " was" : "s were"} ignored.`);
+  }else{
+    toast(drawMode === "all" ? "Draw ready. Order randomised; every unique option will be assigned once." : "Draw ready. Order randomised; everyone will receive one unique option.");
   }
-  if(results.length >= participants.length){
-    toast("Everyone has already been drawn.");
+  return true;
+}
+function drawIsComplete(){
+  return rosterLocked && results.length >= drawTarget;
+}
+function nextParticipant(){
+  if(!participantOrder.length) return "";
+  return drawMode === "all"
+    ? participantOrder[results.length % participantOrder.length]
+    : participantOrder[results.length];
+}
+function nextAnimationFrame(){
+  return new Promise(resolve => {
+    if(typeof window.requestAnimationFrame !== "function"){
+      setTimeout(resolve, 0);
+      return;
+    }
+    window.requestAnimationFrame(() => window.requestAnimationFrame(resolve));
+  });
+}
+function waitForWheelTransition(wheel, duration){
+  if(!duration) return nextAnimationFrame();
+  return new Promise(resolve => {
+    let finished = false;
+    const finish = () => {
+      if(finished) return;
+      finished = true;
+      wheel.removeEventListener("transitionend", onEnd);
+      clearTimeout(timer);
+      resolve();
+    };
+    const onEnd = event => {
+      if(event.target === wheel && event.propertyName === "transform") finish();
+    };
+    const timer = setTimeout(finish, duration + 180);
+    wheel.addEventListener("transitionend", onEnd);
+  });
+}
+async function animateWheelToIndex(index, optionCount){
+  const wheel = qs("#wheelSvg");
+  if(!wheel || optionCount < 1) return;
+  const current = Number(wheel.dataset.rotation || 0);
+  const currentNormal = ((current % 360) + 360) % 360;
+  const targetNormal = ((-((index + 0.5) * 360 / optionCount) % 360) + 360) % 360;
+  const fullTurns = 3 + randomIndex(3);
+  const delta = ((targetNormal - currentNormal + 360) % 360) + fullTurns * 360;
+  const target = current + delta;
+  const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+  const duration = reduceMotion ? 0 : 1150;
+  wheel.style.transition = duration ? `transform ${duration}ms cubic-bezier(.16,.9,.22,1)` : "none";
+  wheel.dataset.rotation = String(target);
+  wheel.style.transform = `rotate(${target}deg)`;
+  await waitForWheelTransition(wheel, duration);
+}
+async function spinOne(){
+  if(spinning) return;
+  if(!rosterLocked && !loadDraw()) return;
+  if(drawIsComplete()){
+    toast("This draw is already complete.");
     return;
   }
-  spinning = true;
-  const wheel = qs("#wheelSvg");
-  if(wheel){
-    wheel.style.transition = "transform 1.15s cubic-bezier(.16,.9,.22,1)";
-    const turns = 720 + Math.floor(Math.random()*720);
-    const current = Number(wheel.dataset.rotation || 0);
-    wheel.dataset.rotation = current + turns;
-    wheel.style.transform = `rotate(${current + turns}deg)`;
+  if(!drawPool.length){
+    toast("No unassigned options remain.");
+    return;
   }
-  setTimeout(() => {
-    const person = participants[results.length];
-    const idx = Math.floor(Math.random()*drawPool.length);
-    const picked = drawPool.splice(idx,1)[0];
-    results.push({ person, pick: picked });
-    spinning = false;
-    renderWheel(drawPool.length ? drawPool : lines(qs("#optionsInput")?.value || ""));
-    updateUi();
-  }, 900);
+  renderWheel(drawPool);
+  const index = randomIndex(drawPool.length);
+  const picked = drawPool[index];
+  const person = nextParticipant();
+  spinning = true;
+  updateUi();
+  await animateWheelToIndex(index, drawPool.length);
+  drawPool.splice(index, 1);
+  results.push({person, pick:picked});
+  spinning = false;
+  updateUi();
+  const resultList = qs("#resultList");
+  if(resultList) resultList.scrollTop = resultList.scrollHeight;
 }
 function autoDraw(){
-  if(!participants.length || !drawPool.length){
-    loadDraw();
-    if(!participants.length || !drawPool.length) return;
+  if(spinning) return;
+  if(!rosterLocked && !loadDraw()) return;
+  if(drawIsComplete()){
+    toast("This draw is already complete.");
+    return;
   }
-  while(results.length < participants.length && drawPool.length){
-    const person = participants[results.length];
-    const idx = Math.floor(Math.random()*drawPool.length);
-    const picked = drawPool.splice(idx,1)[0];
-    results.push({ person, pick: picked });
+  while(!drawIsComplete() && drawPool.length){
+    const person = nextParticipant();
+    const index = randomIndex(drawPool.length);
+    const picked = drawPool.splice(index, 1)[0];
+    results.push({person, pick:picked});
   }
-  renderWheel(lines(qs("#optionsInput")?.value || ""));
+  renderWheel(drawPool.length ? drawPool : lockedOptions);
   updateUi();
-  toast("Auto draw complete.");
+  if(drawMode === "one" && drawPool.length){
+    toast(`Auto draw complete. ${drawPool.length} option${drawPool.length === 1 ? " was" : "s were"} intentionally left unassigned.`);
+  }else{
+    toast("Auto draw complete. Every option was assigned once.");
+  }
 }
 function resetDraw(){
+  if(spinning) return;
+  document.body.classList.remove("print-results-only");
+  qs("#printSheet")?.remove();
+  setRosterLocked(false);
   results = [];
-  participants = [];
-  drawPool = lines(qs("#optionsInput")?.value || "");
-  renderWheel(drawPool);
-  updateUi();
+  lockedOptions = [];
+  participantOrder = [];
+  drawTarget = 0;
+  syncDraft();
+  toast("Draw reset. You can edit the roster again.");
 }
 function renderWheel(items){
   const svg = qs("#wheelSvg");
@@ -494,34 +686,76 @@ function shortLabel(value, n){
   return s.length > max ? s.slice(0,max-1)+"…" : s;
 }
 function updateUi(){
-  qs("#statNames") && (qs("#statNames").textContent = String(participants.length || lines(qs("#namesInput")?.value || "").length));
-  qs("#statOptions") && (qs("#statOptions").textContent = String(lines(qs("#optionsInput")?.value || "").length));
-  qs("#statDrawn") && (qs("#statDrawn").textContent = `${results.length}/${participants.length || 0}`);
+  const draft = getDraftState();
+  const activeNames = rosterLocked ? participants : draft.names;
+  const activeOptions = rosterLocked ? lockedOptions : draft.options;
+  const activeMode = rosterLocked ? drawMode : draft.mode;
+  const target = rosterLocked
+    ? drawTarget
+    : plannedAssignments(activeMode, activeNames.length, activeOptions.length);
+  const impossibleOneEach = activeMode === "one" && activeNames.length > activeOptions.length;
+  const validDraft = !!activeNames.length && !!activeOptions.length && !impossibleOneEach && (rosterLocked || !draft.nameDuplicateCount);
+  const complete = rosterLocked && results.length >= target;
+  qs("#statNames") && (qs("#statNames").textContent = String(activeNames.length));
+  qs("#statOptions") && (qs("#statOptions").textContent = String(activeOptions.length));
+  qs("#statDrawn") && (qs("#statDrawn").textContent = `${results.length}/${target || 0}`);
+  const summary = qs("#drawPlanSummary");
+  if(summary){
+    summary.textContent = allocationSummary(activeNames, activeOptions, activeMode, rosterLocked ? 0 : draft.duplicateCount, rosterLocked ? 0 : draft.nameDuplicateCount)
+      + (rosterLocked ? " Roster locked for this draw." : "");
+  }
+  const progress = qs("#drawProgress");
+  const progressBar = qs("#drawProgressBar");
+  const progressText = qs("#drawProgressText");
+  if(progress) progress.hidden = !target;
+  if(progressBar){
+    progressBar.max = target || 1;
+    progressBar.value = Math.min(results.length, target || 0);
+    progressBar.setAttribute("aria-valuetext", target ? `${results.length} of ${target} assignments` : "Draw not ready");
+  }
+  if(progressText){
+    progressText.textContent = complete
+      ? `Complete · ${results.length} assignment${results.length === 1 ? "" : "s"}`
+      : `${results.length} of ${target} assigned`;
+  }
   const center = qs("#wheelCenterText");
   if(center){
-    if(results.length && results.length === participants.length) center.textContent = "Draw complete";
-    else if(participants.length) center.textContent = `${Math.max(0, participants.length-results.length)} left`;
+    if(spinning) center.textContent = "Drawing…";
+    else if(complete) center.textContent = "Draw complete";
+    else if(rosterLocked) center.textContent = `${Math.max(0, target-results.length)} left`;
+    else if(activeNames.length) center.textContent = validDraft ? "Ready to draw" : "Check setup";
     else center.textContent = selectedEvent ? "Add names" : "Choose event";
   }
   const list = qs("#resultList");
   if(list){
     if(!results.length){
-      list.innerHTML = `<div class="empty">No results yet. Add names, load the draw, then spin or auto draw.</div>`;
+      list.innerHTML = `<div class="empty">No results yet. Add people and options, then spin or auto draw.</div>`;
     } else {
       list.innerHTML = results.map(r => `<div class="result-row"><b>${escapeHtml(r.person)}</b><span>${escapeHtml(r.pick)}</span></div>`).join("");
     }
   }
-  qs("#exportBtn") && (qs("#exportBtn").disabled = !results.length);
-  qs("#spinBtn") && (qs("#spinBtn").disabled = !!spinning || (participants.length && results.length >= participants.length));
-  qs("#autoBtn") && (qs("#autoBtn").disabled = !!spinning);
+  ["#exportBtn","#shareBtn","#imageBtn","#printBtn"].forEach(selector => {
+    const button = qs(selector);
+    if(button) button.disabled = !results.length;
+  });
+  qs("#spinBtn") && (qs("#spinBtn").disabled = !!spinning || complete || (!rosterLocked && !validDraft));
+  qs("#autoBtn") && (qs("#autoBtn").disabled = !!spinning || complete || (!rosterLocked && !validDraft));
+  qs("#resetBtn") && (qs("#resetBtn").disabled = !!spinning);
+  const loadButton = qs("#loadBtn");
+  if(loadButton){
+    loadButton.disabled = rosterLocked || !!spinning;
+    loadButton.textContent = rosterLocked ? "Draw started" : "Start draw";
+  }
 }
 function makePayload(){
+  const draft = getDraftState();
   return {
     event: selectedEvent?.name || "Custom Sweepstake",
     createdAt: new Date().toISOString(),
     results: results,
-    names: participants,
-    options: lines(qs("#optionsInput")?.value || "")
+    names: rosterLocked ? participants : draft.names,
+    options: rosterLocked ? lockedOptions : draft.options,
+    allocationMode:rosterLocked ? drawMode : draft.mode
   };
 }
 function exportResults(){
@@ -550,6 +784,205 @@ function downloadCsv(payload){
   a.click();
   setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); }, 200);
 }
+function groupedResults(payload){
+  const groups = [];
+  const byPerson = new Map();
+  (payload.results || []).forEach(result => {
+    const person = String(result.person || "Participant");
+    let group = byPerson.get(person);
+    if(!group){
+      group = {person, picks:[]};
+      byPerson.set(person, group);
+      groups.push(group);
+    }
+    group.picks.push(String(result.pick || ""));
+  });
+  return groups;
+}
+function resultFileName(payload, extension){
+  const base = String(payload.event || "sweepstake-results")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g,"-")
+    .replace(/^-|-$/g,"") || "sweepstake-results";
+  return `${base}-results.${extension}`;
+}
+function resultShareText(payload){
+  const rows = groupedResults(payload).map(group => `${group.person}: ${group.picks.join(", ")}`);
+  return [`${payload.event || "Sweepstake"} results`, "", ...rows, "", "Created at sweepstakewheel.com"].join("\n");
+}
+function downloadBlob(blob, fileName){
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = fileName;
+  document.body.appendChild(link);
+  link.click();
+  setTimeout(() => {
+    URL.revokeObjectURL(link.href);
+    link.remove();
+  }, 200);
+}
+function roundedRect(context, x, y, width, height, radius){
+  const r = Math.min(radius, width / 2, height / 2);
+  context.beginPath();
+  context.moveTo(x + r, y);
+  context.arcTo(x + width, y, x + width, y + height, r);
+  context.arcTo(x + width, y + height, x, y + height, r);
+  context.arcTo(x, y + height, x, y, r);
+  context.arcTo(x, y, x + width, y, r);
+  context.closePath();
+}
+function fittedCanvasText(context, value, maxWidth){
+  const text = String(value || "");
+  if(context.measureText(text).width <= maxWidth) return text;
+  let fitted = text;
+  while(fitted.length > 1 && context.measureText(`${fitted}…`).width > maxWidth){
+    fitted = fitted.slice(0,-1);
+  }
+  return `${fitted}…`;
+}
+async function createResultImageBlob(payload){
+  if(document.fonts?.ready){
+    try{ await document.fonts.ready; }catch(_error){ /* System fonts are an acceptable fallback. */ }
+  }
+  const groups = groupedResults(payload);
+  const canvas = document.createElement("canvas");
+  const width = 1200;
+  const columns = groups.length > 16 ? 2 : 1;
+  const rowsPerColumn = Math.max(1, Math.ceil(groups.length / columns));
+  const rowHeight = 82;
+  const headerHeight = 264;
+  const footerHeight = 92;
+  const height = Math.max(760, headerHeight + rowsPerColumn * rowHeight + footerHeight);
+  canvas.width = width;
+  canvas.height = height;
+  const context = canvas.getContext("2d");
+  if(!context) throw new Error("Image creation is unavailable");
+
+  const background = context.createLinearGradient(0,0,width,height);
+  background.addColorStop(0,"#07121f");
+  background.addColorStop(.56,"#10213b");
+  background.addColorStop(1,"#1d3152");
+  context.fillStyle = background;
+  context.fillRect(0,0,width,height);
+  context.globalAlpha = .16;
+  context.fillStyle = "#5b9dff";
+  context.beginPath(); context.arc(width - 80,40,260,0,Math.PI*2); context.fill();
+  context.fillStyle = "#35d07f";
+  context.beginPath(); context.arc(90,height - 30,220,0,Math.PI*2); context.fill();
+  context.globalAlpha = 1;
+
+  context.fillStyle = "#ffd166";
+  context.font = "900 26px system-ui, -apple-system, Segoe UI, sans-serif";
+  context.fillText("SWEEPSTAKE WHEEL",64,68);
+  context.fillStyle = "#ffffff";
+  context.font = "900 54px system-ui, -apple-system, Segoe UI, sans-serif";
+  context.fillText(fittedCanvasText(context, payload.event || "Sweepstake results", width - 128),64,138);
+  context.fillStyle = "#b9c9df";
+  context.font = "700 24px system-ui, -apple-system, Segoe UI, sans-serif";
+  context.fillText(`${payload.results.length} assignment${payload.results.length === 1 ? "" : "s"} · randomised on this device`,64,184);
+
+  const side = 64;
+  const gap = 24;
+  const columnWidth = (width - side * 2 - gap * (columns - 1)) / columns;
+  groups.forEach((group, index) => {
+    const column = Math.floor(index / rowsPerColumn);
+    const row = index % rowsPerColumn;
+    const x = side + column * (columnWidth + gap);
+    const y = headerHeight + row * rowHeight;
+    roundedRect(context,x,y,columnWidth,rowHeight - 12,16);
+    context.fillStyle = "rgba(255,255,255,.1)";
+    context.fill();
+    context.fillStyle = "#ffffff";
+    context.font = "900 24px system-ui, -apple-system, Segoe UI, sans-serif";
+    context.fillText(fittedCanvasText(context,group.person,columnWidth - 40),x + 20,y + 28);
+    context.fillStyle = "#d8e5f6";
+    context.font = "700 20px system-ui, -apple-system, Segoe UI, sans-serif";
+    context.fillText(fittedCanvasText(context,group.picks.join(", "),columnWidth - 40),x + 20,y + 56);
+  });
+
+  context.fillStyle = "#ffffff";
+  context.font = "900 22px system-ui, -apple-system, Segoe UI, sans-serif";
+  context.fillText("sweepstakewheel.com",64,height - 42);
+  context.fillStyle = "#b9c9df";
+  context.textAlign = "right";
+  context.font = "700 18px system-ui, -apple-system, Segoe UI, sans-serif";
+  context.fillText("Free event sweepstake generator",width - 64,height - 42);
+  context.textAlign = "left";
+
+  return new Promise((resolve,reject) => {
+    canvas.toBlob(blob => blob ? resolve(blob) : reject(new Error("Image creation failed")),"image/png");
+  });
+}
+async function downloadResultImage(){
+  if(!results.length){
+    toast("Complete at least one assignment before downloading an image.");
+    return;
+  }
+  try{
+    const payload = makePayload();
+    const blob = await createResultImageBlob(payload);
+    downloadBlob(blob,resultFileName(payload,"png"));
+    toast("Result image downloaded.");
+  }catch(_error){
+    toast("The result image could not be created in this browser.");
+  }
+}
+async function shareResults(){
+  if(!results.length){
+    toast("Complete at least one assignment before sharing.");
+    return;
+  }
+  const payload = makePayload();
+  const text = resultShareText(payload);
+  try{
+    if(typeof navigator.share === "function"){
+      const shareData = {title:`${payload.event} results`, text, url:location.href};
+      try{
+        const blob = await createResultImageBlob(payload);
+        const file = new File([blob],resultFileName(payload,"png"),{type:"image/png"});
+        if(typeof navigator.canShare === "function" && navigator.canShare({files:[file]})) shareData.files = [file];
+      }catch(_error){ /* Text sharing still works when file sharing is unavailable. */ }
+      await navigator.share(shareData);
+      toast("Draw shared.");
+      return;
+    }
+    if(navigator.clipboard?.writeText){
+      await navigator.clipboard.writeText(text);
+      toast("Result summary copied for sharing.");
+      return;
+    }
+    await downloadResultImage();
+  }catch(error){
+    if(error?.name !== "AbortError") toast("Sharing was not available. Try downloading the result image instead.");
+  }
+}
+function printResults(){
+  if(!results.length){
+    toast("Complete at least one assignment before printing.");
+    return;
+  }
+  const payload = makePayload();
+  let sheet = qs("#printSheet");
+  if(!sheet){
+    sheet = document.createElement("section");
+    sheet.id = "printSheet";
+    sheet.className = "print-sheet";
+    document.body.appendChild(sheet);
+  }
+  const rows = groupedResults(payload).map(group => `<tr><th scope="row">${escapeHtml(group.person)}</th><td>${escapeHtml(group.picks.join(", "))}</td></tr>`).join("");
+  sheet.innerHTML = `<header><p>Sweepstake Wheel</p><h1>${escapeHtml(payload.event)} results</h1><span>${payload.results.length} assignment${payload.results.length === 1 ? "" : "s"} · created at sweepstakewheel.com</span></header><table><thead><tr><th>Participant</th><th>Assigned</th></tr></thead><tbody>${rows}</tbody></table>`;
+  document.body.classList.add("print-results-only");
+  let cleanupTimer;
+  const cleanup = () => {
+    window.removeEventListener("afterprint", cleanup);
+    clearTimeout(cleanupTimer);
+    document.body.classList.remove("print-results-only");
+    sheet.remove();
+  };
+  window.addEventListener("afterprint", cleanup, {once:true});
+  cleanupTimer = setTimeout(cleanup, 60000);
+  window.print();
+}
 function bind(){
   qs("#eventSearch")?.addEventListener("input", renderEventCards);
   qs("#loadBtn")?.addEventListener("click", loadDraw);
@@ -557,12 +990,12 @@ function bind(){
   qs("#autoBtn")?.addEventListener("click", autoDraw);
   qs("#resetBtn")?.addEventListener("click", resetDraw);
   qs("#exportBtn")?.addEventListener("click", exportResults);
-  qs("#namesInput")?.addEventListener("input", updateUi);
-  qs("#optionsInput")?.addEventListener("input", () => {
-    drawPool = lines(qs("#optionsInput").value);
-    renderWheel(drawPool);
-    updateUi();
-  });
+  qs("#shareBtn")?.addEventListener("click", () => { void shareResults(); });
+  qs("#imageBtn")?.addEventListener("click", () => { void downloadResultImage(); });
+  qs("#printBtn")?.addEventListener("click", printResults);
+  qs("#namesInput")?.addEventListener("input", syncDraft);
+  qs("#optionsInput")?.addEventListener("input", syncDraft);
+  qsa('input[name="allocationMode"], #allocationMode').forEach(control => control.addEventListener("change", syncDraft));
   document.addEventListener("click", trackAffiliateClick);
 }
 async function init(){
