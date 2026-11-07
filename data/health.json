@@ -1,6 +1,6 @@
 {
   "period": "2026-11",
-  "lastSuccessfulRun": "2026-11-04T12:04:05.460Z",
+  "lastSuccessfulRun": "2026-11-07T11:01:31.708Z",
   "policy": "Last-known-good event data is retained when a provider fails validation, and failures are surfaced in the maintained review issue.",
   "automaticProviders": [
     "OpenF1",
@@ -30,9 +30,9 @@
     {
       "slug": "formula-1-sweepstake",
       "provider": "openf1",
-      "result": "verified"
+      "result": "updated"
     }
   ],
   "overallStatus": "partial",
-  "lastRunRecordedAt": "2026-11-04T12:04:05.460Z"
+  "lastRunRecordedAt": "2026-11-07T11:01:31.708Z"
 }
