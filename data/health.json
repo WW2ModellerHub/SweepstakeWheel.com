@@ -30,9 +30,12 @@
     {
       "slug": "formula-1-sweepstake",
       "provider": "openf1",
-      "result": "verified"
+      "result": "provider-failed",
+      "reason": "HTTP 401",
+      "retainedLastKnownGood": true
     }
   ],
-  "overallStatus": "partial",
-  "lastRunRecordedAt": "2026-11-21T12:35:29.502Z"
+  "overallStatus": "attention",
+  "lastRunRecordedAt": "2026-11-27T13:48:06.710Z",
+  "lastFailedRun": "2026-11-27T13:48:06.710Z"
 }
